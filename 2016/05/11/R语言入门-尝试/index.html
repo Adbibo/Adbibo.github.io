@@ -3,44 +3,41 @@
 <head>
   <meta charset="utf-8">
   
-  <title>R语言入门-尝试 | Hexo</title>
+  <title>R语言入门-尝试 | adbibo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-#1，数据读取
-##文本    read.table()
-##MySQL    install.packages(‘RMySQL’)
-##ODPS    RODPS
-##其他形式的数据读取（再补充）
-#2，数据表现形式    data.frame
-#3, 数据打理
-##tidyr    行变列，列变行（reshape">
+1，数据读取文本read.table()
+MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
+ODPSRODPS
+其他形式的数据读取（再补充）2，数据表现形式data.frame
+3, 数据打理tidyr行变列，列变行（reshape2）
+dplyr分组汇总（plyr）
+4，绘图ggp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R语言入门-尝试">
 <meta property="og:url" content="http://yoursite.com/2016/05/11/R语言入门-尝试/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="adbibo's blog">
 <meta property="og:description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-#1，数据读取
-##文本    read.table()
-##MySQL    install.packages(‘RMySQL’)
-##ODPS    RODPS
-##其他形式的数据读取（再补充）
-#2，数据表现形式    data.frame
-#3, 数据打理
-##tidyr    行变列，列变行（reshape">
-<meta property="og:updated_time" content="2016-05-11T11:27:32.748Z">
+1，数据读取文本read.table()
+MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
+ODPSRODPS
+其他形式的数据读取（再补充）2，数据表现形式data.frame
+3, 数据打理tidyr行变列，列变行（reshape2）
+dplyr分组汇总（plyr）
+4，绘图ggp">
+<meta property="og:updated_time" content="2016-05-11T12:04:16.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言入门-尝试">
 <meta name="twitter:description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-#1，数据读取
-##文本    read.table()
-##MySQL    install.packages(‘RMySQL’)
-##ODPS    RODPS
-##其他形式的数据读取（再补充）
-#2，数据表现形式    data.frame
-#3, 数据打理
-##tidyr    行变列，列变行（reshape">
+1，数据读取文本read.table()
+MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
+ODPSRODPS
+其他形式的数据读取（再补充）2，数据表现形式data.frame
+3, 数据打理tidyr行变列，列变行（reshape2）
+dplyr分组汇总（plyr）
+4，绘图ggp">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="adbibo&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -61,8 +58,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">adbibo&#39;s blog</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">只要今天努力，明天会比昨天更美好</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -78,7 +79,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -110,28 +111,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
-<p>#1，数据读取</p>
-<p>##文本<br>    read.table()</p>
-<p>##MySQL<br>    install.packages(‘RMySQL’)</p>
-<p>##ODPS<br>    RODPS</p>
-<p>##其他形式的数据读取（再补充）</p>
-<p>#2，数据表现形式<br>    data.frame</p>
-<p>#3, 数据打理</p>
-<p>##tidyr<br>    行变列，列变行（reshape2）</p>
-<p>##dplyr<br>    分组汇总（plyr）</p>
-<p>#4，绘图</p>
-<p>##ggplot2<br>    类似PS分图层绘图，图片</p>
-<p>##plotly<br>    动态的JavaScript显示，ggplotly（p）</p>
-<p>#5， 分享，输出</p>
-<p>##RMarkdown<br>    输出为文档：pdf,word,html</p>
-<p>##shiny<br>    输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。</p>
-<p>#6， 空间数据存储与可视化<br>    shape，leaflet</p>
-<p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
+<h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
+</code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><pre><code>install.packages(&apos;RMySQL&apos;)
+</code></pre><h2 id="ODPS"><a href="#ODPS" class="headerlink" title="ODPS"></a>ODPS</h2><pre><code>RODPS
+</code></pre><h2 id="其他形式的数据读取（再补充）"><a href="#其他形式的数据读取（再补充）" class="headerlink" title="其他形式的数据读取（再补充）"></a>其他形式的数据读取（再补充）</h2><h1 id="2，数据表现形式"><a href="#2，数据表现形式" class="headerlink" title="2，数据表现形式"></a>2，数据表现形式</h1><pre><code>data.frame
+</code></pre><h1 id="3-数据打理"><a href="#3-数据打理" class="headerlink" title="3, 数据打理"></a>3, 数据打理</h1><h2 id="tidyr"><a href="#tidyr" class="headerlink" title="tidyr"></a>tidyr</h2><pre><code>行变列，列变行（reshape2）
+</code></pre><h2 id="dplyr"><a href="#dplyr" class="headerlink" title="dplyr"></a>dplyr</h2><pre><code>分组汇总（plyr）
+</code></pre><h1 id="4，绘图"><a href="#4，绘图" class="headerlink" title="4，绘图"></a>4，绘图</h1><h2 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h2><pre><code>类似PS分图层绘图，图片
+</code></pre><h2 id="plotly"><a href="#plotly" class="headerlink" title="plotly"></a>plotly</h2><pre><code>动态的JavaScript显示，ggplotly（p）
+</code></pre><h1 id="5，-分享，输出"><a href="#5，-分享，输出" class="headerlink" title="5， 分享，输出"></a>5， 分享，输出</h1><h2 id="RMarkdown"><a href="#RMarkdown" class="headerlink" title="RMarkdown"></a>RMarkdown</h2><pre><code>输出为文档：pdf,word,html
+</code></pre><h2 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h2><pre><code>输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。
+</code></pre><h1 id="6，-空间数据存储与可视化"><a href="#6，-空间数据存储与可视化" class="headerlink" title="6， 空间数据存储与可视化"></a>6， 空间数据存储与可视化</h1><pre><code>shape，leaflet
+</code></pre><p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/11/R语言入门-尝试/" data-id="cio2s91850000esnb2k92fqys" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/05/11/R语言入门-尝试/" data-id="cio2ssvnr0000nonb3nyvvut9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,9 +151,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li></ul>
     </div>
   </div>
 
@@ -165,7 +161,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -185,7 +181,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 景宸<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
