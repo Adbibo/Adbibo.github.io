@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="后端服务，CGI," />
 
 
 
@@ -84,15 +84,22 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="adbibo's blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。
+1，安装fcgi-spwan下载链接http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+安装：$wget http://download.lighttpd.net/spawn-fcgi/releases-1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何配置fastCGI使nginx支持CGI">
+<meta property="og:url" content="http://yoursite.com/2016/05/12/如何配置fastCGI使nginx支持CGI/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description">
+<meta property="og:description" content="之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。
+1，安装fcgi-spwan下载链接http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+安装：$wget http://download.lighttpd.net/spawn-fcgi/releases-1.">
+<meta property="og:updated_time" content="2016-05-12T02:42:14.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="adbibo's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="如何配置fastCGI使nginx支持CGI">
+<meta name="twitter:description" content="之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。
+1，安装fcgi-spwan下载链接http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+安装：$wget http://download.lighttpd.net/spawn-fcgi/releases-1.">
 
 
 
@@ -110,7 +117,7 @@
   };
 </script>
 
-  <title> adbibo's blog </title>
+  <title> 如何配置fastCGI使nginx支持CGI | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,9 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,9 +215,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -232,10 +237,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" itemprop="url">
-                  如何配置fastCGI使nginx支持CGI
-                </a>
+                如何配置fastCGI使nginx支持CGI
               
             
           </h1>
@@ -275,9 +277,7 @@
       
 
       
-        
-          
-            <p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
+        <p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
 <h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
 </code></pre><h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><pre><code>$wget http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
 $ tar -zxvf spawn-fcgi-1.6.2.tar.gz
@@ -393,240 +393,58 @@ http://blog.csdn.net/allenlinrui/article/details/19419721
 http://blog.163.com/koumm@126/blog/static/9540383720096307529267/
 http://zyan.cc/nginx_php_v5/
 </code></pre>
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/11/R语言入门-数据读取/" itemprop="url">
-                  R语言入门-数据读取
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T21:00:49+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/后端服务，CGI/" rel="tag">#后端服务，CGI</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
-</code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
-</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
-</code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
-read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/11/R语言入门-数据读取/" rel="next" title="R语言入门-数据读取">
+                <i class="fa fa-chevron-left"></i> R语言入门-数据读取
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/05/11/R语言入门-尝试/" itemprop="url">
-                  R语言入门-尝试
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T15:59:38+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
-<h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
-</code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><pre><code>install.packages(&apos;RMySQL&apos;)
-</code></pre><h2 id="ODPS"><a href="#ODPS" class="headerlink" title="ODPS"></a>ODPS</h2><pre><code>RODPS
-</code></pre><h2 id="其他形式的数据读取（再补充）"><a href="#其他形式的数据读取（再补充）" class="headerlink" title="其他形式的数据读取（再补充）"></a>其他形式的数据读取（再补充）</h2><h1 id="2，数据表现形式"><a href="#2，数据表现形式" class="headerlink" title="2，数据表现形式"></a>2，数据表现形式</h1><pre><code>data.frame
-</code></pre><h1 id="3-数据打理"><a href="#3-数据打理" class="headerlink" title="3, 数据打理"></a>3, 数据打理</h1><h2 id="tidyr"><a href="#tidyr" class="headerlink" title="tidyr"></a>tidyr</h2><pre><code>行变列，列变行（reshape2）
-</code></pre><h2 id="dplyr"><a href="#dplyr" class="headerlink" title="dplyr"></a>dplyr</h2><pre><code>分组汇总（plyr）
-</code></pre><h1 id="4，绘图"><a href="#4，绘图" class="headerlink" title="4，绘图"></a>4，绘图</h1><h2 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h2><pre><code>类似PS分图层绘图，图片
-</code></pre><h2 id="plotly"><a href="#plotly" class="headerlink" title="plotly"></a>plotly</h2><pre><code>动态的JavaScript显示，ggplotly（p）
-</code></pre><h1 id="5，-分享，输出"><a href="#5，-分享，输出" class="headerlink" title="5， 分享，输出"></a>5， 分享，输出</h1><h2 id="RMarkdown"><a href="#RMarkdown" class="headerlink" title="RMarkdown"></a>RMarkdown</h2><pre><code>输出为文档：pdf,word,html
-</code></pre><h2 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h2><pre><code>输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。
-</code></pre><h1 id="6，-空间数据存储与可视化"><a href="#6，-空间数据存储与可视化" class="headerlink" title="6， 空间数据存储与可视化"></a>6， 空间数据存储与可视化</h1><pre><code>shape，leaflet
-</code></pre><p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -634,6 +452,10 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -653,8 +475,17 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -697,6 +528,17 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，安装fcgi-spwan"><span class="nav-number">1.</span> <span class="nav-text">1，安装fcgi-spwan</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载链接"><span class="nav-number">1.1.</span> <span class="nav-text">下载链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装："><span class="nav-number">1.2.</span> <span class="nav-text">安装：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，安装fcgiwrap"><span class="nav-number">2.</span> <span class="nav-text">2，安装fcgiwrap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载链接-1"><span class="nav-number">2.1.</span> <span class="nav-text">下载链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装：-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3，nginx安装"><span class="nav-number">3.</span> <span class="nav-text">3，nginx安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载链接-2"><span class="nav-number">3.1.</span> <span class="nav-text">下载链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，编写CGI脚本"><span class="nav-number">4.</span> <span class="nav-text">4，编写CGI脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5，启动命令"><span class="nav-number">5.</span> <span class="nav-text">5，启动命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6，修改nginx配置"><span class="nav-number">6.</span> <span class="nav-text">6，修改nginx配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7，nginx重启"><span class="nav-number">7.</span> <span class="nav-text">7，nginx重启</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重启nginx后，在浏览器输入http-server-ip-port-hello-cgi"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">重启nginx后，在浏览器输入http://server_ip:port/hello.cgi</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CGI相关："><span class="nav-number">8.1.</span> <span class="nav-text">CGI相关：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx相关："><span class="nav-number">8.2.</span> <span class="nav-text">nginx相关：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -800,6 +642,10 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
