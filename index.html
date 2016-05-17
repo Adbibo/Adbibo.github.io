@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -99,8 +99,8 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -131,7 +131,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container one-collumn sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
@@ -171,6 +171,26 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -277,123 +297,16 @@
       
         
           
-            <p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
-<h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
-</code></pre><h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><pre><code>$wget http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
-$ tar -zxvf spawn-fcgi-1.6.2.tar.gz
-$ cd spawn-fcgi-1.6.2
-$./configure
-$make
-$make install
+          之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。
+1，安装fcgi-spwan下载链接http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+安装：$wget h
+          ...
 
-/usr/local/bin/ spawn-fcgi  默认路径
-
-$spawn-fcgi –h
-Usage: spawn-fcgi [options] [-- &lt;fcgiapp&gt; [fcgi app arguments]]
-spawn-fcgi v1.6.2 (ipv6) - spawns FastCGI processes
-Options:
- -f &lt;path&gt;      filename of the fcgi-application (ignored if &lt;fcgiapp&gt; is given)
- -d &lt;directory&gt; chdir to directory before spawning
- -a &lt;address&gt;   bind to IPv4/IPv6 address (defaults to 0.0.0.0)
- -p &lt;port&gt;      bind to TCP-port
- -s &lt;path&gt;      bind to Unix domain socket
- -M &lt;mode&gt;      change Unix domain socket mode
- -C &lt;children&gt;  (PHP only) numbers of childs to spawn (default: not setting
-                the PHP_FCGI_CHILDREN environment variable - PHP defaults to 0)
- -F &lt;children&gt;  number of children to fork (default 1)
- -P &lt;path&gt;      name of PID-file for spawned process (ignored in no-fork mode)
- -n             no fork (for daemontools)
- -v             show version
- -?, -h         show this help
-(root only)
- -c &lt;directory&gt; chroot to directory
- -S             create socket before chroot() (default is to create the socket in the chroot)
- -u &lt;user&gt;      change to user-id
- -g &lt;group&gt;     change to group-id (default: primary group of user if -u is given)
- -U &lt;user&gt;      change Unix domain socket owner to user-id
- -G &lt;group&gt;     change Unix domain socket group to group-id
-</code></pre><h1 id="2，安装fcgiwrap"><a href="#2，安装fcgiwrap" class="headerlink" title="2，安装fcgiwrap"></a>2，安装fcgiwrap</h1><h2 id="下载链接-1"><a href="#下载链接-1" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>https://github.com/gnosek/fcgiwrap/archive/master.zip
-</code></pre><h2 id="安装：-1"><a href="#安装：-1" class="headerlink" title="安装："></a>安装：</h2><pre><code>$wget https://github.com/gnosek/fcgiwrap/archive/master.zip
-$unzip master.zip
-$cd fcgiwrap-master/
-$autoreconf –i
-$./configure
-如果configure失败，一般都会提示”FastCGI libaray is missing”，确实fcgi-devel
-缺少
-$ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
-$ sudo rpm -Uvh epel-release*rpm
-$ sudo yum install fcgi-devel –y
-$ make
-$ make install
-
-/usr/local/sbin/ fcgiwrap 默认路径
-Usage: fcgiwrap [OPTION]
-Invokes CGI scripts as FCGI.
-fcgiwrap version 1.1.0
-Options are:
-  -f            Send CGI&apos;s stderr over FastCGI
-  -c &lt;number&gt;        Number of processes to prefork
-  -s &lt;socket_url&gt;    Socket to bind to (say -s help for help)
-  -h            Show this help message and exit
-  -p &lt;path&gt;        Restrict execution to this script. (repeated options will be merged)
-Report bugs to Grzegorz Nosek &lt;root@localdomain.pl&gt;.
-fcgiwrap home page: &lt;http://nginx.localdomain.pl/wiki/FcgiWrap&gt;
-</code></pre><h1 id="3，nginx安装"><a href="#3，nginx安装" class="headerlink" title="3，nginx安装"></a>3，nginx安装</h1><h2 id="下载链接-2"><a href="#下载链接-2" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
-</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code> $wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
-$ tar -zxvf tengine-2.1.2.tar.gz
-$ cd tengine-2.1.2
-$./configure
-$make
-$make install
-
-/usr/local/nginx 默认路径
-</code></pre><h1 id="4，编写CGI脚本"><a href="#4，编写CGI脚本" class="headerlink" title="4，编写CGI脚本"></a>4，编写CGI脚本</h1><pre><code>设置CGI脚本存放目录，这里只以shell为例，为了逼格，将.sh改为了.cgi
-$mkdir /usr/local/nginx/cgi-bin/
-$cd /usr/local/nginx/cgi-bin/
-$vim hello.cgi
-  1 #!/bin/bash
-  2 echo &quot;Content-Type:text/html&quot;  
-  3 echo &quot;&quot;
-  4 
-  5 date                                                                                                                                                                                                                                    
-  6 echo -e &quot;\nhello world!&quot;
-$sudo chmod 755 hello.cgi
-</code></pre><h1 id="5，启动命令"><a href="#5，启动命令" class="headerlink" title="5，启动命令"></a>5，启动命令</h1><pre><code>sudo /usr/local/bin/spawn-fcgi -f /usr/local/sbin/fcgiwrap -a 127.0.0.1 -p 8092 -F 32 -P /usr/local/nginx/fcgiwrap.pid
-</code></pre><h1 id="6，修改nginx配置"><a href="#6，修改nginx配置" class="headerlink" title="6，修改nginx配置"></a>6，修改nginx配置</h1><pre><code>$vim /usr/local/nginx/conf/nginx.conf
-server {
-    listen       8090;#设置监听端口
-    server_name  localhost;
-    error_log /usr/local/nginx/logs/cgi_test.log info; #设置日志路径和模式
-
-    location /hello.cgi {
-        fastcgi_param  SCRIPT_FILENAME  /usr/local/nginx/cgi-bin/$fastcgi_script_name; #设置脚本存放目录
-        fastcgi_index index.cgi;
-        include fastcgi_params;
-        include fastcgi.conf;
-        fastcgi_pass 127.0.0.1:8092; #监听端口
-    }
-}
-</code></pre><h1 id="7，nginx重启"><a href="#7，nginx重启" class="headerlink" title="7，nginx重启"></a>7，nginx重启</h1><pre><code>Nginx启动：
-/usr/local/nginx/sbin/nginx
-Nginx主进程号：
-ps -ef | grep &quot;nginx: master process&quot; | grep -v &quot;grep&quot; | awk -F &apos; &apos; &apos;{print $2}‘
-cat /usr/local/nginx/logs/nginx.pid
-Nginx配置文件：
-/usr/local/nginx/conf/nginx.conf 
-Nginx配置文件测试：
-sudo  /usr/local/nginx/sbin/nginx –t
-使配置生效：
-kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
-</code></pre><h4 id="重启nginx后，在浏览器输入http-server-ip-port-hello-cgi"><a href="#重启nginx后，在浏览器输入http-server-ip-port-hello-cgi" class="headerlink" title="重启nginx后，在浏览器输入http://server_ip:port/hello.cgi"></a>重启nginx后，在浏览器输入<a href="http://server_ip:port/hello.cgi" target="_blank" rel="external">http://server_ip:port/hello.cgi</a></h4><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="CGI相关："><a href="#CGI相关：" class="headerlink" title="CGI相关："></a>CGI相关：</h2><pre><code>http://www.jdon.com/idea/cgi.htm
-http://www.cnblogs.com/skynet/p/4173450.html
-http://www.cnblogs.com/liuzhang/p/3929198.html
-</code></pre><h2 id="nginx相关："><a href="#nginx相关：" class="headerlink" title="nginx相关："></a>nginx相关：</h2><pre><code>http://developer.51cto.com/art/201004/194472.htm  
-https://segmentfault.com/a/1190000002797601
-http://blog.csdn.net/allenlinrui/article/details/19419721
-http://blog.163.com/koumm@126/blog/static/9540383720096307529267/
-http://zyan.cc/nginx_php_v5/
-</code></pre>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/12/如何配置fastCGI使nginx支持CGI/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -485,13 +398,18 @@ http://zyan.cc/nginx_php_v5/
       
         
           
-            <h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
-</code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
-</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
-</code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
-read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
-</code></pre>
-          
+          1，首先需要确认工作空间getwd()
+2，设置工作空间setwd(&apos;path&apos;)
+3，确认当前路径下是否包含所需处理数据文件dir() 
+4，读取数据read.csv(&apos;csv_filename&apos;)
+read.table(&apos;filename&apo
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/11/R语言入门-数据读取/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -583,21 +501,19 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
       
         
           
-            <p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
-<h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
-</code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><pre><code>install.packages(&apos;RMySQL&apos;)
-</code></pre><h2 id="ODPS"><a href="#ODPS" class="headerlink" title="ODPS"></a>ODPS</h2><pre><code>RODPS
-</code></pre><h2 id="其他形式的数据读取（再补充）"><a href="#其他形式的数据读取（再补充）" class="headerlink" title="其他形式的数据读取（再补充）"></a>其他形式的数据读取（再补充）</h2><h1 id="2，数据表现形式"><a href="#2，数据表现形式" class="headerlink" title="2，数据表现形式"></a>2，数据表现形式</h1><pre><code>data.frame
-</code></pre><h1 id="3-数据打理"><a href="#3-数据打理" class="headerlink" title="3, 数据打理"></a>3, 数据打理</h1><h2 id="tidyr"><a href="#tidyr" class="headerlink" title="tidyr"></a>tidyr</h2><pre><code>行变列，列变行（reshape2）
-</code></pre><h2 id="dplyr"><a href="#dplyr" class="headerlink" title="dplyr"></a>dplyr</h2><pre><code>分组汇总（plyr）
-</code></pre><h1 id="4，绘图"><a href="#4，绘图" class="headerlink" title="4，绘图"></a>4，绘图</h1><h2 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h2><pre><code>类似PS分图层绘图，图片
-</code></pre><h2 id="plotly"><a href="#plotly" class="headerlink" title="plotly"></a>plotly</h2><pre><code>动态的JavaScript显示，ggplotly（p）
-</code></pre><h1 id="5，-分享，输出"><a href="#5，-分享，输出" class="headerlink" title="5， 分享，输出"></a>5， 分享，输出</h1><h2 id="RMarkdown"><a href="#RMarkdown" class="headerlink" title="RMarkdown"></a>RMarkdown</h2><pre><code>输出为文档：pdf,word,html
-</code></pre><h2 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h2><pre><code>输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。
-</code></pre><h1 id="6，-空间数据存储与可视化"><a href="#6，-空间数据存储与可视化" class="headerlink" title="6， 空间数据存储与可视化"></a>6， 空间数据存储与可视化</h1><pre><code>shape，leaflet
-</code></pre><p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
+          突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
+1，数据读取文本read.table()
+MySQLinstall.packages(&apos;RMySQL&apos;)
+ODPSRODPS
+其他形式的数据读取（再补充）2，数据表现形式data.frame
+3, 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/11/R语言入门-尝试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -726,7 +642,7 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -791,13 +707,6 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
 
   
 
