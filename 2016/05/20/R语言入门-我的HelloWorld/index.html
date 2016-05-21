@@ -84,37 +84,16 @@
 
 
 
-<meta name="description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-1，数据读取文本read.table()
-MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
-ODPSRODPS
-其他形式的数据读取（再补充）2，数据表现形式data.frame
-3, 数据打理tidyr行变列，列变行（reshape2）
-dplyr分组汇总（plyr）
-4，绘图ggp">
+<meta name="description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言入门-尝试">
-<meta property="og:url" content="http://yoursite.com/2016/05/11/R语言入门-尝试/index.html">
+<meta property="og:title" content="R语言入门-我的HelloWorld">
+<meta property="og:url" content="http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-1，数据读取文本read.table()
-MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
-ODPSRODPS
-其他形式的数据读取（再补充）2，数据表现形式data.frame
-3, 数据打理tidyr行变列，列变行（reshape2）
-dplyr分组汇总（plyr）
-4，绘图ggp">
-<meta property="og:updated_time" content="2016-05-11T12:04:16.771Z">
+<meta property="og:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
+<meta property="og:updated_time" content="2016-05-21T14:51:14.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言入门-尝试">
-<meta name="twitter:description" content="突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。
-1，数据读取文本read.table()
-MySQLinstall.packages(&amp;apos;RMySQL&amp;apos;)
-ODPSRODPS
-其他形式的数据读取（再补充）2，数据表现形式data.frame
-3, 数据打理tidyr行变列，列变行（reshape2）
-dplyr分组汇总（plyr）
-4，绘图ggp">
+<meta name="twitter:title" content="R语言入门-我的HelloWorld">
+<meta name="twitter:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
 
 
 
@@ -132,7 +111,7 @@ dplyr分组汇总（plyr）
   };
 </script>
 
-  <title> R语言入门-尝试 | adbibo's blog </title>
+  <title> R语言入门-我的HelloWorld | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +251,7 @@ dplyr分组汇总（plyr）
             
             
               
-                R语言入门-尝试
+                R语言入门-我的HelloWorld
               
             
           </h1>
@@ -284,8 +263,8 @@ dplyr分组汇总（plyr）
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T15:59:38+08:00" content="2016-05-11">
-              2016-05-11
+            <time itemprop="dateCreated" datetime="2016-05-20T14:17:53+08:00" content="2016-05-20">
+              2016-05-20
             </time>
           </span>
 
@@ -312,19 +291,121 @@ dplyr分组汇总（plyr）
       
 
       
-        <p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
-<h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
-</code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><pre><code>install.packages(&apos;RMySQL&apos;)
-</code></pre><h2 id="ODPS"><a href="#ODPS" class="headerlink" title="ODPS"></a>ODPS</h2><pre><code>RODPS
-</code></pre><h2 id="其他形式的数据读取（再补充）"><a href="#其他形式的数据读取（再补充）" class="headerlink" title="其他形式的数据读取（再补充）"></a>其他形式的数据读取（再补充）</h2><h1 id="2，数据表现形式"><a href="#2，数据表现形式" class="headerlink" title="2，数据表现形式"></a>2，数据表现形式</h1><pre><code>data.frame
-</code></pre><h1 id="3-数据打理"><a href="#3-数据打理" class="headerlink" title="3, 数据打理"></a>3, 数据打理</h1><h2 id="tidyr"><a href="#tidyr" class="headerlink" title="tidyr"></a>tidyr</h2><pre><code>行变列，列变行（reshape2）
-</code></pre><h2 id="dplyr"><a href="#dplyr" class="headerlink" title="dplyr"></a>dplyr</h2><pre><code>分组汇总（plyr）
-</code></pre><h1 id="4，绘图"><a href="#4，绘图" class="headerlink" title="4，绘图"></a>4，绘图</h1><h2 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h2><pre><code>类似PS分图层绘图，图片
-</code></pre><h2 id="plotly"><a href="#plotly" class="headerlink" title="plotly"></a>plotly</h2><pre><code>动态的JavaScript显示，ggplotly（p）
-</code></pre><h1 id="5，-分享，输出"><a href="#5，-分享，输出" class="headerlink" title="5， 分享，输出"></a>5， 分享，输出</h1><h2 id="RMarkdown"><a href="#RMarkdown" class="headerlink" title="RMarkdown"></a>RMarkdown</h2><pre><code>输出为文档：pdf,word,html
-</code></pre><h2 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h2><pre><code>输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。
-</code></pre><h1 id="6，-空间数据存储与可视化"><a href="#6，-空间数据存储与可视化" class="headerlink" title="6， 空间数据存储与可视化"></a>6， 空间数据存储与可视化</h1><pre><code>shape，leaflet
-</code></pre><p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
+        <p>前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细介绍实现R语言代码，其中涉及到公司内部的数据、规格的名称、名词全部更替，最终的也不会放上任何展示界面。</p>
+<h1 id="1，数据预处理"><a href="#1，数据预处理" class="headerlink" title="1，数据预处理"></a>1，数据预处理</h1><pre><code>拿到需要处理的数据，首先需要做预处理，这个切记！
+预处理时，需要根据自己的需求--最终展示需要的事项来展开。这里就不赘述了。
+</code></pre><h1 id="2，R语言展示部分"><a href="#2，R语言展示部分" class="headerlink" title="2，Ｒ语言展示部分"></a>2，Ｒ语言展示部分</h1><p>###　先上代码。</p>
+<pre><code>#画图
+library(ggplot2)
+library(plotly)
+#行列处理
+library(dplyr)
+library(tidyr)
+#页面展示
+library(shiny)
+
+#设置工作空间
+setwd(&apos;/home/user/project-dir/data/&apos;)
+#读数据
+#假设数据有城市（cityname）,数据类型（data_type）,数据等级（data_class）,其他字段（这里忽略）等字段
+log_df &lt;- read.table(&apos;data_file&apos;, header = TRUE, sep = &quot;,&quot;, fileEncoding=&quot;utf-8&quot;)
+#两个文件有关联信息，这部分数据包含城市（cityname）,城市类型（citytype）
+config_df &lt;- read.table(&apos;config_file&apos;,header = TRUE, sep = &quot;,&quot;, fileEncoding = &quot;utf-8&quot;)
+
+#按城市、数据类型、等级聚合，统计
+datatype_df &lt;- df_feedback %&gt;%
+  group_by(cityname, data_type, data_class) %&gt;%
+  summarise(plot_dt_cnt = n())
+
+#按城市和数据类型聚合，统计
+datatype_sum_df &lt;- df_feedback %&gt;%
+  group_by(cityname, data_type) %&gt;%
+  summarise(plot_dt_cnt_sum=n())
+
+#聚合上述量表，主要是为了拿到各城市各类型的占比统计所需数据
+datatype_df_together &lt;- dplyr::inner_join(datatype_df, datatype_sum_df, by=c(&quot;cityname&quot;, &quot;data_type&quot;))
+
+#新增占比统计字段
+datatype_df_together &lt;- datatype_df_together %&gt;%
+  mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
+
+#按城市和data_class计数
+data_class_df &lt;- df_feedback %&gt;% 
+  group_by(cityname, data_class, data_type) %&gt;%
+  summarise(plot_rc_cnt=n())
+
+#界面
+ui &lt;- fluidPage(
+    #大标题
+  titlePanel(&quot;全国问题反馈数据相关分布&quot;),
+  fluidRow(
+    #小标题
+    h4(&quot;各种问题分布&quot;),
+    #选项
+    column(3,selectInput(inputId = &quot;data_type&quot;, label=&quot;请选择需要展示的问题类型&quot;, choices=levels(datatype_df$data_type), multiple = TRUE, selected=&quot;数据类型-1&quot;)),
+    #内容展示
+    column(9, plotlyOutput(outputId=&quot;plot_datatype_output&quot;))
+  ),
+  fluidRow(
+    #小标题
+    h4(&quot;各城市数据等级分布&quot;),
+    #选项
+    column(3,selectInput(inputId = &quot;cityname&quot;, label=&quot;请选择需要展示的城市&quot;, choices=levels(data_class_df$cityname), multiple = TRUE, selected=&quot;北京市&quot;)),
+    #内容展示
+    column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
+  ),
+  fluidRow(
+    #小标题 
+    h4(&quot;各城市数据等级分布&quot;),
+    #选项1
+    column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
+    #选项2
+    column(2,selectInput(inputId = &quot;level_cityname&quot;, label=&quot;请选择需要的城市&quot;, choices=levels(filter(citylevel_df, level==&quot;S级&quot;)[,1]), selected=&quot;北京市&quot;)),
+    #内容展示
+    column(8, plotlyOutput(outputId=&quot;plot_level_cityname_output&quot;))
+  )
+)
+
+s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
+#服务
+server &lt;- function( input, output, session) {
+  #按数据类型统计输出S级城市统计结果
+  output$plot_datatype_output &lt;- renderPlotly({
+    p_datatype &lt;- ggplot(datatype_df_together %&gt;% filter(data_type %in% input$data_type, cityname %in% s_citylist)) +
+      geom_bar(aes(x=as.factor(cityname), weight=plot_dt_ratio, fill=as.factor(data_class)), position=&quot;dodge&quot;) + facet_wrap(~data_type)
+    p_datatype &lt;- p_datatype + xlab(&quot;city&quot;) + ylab(&quot;percent&quot;)
+    ggplotly(p_datatype)
+  })
+
+  #按城市统计所有的data_class
+  output$plot_cityname_output &lt;- renderPlotly({
+    p_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname %in% input$cityname)) +
+      geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
+      xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
+    ggplotly(p_cityname)
+  })
+
+  #选项联动
+  choiced_citylist &lt;- reactive({
+    print(&quot;debug&quot;)
+    citylist &lt;- filter(citylevel_df, level == input$level) %&gt;% mutate(cityname=as.character(cityname)) %&gt;% select(cityname)
+    citylist &lt;- as.vector(citylist)
+    updateSelectInput(session, &quot;level_cityname&quot;, choices = citylist)
+    return (citylist)
+  })
+
+  #按城市级别选择城市输出统计结果
+  output$plot_level_cityname_output &lt;- renderPlotly({
+    tmp &lt;- choiced_citylist()
+    p_level_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname==input$level_cityname)) +
+          geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
+          xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
+    ggplotly(p_level_cityname)
+  })
+}
+
+shinyApp(ui=ui, server=server)
+</code></pre><p>附：需要一台部署了shiny server的服务器。</p>
 
       
     </div>
@@ -349,13 +430,13 @@ dplyr分组汇总（plyr）
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" rel="next" title="如何配置fastCGI使nginx支持CGI">
+                <i class="fa fa-chevron-left"></i> 如何配置fastCGI使nginx支持CGI
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/11/R语言入门-数据读取/" rel="prev" title="R语言入门-数据读取">
-                R语言入门-数据读取 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,7 +543,7 @@ dplyr分组汇总（plyr）
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，数据读取"><span class="nav-text">1，数据读取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-text">MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ODPS"><span class="nav-text">ODPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他形式的数据读取（再补充）"><span class="nav-text">其他形式的数据读取（再补充）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，数据表现形式"><span class="nav-text">2，数据表现形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-数据打理"><span class="nav-text">3, 数据打理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tidyr"><span class="nav-text">tidyr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dplyr"><span class="nav-text">dplyr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，绘图"><span class="nav-text">4，绘图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot2"><span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plotly"><span class="nav-text">plotly</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5，-分享，输出"><span class="nav-text">5， 分享，输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RMarkdown"><span class="nav-text">RMarkdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shiny"><span class="nav-text">shiny</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6，-空间数据存储与可视化"><span class="nav-text">6， 空间数据存储与可视化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，数据预处理"><span class="nav-text">1，数据预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，R语言展示部分"><span class="nav-text">2，Ｒ语言展示部分</span></a></li></ol></div>
             
           </div>
         </section>
