@@ -84,28 +84,19 @@
 
 
 
-<meta name="description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
-<meta property="og:type" content="article">
-<meta property="og:title" content="R语言入门-数据读取">
-<meta property="og:url" content="http://yoursite.com/2016/05/11/R语言入门-数据读取/index.html">
+<meta name="description" content="三年工作经验，数据开发工程师一枚。
+预言数据中心会是所有IT公司标配，努力成为一枚数据开发／数据分析／数据挖掘／数据平台专家！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="adbibo's blog">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
-<meta property="og:updated_time" content="2016-05-11T13:10:13.000Z">
+<meta property="og:description" content="三年工作经验，数据开发工程师一枚。
+预言数据中心会是所有IT公司标配，努力成为一枚数据开发／数据分析／数据挖掘／数据平台专家！">
+<meta property="og:updated_time" content="2016-08-29T14:08:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言入门-数据读取">
-<meta name="twitter:description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
+<meta name="twitter:title" content="adbibo's blog">
+<meta name="twitter:description" content="三年工作经验，数据开发工程师一枚。
+预言数据中心会是所有IT公司标配，努力成为一枚数据开发／数据分析／数据挖掘／数据平台专家！">
 
 
 
@@ -123,7 +114,13 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
   };
 </script>
 
-  <title> R语言入门-数据读取 | adbibo's blog </title>
+  <title>
+  
+
+  
+     | adbibo's blog
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +141,7 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,120 +241,11 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    
+      <p>三年工作经验，数据开发工程师一枚。</p>
+<p>预言数据中心会是所有IT公司标配，努力成为一枚数据开发／数据分析／数据挖掘／数据平台专家！</p>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                R语言入门-数据读取
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T21:00:49+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
-</code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
-</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
-</code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
-read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
-</code></pre>
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/11/R语言入门-尝试/" rel="next" title="R语言入门-尝试">
-                <i class="fa fa-chevron-left"></i> R语言入门-尝试
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" rel="prev" title="如何配置fastCGI使nginx支持CGI">
-                如何配置fastCGI使nginx支持CGI <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -389,17 +277,8 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -442,17 +321,6 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，首先需要确认工作空间"><span class="nav-text">1，首先需要确认工作空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，设置工作空间"><span class="nav-text">2，设置工作空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3，确认当前路径下是否包含所需处理数据文件"><span class="nav-text">3，确认当前路径下是否包含所需处理数据文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，读取数据"><span class="nav-text">4，读取数据</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -549,10 +417,6 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

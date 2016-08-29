@@ -84,28 +84,28 @@
 
 
 
-<meta name="description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
-<meta property="og:type" content="article">
-<meta property="og:title" content="R语言入门-数据读取">
-<meta property="og:url" content="http://yoursite.com/2016/05/11/R语言入门-数据读取/index.html">
+<meta name="description" content="换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。
+之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很好地工作，而那时的我也比较懵逼，所以。。。
+好久没有更新blog，准备接下来每周都讲讲自己平台搭建的工作。所有文中提到的参考链接均为查阅资料时的参考。
+
+Cloud">
+<meta property="og:type" content="website">
+<meta property="og:title" content="使用Cloudera快速部署Hadoop集群(一)">
+<meta property="og:url" content="http://yoursite.com/使用Cloudera快速部署Hadoop集群-一/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
-<meta property="og:updated_time" content="2016-05-11T13:10:13.000Z">
+<meta property="og:description" content="换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。
+之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很好地工作，而那时的我也比较懵逼，所以。。。
+好久没有更新blog，准备接下来每周都讲讲自己平台搭建的工作。所有文中提到的参考链接均为查阅资料时的参考。
+
+Cloud">
+<meta property="og:updated_time" content="2016-08-29T14:11:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言入门-数据读取">
-<meta name="twitter:description" content="1，首先需要确认工作空间getwd()
-2，设置工作空间setwd(&amp;apos;path&amp;apos;)
-3，确认当前路径下是否包含所需处理数据文件dir() 
-4，读取数据read.csv(&amp;apos;csv_filename&amp;apos;)
-read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，header=FALSE)#也可以用来读取">
+<meta name="twitter:title" content="使用Cloudera快速部署Hadoop集群(一)">
+<meta name="twitter:description" content="换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。
+之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很好地工作，而那时的我也比较懵逼，所以。。。
+好久没有更新blog，准备接下来每周都讲讲自己平台搭建的工作。所有文中提到的参考链接均为查阅资料时的参考。
+
+Cloud">
 
 
 
@@ -123,7 +123,13 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
   };
 </script>
 
-  <title> R语言入门-数据读取 | adbibo's blog </title>
+  <title>
+  
+
+  
+    使用Cloudera快速部署Hadoop集群(一) | adbibo's blog
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +150,7 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,120 +250,26 @@ read.table(&amp;apos;filename&amp;apos;,sep=&amp;apos;delimeter&amp;apos;，head
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                R语言入门-数据读取
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T21:00:49+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
-</code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
-</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
-</code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
-read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
+      <blockquote>
+<p> 换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。</p>
+<p>之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很好地工作，而那时的我也比较懵逼，所以。。。</p>
+<p>好久没有更新blog，准备接下来每周都讲讲自己平台搭建的工作。所有文中提到的参考链接均为查阅资料时的参考。</p>
+</blockquote>
+<h1 id="Cloudera-Manager安装"><a href="#Cloudera-Manager安装" class="headerlink" title="Cloudera Manager安装"></a>Cloudera Manager安装</h1><h3 id="1，Cloudera-Manager"><a href="#1，Cloudera-Manager" class="headerlink" title="1，Cloudera Manager"></a>1，Cloudera Manager</h3><pre><code>安装包：
+    http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5/RPMS/x86_64/
+</code></pre><h3 id="2，Cloudera-Manager资源"><a href="#2，Cloudera-Manager资源" class="headerlink" title="2，Cloudera Manager资源"></a>2，Cloudera Manager资源</h3><pre><code>http://archive.cloudera.com/cm5/cm/5/
+</code></pre><h3 id="3，parcels"><a href="#3，parcels" class="headerlink" title="3，parcels"></a>3，parcels</h3><pre><code>http://archive.cloudera.com/cdh5/parcels/5.8/
+</code></pre><h3 id="4，tarball"><a href="#4，tarball" class="headerlink" title="4，tarball"></a>4，tarball</h3><pre><code>http://archive.cloudera.com/cdh5/repo-as-tarball/5.8.0/
+</code></pre><h2 id="CDH服务配置"><a href="#CDH服务配置" class="headerlink" title="CDH服务配置"></a>CDH服务配置</h2><h3 id="1，解析Cloudera-Manager内部结构、功能包括配置文件、目录位置等"><a href="#1，解析Cloudera-Manager内部结构、功能包括配置文件、目录位置等" class="headerlink" title="1，解析Cloudera Manager内部结构、功能包括配置文件、目录位置等"></a>1，解析Cloudera Manager内部结构、功能包括配置文件、目录位置等</h3><pre><code>http://my.oschina.net/cloudcoder/blog/362374
+</code></pre><h3 id="2，YARN-MRv2-Resource-Manager深入剖析—RM总体架构"><a href="#2，YARN-MRv2-Resource-Manager深入剖析—RM总体架构" class="headerlink" title="2，YARN/MRv2 Resource Manager深入剖析—RM总体架构"></a>2，YARN/MRv2 Resource Manager深入剖析—RM总体架构</h3><pre><code>http://dongxicheng.org/mapreduce-nextgen/yarnmrv2-resource-manager-infrastructure/
+</code></pre><h3 id="3，HDFS详解"><a href="#3，HDFS详解" class="headerlink" title="3，HDFS详解"></a>3，HDFS详解</h3><pre><code>http://my.oschina.net/crxy/blog/348868
+http://blog.chinaunix.net/uid-27105712-id-3274395.html
+</code></pre><h3 id="4，HUE"><a href="#4，HUE" class="headerlink" title="4，HUE"></a>4，HUE</h3><pre><code>http://ju.outofmemory.cn/entry/105162
+</code></pre><h3 id="5，Hive详细教程"><a href="#5，Hive详细教程" class="headerlink" title="5，Hive详细教程"></a>5，Hive详细教程</h3><pre><code>http://my.oschina.net/yangzhiyuan/blog/228362
+</code></pre><h3 id="6，HBase"><a href="#6，HBase" class="headerlink" title="6，HBase"></a>6，HBase</h3><pre><code>http://www.cnblogs.com/JemBai/archive/2012/07/21/2602432.html
 </code></pre>
-      
-    </div>
-
-    <div>
-      
-        
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/05/11/R语言入门-尝试/" rel="next" title="R语言入门-尝试">
-                <i class="fa fa-chevron-left"></i> R语言入门-尝试
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" rel="prev" title="如何配置fastCGI使nginx支持CGI">
-                如何配置fastCGI使nginx支持CGI <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
 
 
@@ -389,17 +301,8 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -410,7 +313,7 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -442,17 +345,6 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，首先需要确认工作空间"><span class="nav-text">1，首先需要确认工作空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，设置工作空间"><span class="nav-text">2，设置工作空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3，确认当前路径下是否包含所需处理数据文件"><span class="nav-text">3，确认当前路径下是否包含所需处理数据文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，读取数据"><span class="nav-text">4，读取数据</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -549,10 +441,6 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
