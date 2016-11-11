@@ -86,16 +86,37 @@
 
 
 
-<meta name="description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
+<meta name="description" content="参考教程推荐廖雪峰的Git教程
+省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
+问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
+# adbibo @ bogon in ~/.ssh [15:04:49]
+$ pwd
+/Users/adbibo/.ssh
+生成一个新的ssh key
+$ ssh-keyg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言入门-我的HelloWorld">
-<meta property="og:url" content="http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/index.html">
+<meta property="og:title" content="GIT使用实战">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/GIT使用实战/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
-<meta property="og:updated_time" content="2016-05-21T14:51:14.000Z">
+<meta property="og:description" content="参考教程推荐廖雪峰的Git教程
+省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
+问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
+# adbibo @ bogon in ~/.ssh [15:04:49]
+$ pwd
+/Users/adbibo/.ssh
+生成一个新的ssh key
+$ ssh-keyg">
+<meta property="og:updated_time" content="2016-11-11T07:50:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言入门-我的HelloWorld">
-<meta name="twitter:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
+<meta name="twitter:title" content="GIT使用实战">
+<meta name="twitter:description" content="参考教程推荐廖雪峰的Git教程
+省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
+问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
+# adbibo @ bogon in ~/.ssh [15:04:49]
+$ pwd
+/Users/adbibo/.ssh
+生成一个新的ssh key
+$ ssh-keyg">
 
 
 
@@ -113,7 +134,7 @@
   };
 </script>
 
-  <title> R语言入门-我的HelloWorld | adbibo's blog </title>
+  <title> GIT使用实战 | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +274,7 @@
             
             
               
-                R语言入门-我的HelloWorld
+                GIT使用实战
               
             
           </h1>
@@ -265,8 +286,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-20T14:17:53+08:00" content="2016-05-20">
-              2016-05-20
+            <time itemprop="dateCreated" datetime="2016-11-11T15:48:49+08:00" content="2016-11-11">
+              2016-11-11
             </time>
           </span>
 
@@ -276,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/20/R语言入门-我的HelloWorld/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/20/R语言入门-我的HelloWorld/" itemprop="commentsCount"></span>
+                <a href="/2016/11/11/GIT使用实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/11/GIT使用实战/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -300,121 +321,96 @@
       
 
       
-        <p>前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细介绍实现R语言代码，其中涉及到公司内部的数据、规格的名称、名词全部更替，最终的也不会放上任何展示界面。</p>
-<h1 id="1，数据预处理"><a href="#1，数据预处理" class="headerlink" title="1，数据预处理"></a>1，数据预处理</h1><pre><code>拿到需要处理的数据，首先需要做预处理，这个切记！
-预处理时，需要根据自己的需求--最终展示需要的事项来展开。这里就不赘述了。
-</code></pre><h1 id="2，R语言展示部分"><a href="#2，R语言展示部分" class="headerlink" title="2，Ｒ语言展示部分"></a>2，Ｒ语言展示部分</h1><p>###　先上代码。</p>
-<pre><code>#画图
-library(ggplot2)
-library(plotly)
-#行列处理
-library(dplyr)
-library(tidyr)
-#页面展示
-library(shiny)
-
-#设置工作空间
-setwd(&apos;/home/user/project-dir/data/&apos;)
-#读数据
-#假设数据有城市（cityname）,数据类型（data_type）,数据等级（data_class）,其他字段（这里忽略）等字段
-log_df &lt;- read.table(&apos;data_file&apos;, header = TRUE, sep = &quot;,&quot;, fileEncoding=&quot;utf-8&quot;)
-#两个文件有关联信息，这部分数据包含城市（cityname）,城市类型（citytype）
-config_df &lt;- read.table(&apos;config_file&apos;,header = TRUE, sep = &quot;,&quot;, fileEncoding = &quot;utf-8&quot;)
-
-#按城市、数据类型、等级聚合，统计
-datatype_df &lt;- df_feedback %&gt;%
-  group_by(cityname, data_type, data_class) %&gt;%
-  summarise(plot_dt_cnt = n())
-
-#按城市和数据类型聚合，统计
-datatype_sum_df &lt;- df_feedback %&gt;%
-  group_by(cityname, data_type) %&gt;%
-  summarise(plot_dt_cnt_sum=n())
-
-#聚合上述量表，主要是为了拿到各城市各类型的占比统计所需数据
-datatype_df_together &lt;- dplyr::inner_join(datatype_df, datatype_sum_df, by=c(&quot;cityname&quot;, &quot;data_type&quot;))
-
-#新增占比统计字段
-datatype_df_together &lt;- datatype_df_together %&gt;%
-  mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
-
-#按城市和data_class计数
-data_class_df &lt;- df_feedback %&gt;% 
-  group_by(cityname, data_class, data_type) %&gt;%
-  summarise(plot_rc_cnt=n())
-
-#界面
-ui &lt;- fluidPage(
-    #大标题
-  titlePanel(&quot;全国问题反馈数据相关分布&quot;),
-  fluidRow(
-    #小标题
-    h4(&quot;各种问题分布&quot;),
-    #选项
-    column(3,selectInput(inputId = &quot;data_type&quot;, label=&quot;请选择需要展示的问题类型&quot;, choices=levels(datatype_df$data_type), multiple = TRUE, selected=&quot;数据类型-1&quot;)),
-    #内容展示
-    column(9, plotlyOutput(outputId=&quot;plot_datatype_output&quot;))
-  ),
-  fluidRow(
-    #小标题
-    h4(&quot;各城市数据等级分布&quot;),
-    #选项
-    column(3,selectInput(inputId = &quot;cityname&quot;, label=&quot;请选择需要展示的城市&quot;, choices=levels(data_class_df$cityname), multiple = TRUE, selected=&quot;北京市&quot;)),
-    #内容展示
-    column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
-  ),
-  fluidRow(
-    #小标题 
-    h4(&quot;各城市数据等级分布&quot;),
-    #选项1
-    column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
-    #选项2
-    column(2,selectInput(inputId = &quot;level_cityname&quot;, label=&quot;请选择需要的城市&quot;, choices=levels(filter(citylevel_df, level==&quot;S级&quot;)[,1]), selected=&quot;北京市&quot;)),
-    #内容展示
-    column(8, plotlyOutput(outputId=&quot;plot_level_cityname_output&quot;))
-  )
-)
-
-s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
-#服务
-server &lt;- function( input, output, session) {
-  #按数据类型统计输出S级城市统计结果
-  output$plot_datatype_output &lt;- renderPlotly({
-    p_datatype &lt;- ggplot(datatype_df_together %&gt;% filter(data_type %in% input$data_type, cityname %in% s_citylist)) +
-      geom_bar(aes(x=as.factor(cityname), weight=plot_dt_ratio, fill=as.factor(data_class)), position=&quot;dodge&quot;) + facet_wrap(~data_type)
-    p_datatype &lt;- p_datatype + xlab(&quot;city&quot;) + ylab(&quot;percent&quot;)
-    ggplotly(p_datatype)
-  })
-
-  #按城市统计所有的data_class
-  output$plot_cityname_output &lt;- renderPlotly({
-    p_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname %in% input$cityname)) +
-      geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
-      xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
-    ggplotly(p_cityname)
-  })
-
-  #选项联动
-  choiced_citylist &lt;- reactive({
-    print(&quot;debug&quot;)
-    citylist &lt;- filter(citylevel_df, level == input$level) %&gt;% mutate(cityname=as.character(cityname)) %&gt;% select(cityname)
-    citylist &lt;- as.vector(citylist)
-    updateSelectInput(session, &quot;level_cityname&quot;, choices = citylist)
-    return (citylist)
-  })
-
-  #按城市级别选择城市输出统计结果
-  output$plot_level_cityname_output &lt;- renderPlotly({
-    tmp &lt;- choiced_citylist()
-    p_level_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname==input$level_cityname)) +
-          geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
-          xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
-    ggplotly(p_level_cityname)
-  })
-}
-
-shinyApp(ui=ui, server=server)
-</code></pre><p>附：需要一台部署了shiny server的服务器。</p>
+        <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>推荐廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
+<p>省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。</p>
+<h2 id="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><a href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？" class="headerlink" title="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"></a>问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</h2><p>一般.ssh都在用户目录下，</p>
+<pre><code># adbibo @ bogon in ~/.ssh [15:04:49]
+$ pwd
+/Users/adbibo/.ssh
+</code></pre><p>生成一个新的ssh key</p>
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/adbibo/.ssh/id_rsa):/Users/adbibo/.ssh/test_id_rsa
+#在此输入你要保存ssh key的实际文件名，为了区分github和gitlab，请将ssh key存储在不同的文件中。
+Enter passphrase (empty for no passphrase): 输入密码，鄙人比较懒，直接回车跳过
+Enter same passphrase again:同上
+Your identification has been saved in /Users/adbibo/.ssh/test_id_rsa.
+Your public key has been saved in /Users/adbibo/.ssh/test_id_rsa.pub.
+The key fingerprint is:
+SHA256:xRAuPVjXDjJUKihSqQWb9TwBMH3Be4ChaMxm8C+3j24 your_email@example.com
+The key&apos;s randomart image is:
++---[RSA 4096]----+
+|=+=*o. .=oo.     |
+|=O=o+o =o=. .    |
+|*Oo.=o+ =ooo     |
+|=. o...o o  .    |
+|  . o.  S        |
+|   o .           |
+|    .            |
+|    Eo           |
+|   oo .          |
++----[SHA256]-----+
+</code></pre><p>生成的ssh key分别将验证信息和公钥存储在test_id_rsa和test_id_rsa.pub文件中。</p>
+<p>在.ssh目录下创建文件config</p>
+<pre><code>$ cd ~/.ssh
+$ touch config
+</code></pre><p>添加如下内容：</p>
+<pre><code># gitlab
+Host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlab_rsa
+# github
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/github_rsa
+</code></pre><p>至此，gitlab和github的项目通过git命令管理了。</p>
+<h2 id="问题二：如果将本地的工程提交到远程仓库？"><a href="#问题二：如果将本地的工程提交到远程仓库？" class="headerlink" title="问题二：如果将本地的工程提交到远程仓库？"></a>问题二：如果将本地的工程提交到远程仓库？</h2><p>这里以github为例， 首先在<a href="github.com">github.com</a>上创建工程，点击”New repository”，输入Repository name，填写Description，选择项目是public还是private，然后点击”Create repository”。得到一个如下形式的git仓库名。</p>
+<pre><code>git@github.com:yourgithubname/test.git
+</code></pre><p>然后回到本机，在工程目录下执行如下命令：</p>
+<pre><code>git init  # 在本地初始化git仓库
+git add . # 添加当前目录下的所有文件作为需要版本管理的文件
+git commit -m &quot;第一次提交&quot;  # 填写提交信息
+git remote add origin git@github.com:yourgithubname/test.git  # 关联远程仓库
+git push -u origin master  # 将本地文件提交到远程仓库
+</code></pre><p>一般都会顺利地进行至此，但是我在<a href="github.com">github.com</a>上创建工程时，选择了生成.gitignore文件，于是远程仓库初始化时就有了文件。再在本机进行上面的操作就会报错了。</p>
+<pre><code>To github.com:yourgithubname/test.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to &apos;git@github.com:yourgithubname/test.git&apos;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &apos;git pull ...&apos;) before pushing again.
+hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
+</code></pre><p>提示需要先git pull，就是先要将远程仓库的文件pull到本机，但是由于本机使用IDE自动生成了.gitignore文件，与远程仓库发生了冲突。需要带上参数–allow-unrelated-histories</p>
+<pre><code>$ git pull origin master --allow-unrelated-histories
+From github.com:yourgithubname/test
+ * branch            master     -&gt; FETCH_HEAD
+Auto-merging README.md
+CONFLICT (add/add): Merge conflict in README.md
+Auto-merging .gitignore
+CONFLICT (add/add): Merge conflict in .gitignore
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>此时又提示merge conflict， 所以需要手动做更改.gitignore和README.md文件，具体根据需求进行更改。然后重新执行如下命令：</p>
+<pre><code>$git add .
+$git commit -m &apos;commot message&apos;
+$ git push
+显示如下信息就说明commit成功了。
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (17/17), 4.15 KiB | 0 bytes/s, done.
+Total 17 (delta 2), reused 0 (delta 0)
+</code></pre><h3 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h3><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
+<li><p><a href="github.com">github.com</a></p>
+<p> 开源项目很多，可以管理个人创建的项目，public的项目免费，如果创建private的需要money。可以搭个人blog，我用的hexo，简单配置即可。</p>
+</li>
+<li><p><a href="gitlab.com">gitlab.com</a></p>
+<p> 也不错，private项目免费，看中的就这点，毕竟github用的很习惯。</p>
+</li>
+</ol>
+<blockquote>
+<p> 对于不喜欢命令行的朋友，推荐使用sourceTree这个工具来管理， 附上链接<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">sourceTree</a></p>
+</blockquote>
 
       
     </div>
@@ -439,17 +435,13 @@ shinyApp(ui=ui, server=server)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" rel="next" title="如何配置fastCGI使nginx支持CGI">
-                <i class="fa fa-chevron-left"></i> 如何配置fastCGI使nginx支持CGI
+              <a href="/2016/09/07/使用Cloudera快速部署Hadoop集群-二/" rel="next" title="使用Cloudera快速部署Hadoop集群(二)">
+                <i class="fa fa-chevron-left"></i> 使用Cloudera快速部署Hadoop集群(二)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/23/认识ETL/" rel="prev" title="认识ETL">
-                认识ETL <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +563,7 @@ shinyApp(ui=ui, server=server)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，数据预处理"><span class="nav-text">1，数据预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，R语言展示部分"><span class="nav-text">2，Ｒ语言展示部分</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考教程"><span class="nav-text">参考教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><span class="nav-text">问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二：如果将本地的工程提交到远程仓库？"><span class="nav-text">问题二：如果将本地的工程提交到远程仓库？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三：遇到再补充。"><span class="nav-text">问题三：遇到再补充。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用git仓库"><span class="nav-text">常用git仓库</span></a></li></ol></div>
             
           </div>
         </section>
@@ -691,9 +683,9 @@ shinyApp(ui=ui, server=server)
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/05/20/R语言入门-我的HelloWorld/';
-      var disqus_title = 'R语言入门-我的HelloWorld';
-      var disqus_url = 'http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/';
+      var disqus_identifier = '2016/11/11/GIT使用实战/';
+      var disqus_title = 'GIT使用实战';
+      var disqus_url = 'http://yoursite.com/2016/11/11/GIT使用实战/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

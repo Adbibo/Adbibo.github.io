@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>adbibo&#39;s blog</title>
+  <subtitle>只要今天努力，明天会比昨天更美好</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-11-11T07:50:27.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>景宸</name>
+    <email>laoliu@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GIT使用实战</title>
+    <link href="http://yoursite.com/2016/11/11/GIT%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%88%98/"/>
+    <id>http://yoursite.com/2016/11/11/GIT使用实战/</id>
+    <published>2016-11-11T07:48:49.000Z</published>
+    <updated>2016-11-11T07:50:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>推荐廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
+<p>省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。</p>
+<h2 id="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><a href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？" class="headerlink" title="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"></a>问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</h2><p>一般.ssh都在用户目录下，</p>
+<pre><code># adbibo @ bogon in ~/.ssh [15:04:49]
+$ pwd
+/Users/adbibo/.ssh
+</code></pre><p>生成一个新的ssh key</p>
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/adbibo/.ssh/id_rsa):/Users/adbibo/.ssh/test_id_rsa
+#在此输入你要保存ssh key的实际文件名，为了区分github和gitlab，请将ssh key存储在不同的文件中。
+Enter passphrase (empty for no passphrase): 输入密码，鄙人比较懒，直接回车跳过
+Enter same passphrase again:同上
+Your identification has been saved in /Users/adbibo/.ssh/test_id_rsa.
+Your public key has been saved in /Users/adbibo/.ssh/test_id_rsa.pub.
+The key fingerprint is:
+SHA256:xRAuPVjXDjJUKihSqQWb9TwBMH3Be4ChaMxm8C+3j24 your_email@example.com
+The key&apos;s randomart image is:
++---[RSA 4096]----+
+|=+=*o. .=oo.     |
+|=O=o+o =o=. .    |
+|*Oo.=o+ =ooo     |
+|=. o...o o  .    |
+|  . o.  S        |
+|   o .           |
+|    .            |
+|    Eo           |
+|   oo .          |
++----[SHA256]-----+
+</code></pre><p>生成的ssh key分别将验证信息和公钥存储在test_id_rsa和test_id_rsa.pub文件中。</p>
+<p>在.ssh目录下创建文件config</p>
+<pre><code>$ cd ~/.ssh
+$ touch config
+</code></pre><p>添加如下内容：</p>
+<pre><code># gitlab
+Host gitlab.com
+    HostName gitlab.com
+    IdentityFile ~/.ssh/gitlab_rsa
+# github
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/github_rsa
+</code></pre><p>至此，gitlab和github的项目通过git命令管理了。</p>
+<h2 id="问题二：如果将本地的工程提交到远程仓库？"><a href="#问题二：如果将本地的工程提交到远程仓库？" class="headerlink" title="问题二：如果将本地的工程提交到远程仓库？"></a>问题二：如果将本地的工程提交到远程仓库？</h2><p>这里以github为例， 首先在<a href="github.com">github.com</a>上创建工程，点击”New repository”，输入Repository name，填写Description，选择项目是public还是private，然后点击”Create repository”。得到一个如下形式的git仓库名。</p>
+<pre><code>git@github.com:yourgithubname/test.git
+</code></pre><p>然后回到本机，在工程目录下执行如下命令：</p>
+<pre><code>git init  # 在本地初始化git仓库
+git add . # 添加当前目录下的所有文件作为需要版本管理的文件
+git commit -m &quot;第一次提交&quot;  # 填写提交信息
+git remote add origin git@github.com:yourgithubname/test.git  # 关联远程仓库
+git push -u origin master  # 将本地文件提交到远程仓库
+</code></pre><p>一般都会顺利地进行至此，但是我在<a href="github.com">github.com</a>上创建工程时，选择了生成.gitignore文件，于是远程仓库初始化时就有了文件。再在本机进行上面的操作就会报错了。</p>
+<pre><code>To github.com:yourgithubname/test.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to &apos;git@github.com:yourgithubname/test.git&apos;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &apos;git pull ...&apos;) before pushing again.
+hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
+</code></pre><p>提示需要先git pull，就是先要将远程仓库的文件pull到本机，但是由于本机使用IDE自动生成了.gitignore文件，与远程仓库发生了冲突。需要带上参数–allow-unrelated-histories</p>
+<pre><code>$ git pull origin master --allow-unrelated-histories
+From github.com:yourgithubname/test
+ * branch            master     -&gt; FETCH_HEAD
+Auto-merging README.md
+CONFLICT (add/add): Merge conflict in README.md
+Auto-merging .gitignore
+CONFLICT (add/add): Merge conflict in .gitignore
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>此时又提示merge conflict， 所以需要手动做更改.gitignore和README.md文件，具体根据需求进行更改。然后重新执行如下命令：</p>
+<pre><code>$git add .
+$git commit -m &apos;commot message&apos;
+$ git push
+显示如下信息就说明commit成功了。
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (17/17), 4.15 KiB | 0 bytes/s, done.
+Total 17 (delta 2), reused 0 (delta 0)
+</code></pre><h3 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h3><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
+<li><p><a href="github.com">github.com</a></p>
+<p> 开源项目很多，可以管理个人创建的项目，public的项目免费，如果创建private的需要money。可以搭个人blog，我用的hexo，简单配置即可。</p>
+</li>
+<li><p><a href="gitlab.com">gitlab.com</a></p>
+<p> 也不错，private项目免费，看中的就这点，毕竟github用的很习惯。</p>
+</li>
+</ol>
+<blockquote>
+<p> 对于不喜欢命令行的朋友，推荐使用sourceTree这个工具来管理， 附上链接<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">sourceTree</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;参考教程&quot;&gt;&lt;a href=&quot;#参考教程&quot; class=&quot;headerlink&quot; title=&quot;参考教程&quot;&gt;&lt;/a&gt;参考教程&lt;/h2&gt;&lt;p&gt;推荐廖雪峰的&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/001373951630592
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用Cloudera快速部署Hadoop集群(二)</title>
+    <link href="http://yoursite.com/2016/09/07/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%BA%8C/"/>
+    <id>http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/</id>
+    <published>2016-09-07T03:36:12.000Z</published>
+    <updated>2016-09-07T03:36:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一-Cloudera-Manager-安装后的各个目录"><a href="#一-Cloudera-Manager-安装后的各个目录" class="headerlink" title="一,Cloudera Manager 安装后的各个目录"></a>一,Cloudera Manager 安装后的各个目录</h3><ul>
+<li>/var/log/cloudera-scm-installer : 安装日志目录。</li>
+<li>/var/log/* : 相关日志文件（相关服务的及CM的）。</li>
+<li>/usr/share/cmf/ : 程序安装目录。</li>
+<li>/usr/lib64/cmf/ : Agent程序代码。</li>
+<li>/var/lib/cloudera-scm-server-db/data: 内嵌数据库目录。</li>
+<li>/usr/bin/postgres : 内嵌数据库程序。</li>
+<li>/etc/cloudera-scm-agent/ : agent的配置目录。</li>
+<li>/etc/cloudera-scm-server/ : server的配置目录。</li>
+<li>/opt/cloudera/parcels/ : Hadoop相关服务安装目录。</li>
+<li>/opt/cloudera/parcel-repo/ : 下载的服务软件包数据，数据格式为parcels。</li>
+<li>/opt/cloudera/parcel-cache/ : 下载的服务软件包缓存数据。</li>
+<li>/etc/hadoop/* : 客户端配置文件目录。</li>
+</ul>
+<h3 id="二-各节点服务详述"><a href="#二-各节点服务详述" class="headerlink" title="二,各节点服务详述"></a>二,各节点服务详述</h3><p>利用Cloudera Manager安装CDH，需要配置各节点角色，现将各服务节点角色一一说明。</p>
+<h4 id="1-HDFS"><a href="#1-HDFS" class="headerlink" title="1,HDFS"></a>1,HDFS</h4><p><a href="hadoop.apache.org">Apache hadoop官网</a>描述如下：</p>
+<pre><code>Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+</code></pre><ul>
+<li>Gateway</li>
+<li>HttpFS</li>
+<li>NameNode</li>
+<li>DataNode</li>
+<li>SecondaryNameNode</li>
+<li>Balancer</li>
+<li>HttpFS</li>
+<li>NFS Gateway</li>
+</ul>
+<h4 id="2-HBase"><a href="#2-HBase" class="headerlink" title="2,HBase"></a>2,HBase</h4><ul>
+<li>Gateway</li>
+<li>Master</li>
+<li>HBase REST Server</li>
+<li>HBase Thrift Server</li>
+<li>Region Server</li>
+</ul>
+<h4 id="3-YRAN"><a href="#3-YRAN" class="headerlink" title="3,YRAN"></a>3,YRAN</h4><ul>
+<li>Resource  Manager</li>
+<li>JobHistory Server</li>
+<li>NodeManager</li>
+</ul>
+<h4 id="4-Spark"><a href="#4-Spark" class="headerlink" title="4,Spark"></a>4,Spark</h4><ul>
+<li>History Server</li>
+<li>Gateway</li>
+<li>Livy Server</li>
+</ul>
+<h4 id="5-ZooKeeper"><a href="#5-ZooKeeper" class="headerlink" title="5,ZooKeeper"></a>5,ZooKeeper</h4><ul>
+<li>server</li>
+</ul>
+<h4 id="6-Hive"><a href="#6-Hive" class="headerlink" title="6,Hive"></a>6,Hive</h4><ul>
+<li>Gateway</li>
+<li>Hive Metastore Server</li>
+<li>WebHcat</li>
+<li>HiveServer2</li>
+</ul>
+<h4 id="7-HUE"><a href="#7-HUE" class="headerlink" title="7,HUE"></a>7,HUE</h4><ul>
+<li>Hue Server</li>
+</ul>
+<h4 id="8-Impala"><a href="#8-Impala" class="headerlink" title="8,Impala"></a>8,Impala</h4><ul>
+<li>Impala Catalog Server</li>
+<li>Impala Llama ApplicationMaster</li>
+<li>Impala Daemon</li>
+</ul>
+<h4 id="9-Oozie"><a href="#9-Oozie" class="headerlink" title="9,Oozie"></a>9,Oozie</h4><ul>
+<li>Oozie Server</li>
+</ul>
+<h4 id="10-Solr"><a href="#10-Solr" class="headerlink" title="10,Solr"></a>10,Solr</h4><ul>
+<li>Gateway</li>
+<li>Solr Server</li>
+</ul>
+<h4 id="11-Key-Value-Store-Indexer"><a href="#11-Key-Value-Store-Indexer" class="headerlink" title="11,Key-Value Store Indexer"></a>11,Key-Value Store Indexer</h4><ul>
+<li>Lily HBase Indexer</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一-Cloudera-Manager-安装后的各个目录&quot;&gt;&lt;a href=&quot;#一-Cloudera-Manager-安装后的各个目录&quot; class=&quot;headerlink&quot; title=&quot;一,Cloudera Manager 安装后的各个目录&quot;&gt;&lt;/a&gt;一,Clo
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用Cloudera快速部署Hadoop集群(一)</title>
+    <link href="http://yoursite.com/2016/08/29/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%B8%80/"/>
+    <id>http://yoursite.com/2016/08/29/使用Cloudera快速部署Hadoop集群-一/</id>
+    <published>2016-08-29T14:10:44.000Z</published>
+    <updated>2016-08-29T14:11:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p> 换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。</p>
+<p>之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很好地工作，而那时的我也比较懵逼，所以。。。</p>
+<p>好久没有更新blog，准备接下来每周都讲讲自己平台搭建的工作。所有文中提到的参考链接均为查阅资料时的参考。</p>
+</blockquote>
+<h1 id="Cloudera-Manager安装"><a href="#Cloudera-Manager安装" class="headerlink" title="Cloudera Manager安装"></a>Cloudera Manager安装</h1><h3 id="1，Cloudera-Manager"><a href="#1，Cloudera-Manager" class="headerlink" title="1，Cloudera Manager"></a>1，Cloudera Manager</h3><pre><code>安装包：
+    http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5/RPMS/x86_64/
+</code></pre><h3 id="2，Cloudera-Manager资源"><a href="#2，Cloudera-Manager资源" class="headerlink" title="2，Cloudera Manager资源"></a>2，Cloudera Manager资源</h3><pre><code>http://archive.cloudera.com/cm5/cm/5/
+</code></pre><h3 id="3，parcels"><a href="#3，parcels" class="headerlink" title="3，parcels"></a>3，parcels</h3><pre><code>http://archive.cloudera.com/cdh5/parcels/5.8/
+</code></pre><h3 id="4，tarball"><a href="#4，tarball" class="headerlink" title="4，tarball"></a>4，tarball</h3><pre><code>http://archive.cloudera.com/cdh5/repo-as-tarball/5.8.0/
+</code></pre><h2 id="CDH服务配置"><a href="#CDH服务配置" class="headerlink" title="CDH服务配置"></a>CDH服务配置</h2><h3 id="1，解析Cloudera-Manager内部结构、功能包括配置文件、目录位置等"><a href="#1，解析Cloudera-Manager内部结构、功能包括配置文件、目录位置等" class="headerlink" title="1，解析Cloudera Manager内部结构、功能包括配置文件、目录位置等"></a>1，解析Cloudera Manager内部结构、功能包括配置文件、目录位置等</h3><pre><code>http://my.oschina.net/cloudcoder/blog/362374
+</code></pre><h3 id="2，YARN-MRv2-Resource-Manager深入剖析—RM总体架构"><a href="#2，YARN-MRv2-Resource-Manager深入剖析—RM总体架构" class="headerlink" title="2，YARN/MRv2 Resource Manager深入剖析—RM总体架构"></a>2，YARN/MRv2 Resource Manager深入剖析—RM总体架构</h3><pre><code>http://dongxicheng.org/mapreduce-nextgen/yarnmrv2-resource-manager-infrastructure/
+</code></pre><h3 id="3，HDFS详解"><a href="#3，HDFS详解" class="headerlink" title="3，HDFS详解"></a>3，HDFS详解</h3><pre><code>http://my.oschina.net/crxy/blog/348868
+http://blog.chinaunix.net/uid-27105712-id-3274395.html
+</code></pre><h3 id="4，HUE"><a href="#4，HUE" class="headerlink" title="4，HUE"></a>4，HUE</h3><pre><code>http://ju.outofmemory.cn/entry/105162
+</code></pre><h3 id="5，Hive详细教程"><a href="#5，Hive详细教程" class="headerlink" title="5，Hive详细教程"></a>5，Hive详细教程</h3><pre><code>http://my.oschina.net/yangzhiyuan/blog/228362
+</code></pre><h3 id="6，HBase"><a href="#6，HBase" class="headerlink" title="6，HBase"></a>6，HBase</h3><pre><code>http://www.cnblogs.com/JemBai/archive/2012/07/21/2602432.html
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; 换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。&lt;/p&gt;
+&lt;p&gt;之前的工作经历导致对Hadoop生态了解的不多，因为原来公司的数据都在阿里云上。不需要了解细节就可以很
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>认识ETL</title>
+    <link href="http://yoursite.com/2016/07/23/%E8%AE%A4%E8%AF%86ETL/"/>
+    <id>http://yoursite.com/2016/07/23/认识ETL/</id>
+    <published>2016-07-23T13:37:41.000Z</published>
+    <updated>2016-07-24T02:11:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>最近两年一直从事数据处理相关的工作，一年前开始接触数据挖掘的工作，第一个项目就是将两个不同数据源的数据导入项目组odps应用。从数据存放的角度，我的工作分为三部分：1，数据下载（数据存放在不同的服务器）；2，数据清洗格式统一（需要与内部的其它数据保持一致的格式）；3，数据同步至odps（开篇提到的数据需要导入至odps应用中）。其中，主要工作在第二步。当时没有ETL的概念，直到最近新入职一家公司的数据部门，花了不到一周的时间重构了一套ETL流程，才意识到自己一直在从事自己并不认为是ETL开发的工作。于是决定趁今天晚上的时间，利用网络上已有的知识系统地学习ETL。</p>
+</blockquote>
+<h3 id="什么是ETL？"><a href="#什么是ETL？" class="headerlink" title="什么是ETL？"></a>什么是ETL？</h3><p><a href="http://baike.baidu.com/subview/69207/14676359.htm" target="_blank" rel="external">ETL－百度百科</a></p>
+<blockquote>
+<p>ETL，是英文 Extract-Transform-Load 的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程。ETL一词较常用在数据仓库，但其对象并不限于数据仓库。ETL是构建数据仓库的重要一环，用户从数据源抽取出所需的数据，经过数据清洗,最终按照预先定义好的数据仓库模型，将数据加载到数据仓库中去。</p>
+</blockquote>
+<p>以下内容转自<a href="http://blog.sina.com.cn/s/blog_565fb6240100eyht.html" target="_blank" rel="external">MichaelLau的博客</a></p>
+<h3 id="E－extract"><a href="#E－extract" class="headerlink" title="E－extract"></a>E－extract</h3><h4 id="需要解决的问题包括："><a href="#需要解决的问题包括：" class="headerlink" title="需要解决的问题包括："></a>需要解决的问题包括：</h4><ul>
+<li>a、数据的时间差异性问题<blockquote>
+<p>在抽取旧有数据时，要将不同时期的数据定义统一，较早的数据不够完整或不符合新系统的数据规范，一般可以根据规则，在存入中转区的过程中予以更新或补充。
+　　</p>
+</blockquote>
+</li>
+<li><p>b、数据的平台多样性问题</p>
+<blockquote>
+<p>　在抽取旧有数据时，大部分数据都可采用表复制方式直接导入数据中转区集中，再做处理，但有部分数据可能需要转换成文本文件或使用第三方工具如 Informatica等装载入数据中转区。这部分数据主要是与数据中转区数据库平台不一致的数据库数据，或非存储于数据库内的文本、excel等数据。</p>
+</blockquote>
+</li>
+<li><p>c 、数据的不稳定性问题</p>
+<blockquote>
+<p>对于重要信息的完整历史变更记录，在抽取时可以根据各时期的历史信息，在抽取需要信息等基本属性的旧有数据时，要与相应时段的信息关联得到真实的历史属性。</p>
+</blockquote>
+</li>
+<li><p>d 、数据的依赖性问题</p>
+<blockquote>
+<p>旧有业务系统的数据关联一般已有约束保证，代码表和参照表等数据也比较准确，但仍有少量数据不完整，对这部分数据，需根据地税的需求采取清洗策略，保证数据仓库各事实表和维表之间的关联完整有效。<br>　　数据仓库各事实表和维表的初始装载顺序有先后关系，要有一个集中的数据装载任务顺序方案，确保初始数据装载的准确。这可以通过操作系统或第三方工具的任务调度机制来保证。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="T-transform"><a href="#T-transform" class="headerlink" title="T-transform"></a>T-transform</h3><h4 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h4><blockquote>
+<p>数据清洗主要是针对源数据库中出现二义性、重 复、不完整、违反业务或逻辑规则等问题的数据数据进行统一的处理，一般包括如：NULL值处理，日期格式转换，数据类型转换等等。在清洗之前需要进行数据 质量分析，以找出存在问题的数据，否则数据清洗将无从谈起。数据装载是通过装载工具或自行编写的SQL程序将抽取、转换后的结果数据加载到目标数据库中。</p>
+</blockquote>
+<h5 id="数据质量问题具体表现在以下几个方面："><a href="#数据质量问题具体表现在以下几个方面：" class="headerlink" title="数据质量问题具体表现在以下几个方面："></a>数据质量问题具体表现在以下几个方面：</h5><ul>
+<li>a、正确性（Accuracy）：数据是否正确的表示了现实或可证实的来源?</li>
+<li>b、完整性（Integrity）：数据之间的参照完整性是否存在或一致?</li>
+<li>c、一致性（Consistency）：数据是否被一致的定义或理解?</li>
+<li>d、完备性（Completeness）：所有需要的数据都存在吗?</li>
+<li>e、有效性（Validity）：数据是否在企业定义的可接受的范围之内?</li>
+<li>f、时效性（Timeliness）：数据在需要的时侯是有效的吗?</li>
+<li>g、可获取性（Accessibility）：数据是否易于获取、易于理解和易于使用?</li>
+</ul>
+<h5 id="以下综合说明数据仓库中数据质量要求，包括格式、完整性要求。"><a href="#以下综合说明数据仓库中数据质量要求，包括格式、完整性要求。" class="headerlink" title="以下综合说明数据仓库中数据质量要求，包括格式、完整性要求。"></a>以下综合说明数据仓库中数据质量要求，包括格式、完整性要求。</h5><ul>
+<li>a、业务描述统一，对数据模型的不同版本融合、映射为唯一版本。包括：<ul>
+<li>1、在业务逻辑没有变化的前提下，旧的业务数据映射在新模型上。</li>
+<li>2、 遗留系统的人事信息、考核相关信息与业务系统、行政其他模块要一致。</li>
+</ul>
+</li>
+<li>b、信息描述规范、完整。<ul>
+<li>1、不存在格式违规,数据类型不存在潜在错误。</li>
+<li>2 、参照完整性未被破坏,数据不会找不到参照。</li>
+<li>3 、不存在交叉系统匹配违规，数据被很好集成,相同的数据存在于多个系统中，数据之间要匹配。</li>
+<li>4 、数据在内部一致,同样的纪录字段在同一个表中重复出现，不能有差别。</li>
+</ul>
+</li>
+</ul>
+<h3 id="L-loading"><a href="#L-loading" class="headerlink" title="L-loading"></a>L-loading</h3><blockquote>
+<p>将转换和清洗完的数据按照数据仓库的结构进行数据加载。需要考虑初始数据装载、数据刷新、加载顺序等等问题。</p>
+</blockquote>
+<h5 id="a、针对数据现状，初始导入有这样一些问题需要考虑："><a href="#a、针对数据现状，初始导入有这样一些问题需要考虑：" class="headerlink" title="a、针对数据现状，初始导入有这样一些问题需要考虑："></a>a、针对数据现状，初始导入有这样一些问题需要考虑：</h5><ul>
+<li>1、如何解决时间差异性？</li>
+<li>2、如何解决平台差异性？</li>
+<li>3、如何适应数据的不稳定性？</li>
+<li>4、如何解决数据依赖性？</li>
+</ul>
+<h5 id="b、数据刷新的策略要根据业务需求和应用系统的承受能力和数据情况决定。主要有这样一些问题需要考虑："><a href="#b、数据刷新的策略要根据业务需求和应用系统的承受能力和数据情况决定。主要有这样一些问题需要考虑：" class="headerlink" title="b、数据刷新的策略要根据业务需求和应用系统的承受能力和数据情况决定。主要有这样一些问题需要考虑："></a>b、数据刷新的策略要根据业务需求和应用系统的承受能力和数据情况决定。主要有这样一些问题需要考虑：</h5><ul>
+<li>1、如何解决时间差异性？</li>
+<li>2、如何适应数据的不稳定性？</li>
+<li>3、如何解决平台差异性？</li>
+<li>4、如何解决数据依赖性？</li>
+<li>5、如何减少对业务系统的影响？</li>
+</ul>
+<h5 id="c、不同的刷新任务类型，对业务系统的影响不同，刷新任务有以下种归类特性："><a href="#c、不同的刷新任务类型，对业务系统的影响不同，刷新任务有以下种归类特性：" class="headerlink" title="c、不同的刷新任务类型，对业务系统的影响不同，刷新任务有以下种归类特性："></a>c、不同的刷新任务类型，对业务系统的影响不同，刷新任务有以下种归类特性：</h5><ul>
+<li>1、刷新频率：实时刷新、每数小时、每日、每周、每月、不定期手动刷新。</li>
+<li>2、刷新方式：数据库表复制、文本文件ftp再装载、物化视图、数据库trigger。</li>
+<li>3、数据加工方式：简单插入更新、增加计算项字段、多表关联更新、汇总、多表关联汇总计算。</li>
+</ul>
+<p>　　并可针对各种异常情况做处理：回滚，重新装载，断点重新装载等等，还可在任务完成后（或失败后）将日志以Email方式发给数据仓库管理人员。</p>
+<p>以上内容属于搬运，后续在项目中学习到的知识，再来进行补充。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近两年一直从事数据处理相关的工作，一年前开始接触数据挖掘的工作，第一个项目就是将两个不同数据源的数据导入项目组odps应用。从数据存放的角度，我的工作分为三部分：1，数据下载（数据存放在不同的服务器）；2，数据清洗格式统一（需要与内部的其它数据保
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>R语言入门-我的HelloWorld</title>
+    <link href="http://yoursite.com/2016/05/20/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E6%88%91%E7%9A%84HelloWorld/"/>
+    <id>http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/</id>
+    <published>2016-05-20T06:17:53.000Z</published>
+    <updated>2016-05-21T14:51:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细介绍实现R语言代码，其中涉及到公司内部的数据、规格的名称、名词全部更替，最终的也不会放上任何展示界面。</p>
+<h1 id="1，数据预处理"><a href="#1，数据预处理" class="headerlink" title="1，数据预处理"></a>1，数据预处理</h1><pre><code>拿到需要处理的数据，首先需要做预处理，这个切记！
+预处理时，需要根据自己的需求--最终展示需要的事项来展开。这里就不赘述了。
+</code></pre><h1 id="2，R语言展示部分"><a href="#2，R语言展示部分" class="headerlink" title="2，Ｒ语言展示部分"></a>2，Ｒ语言展示部分</h1><p>###　先上代码。</p>
+<pre><code>#画图
+library(ggplot2)
+library(plotly)
+#行列处理
+library(dplyr)
+library(tidyr)
+#页面展示
+library(shiny)
+
+#设置工作空间
+setwd(&apos;/home/user/project-dir/data/&apos;)
+#读数据
+#假设数据有城市（cityname）,数据类型（data_type）,数据等级（data_class）,其他字段（这里忽略）等字段
+log_df &lt;- read.table(&apos;data_file&apos;, header = TRUE, sep = &quot;,&quot;, fileEncoding=&quot;utf-8&quot;)
+#两个文件有关联信息，这部分数据包含城市（cityname）,城市类型（citytype）
+config_df &lt;- read.table(&apos;config_file&apos;,header = TRUE, sep = &quot;,&quot;, fileEncoding = &quot;utf-8&quot;)
+
+#按城市、数据类型、等级聚合，统计
+datatype_df &lt;- df_feedback %&gt;%
+  group_by(cityname, data_type, data_class) %&gt;%
+  summarise(plot_dt_cnt = n())
+
+#按城市和数据类型聚合，统计
+datatype_sum_df &lt;- df_feedback %&gt;%
+  group_by(cityname, data_type) %&gt;%
+  summarise(plot_dt_cnt_sum=n())
+
+#聚合上述量表，主要是为了拿到各城市各类型的占比统计所需数据
+datatype_df_together &lt;- dplyr::inner_join(datatype_df, datatype_sum_df, by=c(&quot;cityname&quot;, &quot;data_type&quot;))
+
+#新增占比统计字段
+datatype_df_together &lt;- datatype_df_together %&gt;%
+  mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
+
+#按城市和data_class计数
+data_class_df &lt;- df_feedback %&gt;% 
+  group_by(cityname, data_class, data_type) %&gt;%
+  summarise(plot_rc_cnt=n())
+
+#界面
+ui &lt;- fluidPage(
+    #大标题
+  titlePanel(&quot;全国问题反馈数据相关分布&quot;),
+  fluidRow(
+    #小标题
+    h4(&quot;各种问题分布&quot;),
+    #选项
+    column(3,selectInput(inputId = &quot;data_type&quot;, label=&quot;请选择需要展示的问题类型&quot;, choices=levels(datatype_df$data_type), multiple = TRUE, selected=&quot;数据类型-1&quot;)),
+    #内容展示
+    column(9, plotlyOutput(outputId=&quot;plot_datatype_output&quot;))
+  ),
+  fluidRow(
+    #小标题
+    h4(&quot;各城市数据等级分布&quot;),
+    #选项
+    column(3,selectInput(inputId = &quot;cityname&quot;, label=&quot;请选择需要展示的城市&quot;, choices=levels(data_class_df$cityname), multiple = TRUE, selected=&quot;北京市&quot;)),
+    #内容展示
+    column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
+  ),
+  fluidRow(
+    #小标题 
+    h4(&quot;各城市数据等级分布&quot;),
+    #选项1
+    column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
+    #选项2
+    column(2,selectInput(inputId = &quot;level_cityname&quot;, label=&quot;请选择需要的城市&quot;, choices=levels(filter(citylevel_df, level==&quot;S级&quot;)[,1]), selected=&quot;北京市&quot;)),
+    #内容展示
+    column(8, plotlyOutput(outputId=&quot;plot_level_cityname_output&quot;))
+  )
+)
+
+s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
+#服务
+server &lt;- function( input, output, session) {
+  #按数据类型统计输出S级城市统计结果
+  output$plot_datatype_output &lt;- renderPlotly({
+    p_datatype &lt;- ggplot(datatype_df_together %&gt;% filter(data_type %in% input$data_type, cityname %in% s_citylist)) +
+      geom_bar(aes(x=as.factor(cityname), weight=plot_dt_ratio, fill=as.factor(data_class)), position=&quot;dodge&quot;) + facet_wrap(~data_type)
+    p_datatype &lt;- p_datatype + xlab(&quot;city&quot;) + ylab(&quot;percent&quot;)
+    ggplotly(p_datatype)
+  })
+
+  #按城市统计所有的data_class
+  output$plot_cityname_output &lt;- renderPlotly({
+    p_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname %in% input$cityname)) +
+      geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
+      xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
+    ggplotly(p_cityname)
+  })
+
+  #选项联动
+  choiced_citylist &lt;- reactive({
+    print(&quot;debug&quot;)
+    citylist &lt;- filter(citylevel_df, level == input$level) %&gt;% mutate(cityname=as.character(cityname)) %&gt;% select(cityname)
+    citylist &lt;- as.vector(citylist)
+    updateSelectInput(session, &quot;level_cityname&quot;, choices = citylist)
+    return (citylist)
+  })
+
+  #按城市级别选择城市输出统计结果
+  output$plot_level_cityname_output &lt;- renderPlotly({
+    tmp &lt;- choiced_citylist()
+    p_level_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname==input$level_cityname)) +
+          geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
+          xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
+    ggplotly(p_level_cityname)
+  })
+}
+
+shinyApp(ui=ui, server=server)
+</code></pre><p>附：需要一台部署了shiny server的服务器。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何配置fastCGI使nginx支持CGI</title>
+    <link href="http://yoursite.com/2016/05/12/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEfastCGI%E4%BD%BFnginx%E6%94%AF%E6%8C%81CGI/"/>
+    <id>http://yoursite.com/2016/05/12/如何配置fastCGI使nginx支持CGI/</id>
+    <published>2016-05-12T02:28:47.000Z</published>
+    <updated>2016-05-18T02:04:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
+<h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+</code></pre><h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><pre><code>$wget http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
+$ tar -zxvf spawn-fcgi-1.6.2.tar.gz
+$ cd spawn-fcgi-1.6.2
+$./configure
+$make
+$make install
+
+/usr/local/bin/ spawn-fcgi  默认路径
+
+$spawn-fcgi –h
+Usage: spawn-fcgi [options] [-- &lt;fcgiapp&gt; [fcgi app arguments]]
+spawn-fcgi v1.6.2 (ipv6) - spawns FastCGI processes
+Options:
+ -f &lt;path&gt;      filename of the fcgi-application (ignored if &lt;fcgiapp&gt; is given)
+ -d &lt;directory&gt; chdir to directory before spawning
+ -a &lt;address&gt;   bind to IPv4/IPv6 address (defaults to 0.0.0.0)
+ -p &lt;port&gt;      bind to TCP-port
+ -s &lt;path&gt;      bind to Unix domain socket
+ -M &lt;mode&gt;      change Unix domain socket mode
+ -C &lt;children&gt;  (PHP only) numbers of childs to spawn (default: not setting
+                the PHP_FCGI_CHILDREN environment variable - PHP defaults to 0)
+ -F &lt;children&gt;  number of children to fork (default 1)
+ -P &lt;path&gt;      name of PID-file for spawned process (ignored in no-fork mode)
+ -n             no fork (for daemontools)
+ -v             show version
+ -?, -h         show this help
+(root only)
+ -c &lt;directory&gt; chroot to directory
+ -S             create socket before chroot() (default is to create the socket in the chroot)
+ -u &lt;user&gt;      change to user-id
+ -g &lt;group&gt;     change to group-id (default: primary group of user if -u is given)
+ -U &lt;user&gt;      change Unix domain socket owner to user-id
+ -G &lt;group&gt;     change Unix domain socket group to group-id
+</code></pre><h1 id="2，安装fcgiwrap"><a href="#2，安装fcgiwrap" class="headerlink" title="2，安装fcgiwrap"></a>2，安装fcgiwrap</h1><h2 id="下载链接-1"><a href="#下载链接-1" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>https://github.com/gnosek/fcgiwrap/archive/master.zip
+</code></pre><h2 id="安装：-1"><a href="#安装：-1" class="headerlink" title="安装："></a>安装：</h2><pre><code>$wget https://github.com/gnosek/fcgiwrap/archive/master.zip
+$unzip master.zip
+$cd fcgiwrap-master/
+$autoreconf –i
+$./configure
+如果configure失败，一般都会提示”FastCGI libaray is missing”，确实fcgi-devel
+缺少
+$ wget http://dl.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+$ sudo rpm -Uvh epel-release*rpm
+$ sudo yum install fcgi-devel –y
+$ make
+$ make install
+
+/usr/local/sbin/ fcgiwrap 默认路径
+Usage: fcgiwrap [OPTION]
+Invokes CGI scripts as FCGI.
+fcgiwrap version 1.1.0
+Options are:
+  -f            Send CGI&apos;s stderr over FastCGI
+  -c &lt;number&gt;        Number of processes to prefork
+  -s &lt;socket_url&gt;    Socket to bind to (say -s help for help)
+  -h            Show this help message and exit
+  -p &lt;path&gt;        Restrict execution to this script. (repeated options will be merged)
+Report bugs to Grzegorz Nosek &lt;root@localdomain.pl&gt;.
+fcgiwrap home page: &lt;http://nginx.localdomain.pl/wiki/FcgiWrap&gt;
+</code></pre><h1 id="3，nginx安装"><a href="#3，nginx安装" class="headerlink" title="3，nginx安装"></a>3，nginx安装</h1><h2 id="下载链接-2"><a href="#下载链接-2" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
+</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code> $wget http://tengine.taobao.org/download/tengine-2.1.2.tar.gz
+$ tar -zxvf tengine-2.1.2.tar.gz
+$ cd tengine-2.1.2
+$./configure
+$make
+$make install
+
+/usr/local/nginx 默认路径
+</code></pre><h1 id="4，编写CGI脚本"><a href="#4，编写CGI脚本" class="headerlink" title="4，编写CGI脚本"></a>4，编写CGI脚本</h1><pre><code>设置CGI脚本存放目录，这里只以shell为例，为了逼格，将.sh改为了.cgi
+$mkdir /usr/local/nginx/cgi-bin/
+$cd /usr/local/nginx/cgi-bin/
+$vim hello.cgi
+  1 #!/bin/bash
+  2 echo &quot;Content-Type:text/html&quot;  
+  3 echo &quot;&quot;
+  4 
+  5 date                                                                                                               
+  6 echo -e &quot;\nhello world!&quot;
+$sudo chmod 755 hello.cgi
+</code></pre><h1 id="5，启动命令"><a href="#5，启动命令" class="headerlink" title="5，启动命令"></a>5，启动命令</h1><pre><code>sudo /usr/local/bin/spawn-fcgi -f /usr/local/sbin/fcgiwrap -a 127.0.0.1 -p 8092 -F 32 -P /usr/local/nginx/fcgiwrap.pid
+</code></pre><h1 id="6，修改nginx配置"><a href="#6，修改nginx配置" class="headerlink" title="6，修改nginx配置"></a>6，修改nginx配置</h1><pre><code>$vim /usr/local/nginx/conf/nginx.conf
+server {
+    listen       8090;#设置监听端口
+    server_name  localhost;
+    error_log /usr/local/nginx/logs/cgi_test.log info; #设置日志路径和模式
+
+    location /hello.cgi {
+        fastcgi_param  SCRIPT_FILENAME  /usr/local/nginx/cgi-bin/$fastcgi_script_name; #设置脚本存放目录
+        fastcgi_index index.cgi;
+        include fastcgi_params;
+        include fastcgi.conf;
+        fastcgi_pass 127.0.0.1:8092; #监听端口
+    }
+}
+</code></pre><h1 id="7，nginx重启"><a href="#7，nginx重启" class="headerlink" title="7，nginx重启"></a>7，nginx重启</h1><pre><code>Nginx启动：
+/usr/local/nginx/sbin/nginx
+Nginx主进程号：
+ps -ef | grep &quot;nginx: master process&quot; | grep -v &quot;grep&quot; | awk -F &apos; &apos; &apos;{print $2}‘
+cat /usr/local/nginx/logs/nginx.pid
+Nginx配置文件：
+/usr/local/nginx/conf/nginx.conf 
+Nginx配置文件测试：
+sudo  /usr/local/nginx/sbin/nginx –t
+使配置生效：
+kill -HUP `cat /usr/local/nginx/logs/nginx.pid`
+
+重启nginx后，在浏览器输入http://server_ip:port/hello.cgi
+</code></pre><h1 id="8，参考链接"><a href="#8，参考链接" class="headerlink" title="8，参考链接"></a>8，参考链接</h1><h2 id="CGI相关："><a href="#CGI相关：" class="headerlink" title="CGI相关："></a>CGI相关：</h2><pre><code>http://www.jdon.com/idea/cgi.htm
+http://www.cnblogs.com/skynet/p/4173450.html
+http://www.cnblogs.com/liuzhang/p/3929198.html
+</code></pre><h2 id="nginx相关："><a href="#nginx相关：" class="headerlink" title="nginx相关："></a>nginx相关：</h2><pre><code>http://developer.51cto.com/art/201004/194472.htm  
+https://segmentfault.com/a/1190000002797601
+http://blog.csdn.net/allenlinrui/article/details/19419721
+http://blog.163.com/koumm@126/blog/static/9540383720096307529267/
+http://zyan.cc/nginx_php_v5/
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。&lt;/p&gt;
+&lt;h1 id=&quot;1，安装fcgi-spwan&quot;&gt;&lt;a href=&quot;#1，安装fcgi-spwan&quot; class=&quot;headerlink&quot; title=&quot;1，安装fcgi-spwan
+    
+    </summary>
+    
+    
+      <category term="后端服务，CGI" scheme="http://yoursite.com/tags/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%EF%BC%8CCGI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R语言入门-数据读取</title>
+    <link href="http://yoursite.com/2016/05/11/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96/"/>
+    <id>http://yoursite.com/2016/05/11/R语言入门-数据读取/</id>
+    <published>2016-05-11T13:00:49.000Z</published>
+    <updated>2016-05-11T13:10:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
+</code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
+</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
+</code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
+read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1，首先需要确认工作空间&quot;&gt;&lt;a href=&quot;#1，首先需要确认工作空间&quot; class=&quot;headerlink&quot; title=&quot;1，首先需要确认工作空间&quot;&gt;&lt;/a&gt;1，首先需要确认工作空间&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;getwd()
+&lt;/code&gt;&lt;/pre&gt;&lt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>R语言入门-尝试</title>
+    <link href="http://yoursite.com/2016/05/11/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E5%B0%9D%E8%AF%95/"/>
+    <id>http://yoursite.com/2016/05/11/R语言入门-尝试/</id>
+    <published>2016-05-11T07:59:38.000Z</published>
+    <updated>2016-05-11T12:04:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
+<h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
+</code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><pre><code>install.packages(&apos;RMySQL&apos;)
+</code></pre><h2 id="ODPS"><a href="#ODPS" class="headerlink" title="ODPS"></a>ODPS</h2><pre><code>RODPS
+</code></pre><h2 id="其他形式的数据读取（再补充）"><a href="#其他形式的数据读取（再补充）" class="headerlink" title="其他形式的数据读取（再补充）"></a>其他形式的数据读取（再补充）</h2><h1 id="2，数据表现形式"><a href="#2，数据表现形式" class="headerlink" title="2，数据表现形式"></a>2，数据表现形式</h1><pre><code>data.frame
+</code></pre><h1 id="3-数据打理"><a href="#3-数据打理" class="headerlink" title="3, 数据打理"></a>3, 数据打理</h1><h2 id="tidyr"><a href="#tidyr" class="headerlink" title="tidyr"></a>tidyr</h2><pre><code>行变列，列变行（reshape2）
+</code></pre><h2 id="dplyr"><a href="#dplyr" class="headerlink" title="dplyr"></a>dplyr</h2><pre><code>分组汇总（plyr）
+</code></pre><h1 id="4，绘图"><a href="#4，绘图" class="headerlink" title="4，绘图"></a>4，绘图</h1><h2 id="ggplot2"><a href="#ggplot2" class="headerlink" title="ggplot2"></a>ggplot2</h2><pre><code>类似PS分图层绘图，图片
+</code></pre><h2 id="plotly"><a href="#plotly" class="headerlink" title="plotly"></a>plotly</h2><pre><code>动态的JavaScript显示，ggplotly（p）
+</code></pre><h1 id="5，-分享，输出"><a href="#5，-分享，输出" class="headerlink" title="5， 分享，输出"></a>5， 分享，输出</h1><h2 id="RMarkdown"><a href="#RMarkdown" class="headerlink" title="RMarkdown"></a>RMarkdown</h2><pre><code>输出为文档：pdf,word,html
+</code></pre><h2 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h2><pre><code>输出交互类网页，接受用户输入（文本框，按钮，选择框等）。可用于定制分析系统。
+</code></pre><h1 id="6，-空间数据存储与可视化"><a href="#6，-空间数据存储与可视化" class="headerlink" title="6， 空间数据存储与可视化"></a>6， 空间数据存储与可视化</h1><pre><code>shape，leaflet
+</code></pre><p>上述有很多包名的书写大小写有待考证，先上一部分，后续学习中完善。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。&lt;/p&gt;
+&lt;h1 id=&quot;1，数据读取&quot;&gt;&lt;a href=&quot;#1，数据读取&quot; class=&quot;headerlink&quot; title=&quot;1，数据读取&quot;&gt;&lt;/a&gt;1，数据读取&lt;/h1&gt;&lt;h2 id=&quot;文
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

@@ -86,16 +86,31 @@
 
 
 
-<meta name="description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
+<meta name="description" content="一,Cloudera Manager 安装后的各个目录
+/var/log/cloudera-scm-installer : 安装日志目录。
+/var/log/* : 相关日志文件（相关服务的及CM的）。
+/usr/share/cmf/ : 程序安装目录。
+/usr/lib64/cmf/ : Agent程序代码。
+/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言入门-我的HelloWorld">
-<meta property="og:url" content="http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/index.html">
+<meta property="og:title" content="使用Cloudera快速部署Hadoop集群(二)">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
-<meta property="og:updated_time" content="2016-05-21T14:51:14.000Z">
+<meta property="og:description" content="一,Cloudera Manager 安装后的各个目录
+/var/log/cloudera-scm-installer : 安装日志目录。
+/var/log/* : 相关日志文件（相关服务的及CM的）。
+/usr/share/cmf/ : 程序安装目录。
+/usr/lib64/cmf/ : Agent程序代码。
+/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
+<meta property="og:updated_time" content="2016-09-07T03:36:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R语言入门-我的HelloWorld">
-<meta name="twitter:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
+<meta name="twitter:title" content="使用Cloudera快速部署Hadoop集群(二)">
+<meta name="twitter:description" content="一,Cloudera Manager 安装后的各个目录
+/var/log/cloudera-scm-installer : 安装日志目录。
+/var/log/* : 相关日志文件（相关服务的及CM的）。
+/usr/share/cmf/ : 程序安装目录。
+/usr/lib64/cmf/ : Agent程序代码。
+/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
 
 
 
@@ -113,7 +128,7 @@
   };
 </script>
 
-  <title> R语言入门-我的HelloWorld | adbibo's blog </title>
+  <title> 使用Cloudera快速部署Hadoop集群(二) | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +268,7 @@
             
             
               
-                R语言入门-我的HelloWorld
+                使用Cloudera快速部署Hadoop集群(二)
               
             
           </h1>
@@ -265,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-20T14:17:53+08:00" content="2016-05-20">
-              2016-05-20
+            <time itemprop="dateCreated" datetime="2016-09-07T11:36:12+08:00" content="2016-09-07">
+              2016-09-07
             </time>
           </span>
 
@@ -276,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/20/R语言入门-我的HelloWorld/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/20/R语言入门-我的HelloWorld/" itemprop="commentsCount"></span>
+                <a href="/2016/09/07/使用Cloudera快速部署Hadoop集群-二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/07/使用Cloudera快速部署Hadoop集群-二/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -300,121 +315,77 @@
       
 
       
-        <p>前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细介绍实现R语言代码，其中涉及到公司内部的数据、规格的名称、名词全部更替，最终的也不会放上任何展示界面。</p>
-<h1 id="1，数据预处理"><a href="#1，数据预处理" class="headerlink" title="1，数据预处理"></a>1，数据预处理</h1><pre><code>拿到需要处理的数据，首先需要做预处理，这个切记！
-预处理时，需要根据自己的需求--最终展示需要的事项来展开。这里就不赘述了。
-</code></pre><h1 id="2，R语言展示部分"><a href="#2，R语言展示部分" class="headerlink" title="2，Ｒ语言展示部分"></a>2，Ｒ语言展示部分</h1><p>###　先上代码。</p>
-<pre><code>#画图
-library(ggplot2)
-library(plotly)
-#行列处理
-library(dplyr)
-library(tidyr)
-#页面展示
-library(shiny)
-
-#设置工作空间
-setwd(&apos;/home/user/project-dir/data/&apos;)
-#读数据
-#假设数据有城市（cityname）,数据类型（data_type）,数据等级（data_class）,其他字段（这里忽略）等字段
-log_df &lt;- read.table(&apos;data_file&apos;, header = TRUE, sep = &quot;,&quot;, fileEncoding=&quot;utf-8&quot;)
-#两个文件有关联信息，这部分数据包含城市（cityname）,城市类型（citytype）
-config_df &lt;- read.table(&apos;config_file&apos;,header = TRUE, sep = &quot;,&quot;, fileEncoding = &quot;utf-8&quot;)
-
-#按城市、数据类型、等级聚合，统计
-datatype_df &lt;- df_feedback %&gt;%
-  group_by(cityname, data_type, data_class) %&gt;%
-  summarise(plot_dt_cnt = n())
-
-#按城市和数据类型聚合，统计
-datatype_sum_df &lt;- df_feedback %&gt;%
-  group_by(cityname, data_type) %&gt;%
-  summarise(plot_dt_cnt_sum=n())
-
-#聚合上述量表，主要是为了拿到各城市各类型的占比统计所需数据
-datatype_df_together &lt;- dplyr::inner_join(datatype_df, datatype_sum_df, by=c(&quot;cityname&quot;, &quot;data_type&quot;))
-
-#新增占比统计字段
-datatype_df_together &lt;- datatype_df_together %&gt;%
-  mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
-
-#按城市和data_class计数
-data_class_df &lt;- df_feedback %&gt;% 
-  group_by(cityname, data_class, data_type) %&gt;%
-  summarise(plot_rc_cnt=n())
-
-#界面
-ui &lt;- fluidPage(
-    #大标题
-  titlePanel(&quot;全国问题反馈数据相关分布&quot;),
-  fluidRow(
-    #小标题
-    h4(&quot;各种问题分布&quot;),
-    #选项
-    column(3,selectInput(inputId = &quot;data_type&quot;, label=&quot;请选择需要展示的问题类型&quot;, choices=levels(datatype_df$data_type), multiple = TRUE, selected=&quot;数据类型-1&quot;)),
-    #内容展示
-    column(9, plotlyOutput(outputId=&quot;plot_datatype_output&quot;))
-  ),
-  fluidRow(
-    #小标题
-    h4(&quot;各城市数据等级分布&quot;),
-    #选项
-    column(3,selectInput(inputId = &quot;cityname&quot;, label=&quot;请选择需要展示的城市&quot;, choices=levels(data_class_df$cityname), multiple = TRUE, selected=&quot;北京市&quot;)),
-    #内容展示
-    column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
-  ),
-  fluidRow(
-    #小标题 
-    h4(&quot;各城市数据等级分布&quot;),
-    #选项1
-    column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
-    #选项2
-    column(2,selectInput(inputId = &quot;level_cityname&quot;, label=&quot;请选择需要的城市&quot;, choices=levels(filter(citylevel_df, level==&quot;S级&quot;)[,1]), selected=&quot;北京市&quot;)),
-    #内容展示
-    column(8, plotlyOutput(outputId=&quot;plot_level_cityname_output&quot;))
-  )
-)
-
-s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
-#服务
-server &lt;- function( input, output, session) {
-  #按数据类型统计输出S级城市统计结果
-  output$plot_datatype_output &lt;- renderPlotly({
-    p_datatype &lt;- ggplot(datatype_df_together %&gt;% filter(data_type %in% input$data_type, cityname %in% s_citylist)) +
-      geom_bar(aes(x=as.factor(cityname), weight=plot_dt_ratio, fill=as.factor(data_class)), position=&quot;dodge&quot;) + facet_wrap(~data_type)
-    p_datatype &lt;- p_datatype + xlab(&quot;city&quot;) + ylab(&quot;percent&quot;)
-    ggplotly(p_datatype)
-  })
-
-  #按城市统计所有的data_class
-  output$plot_cityname_output &lt;- renderPlotly({
-    p_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname %in% input$cityname)) +
-      geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
-      xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
-    ggplotly(p_cityname)
-  })
-
-  #选项联动
-  choiced_citylist &lt;- reactive({
-    print(&quot;debug&quot;)
-    citylist &lt;- filter(citylevel_df, level == input$level) %&gt;% mutate(cityname=as.character(cityname)) %&gt;% select(cityname)
-    citylist &lt;- as.vector(citylist)
-    updateSelectInput(session, &quot;level_cityname&quot;, choices = citylist)
-    return (citylist)
-  })
-
-  #按城市级别选择城市输出统计结果
-  output$plot_level_cityname_output &lt;- renderPlotly({
-    tmp &lt;- choiced_citylist()
-    p_level_cityname &lt;- ggplot(data_class_df %&gt;% filter(cityname==input$level_cityname)) +
-          geom_bar(aes(x = as.factor(data_class), weight=plot_rc_cnt, fill= as.factor(data_type)), position = &quot;dodge&quot;) +
-          xlab(&quot;data_class&quot;) + ylab(&quot;CNT&quot;) + facet_wrap(~cityname)
-    ggplotly(p_level_cityname)
-  })
-}
-
-shinyApp(ui=ui, server=server)
-</code></pre><p>附：需要一台部署了shiny server的服务器。</p>
+        <h3 id="一-Cloudera-Manager-安装后的各个目录"><a href="#一-Cloudera-Manager-安装后的各个目录" class="headerlink" title="一,Cloudera Manager 安装后的各个目录"></a>一,Cloudera Manager 安装后的各个目录</h3><ul>
+<li>/var/log/cloudera-scm-installer : 安装日志目录。</li>
+<li>/var/log/* : 相关日志文件（相关服务的及CM的）。</li>
+<li>/usr/share/cmf/ : 程序安装目录。</li>
+<li>/usr/lib64/cmf/ : Agent程序代码。</li>
+<li>/var/lib/cloudera-scm-server-db/data: 内嵌数据库目录。</li>
+<li>/usr/bin/postgres : 内嵌数据库程序。</li>
+<li>/etc/cloudera-scm-agent/ : agent的配置目录。</li>
+<li>/etc/cloudera-scm-server/ : server的配置目录。</li>
+<li>/opt/cloudera/parcels/ : Hadoop相关服务安装目录。</li>
+<li>/opt/cloudera/parcel-repo/ : 下载的服务软件包数据，数据格式为parcels。</li>
+<li>/opt/cloudera/parcel-cache/ : 下载的服务软件包缓存数据。</li>
+<li>/etc/hadoop/* : 客户端配置文件目录。</li>
+</ul>
+<h3 id="二-各节点服务详述"><a href="#二-各节点服务详述" class="headerlink" title="二,各节点服务详述"></a>二,各节点服务详述</h3><p>利用Cloudera Manager安装CDH，需要配置各节点角色，现将各服务节点角色一一说明。</p>
+<h4 id="1-HDFS"><a href="#1-HDFS" class="headerlink" title="1,HDFS"></a>1,HDFS</h4><p><a href="hadoop.apache.org">Apache hadoop官网</a>描述如下：</p>
+<pre><code>Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+</code></pre><ul>
+<li>Gateway</li>
+<li>HttpFS</li>
+<li>NameNode</li>
+<li>DataNode</li>
+<li>SecondaryNameNode</li>
+<li>Balancer</li>
+<li>HttpFS</li>
+<li>NFS Gateway</li>
+</ul>
+<h4 id="2-HBase"><a href="#2-HBase" class="headerlink" title="2,HBase"></a>2,HBase</h4><ul>
+<li>Gateway</li>
+<li>Master</li>
+<li>HBase REST Server</li>
+<li>HBase Thrift Server</li>
+<li>Region Server</li>
+</ul>
+<h4 id="3-YRAN"><a href="#3-YRAN" class="headerlink" title="3,YRAN"></a>3,YRAN</h4><ul>
+<li>Resource  Manager</li>
+<li>JobHistory Server</li>
+<li>NodeManager</li>
+</ul>
+<h4 id="4-Spark"><a href="#4-Spark" class="headerlink" title="4,Spark"></a>4,Spark</h4><ul>
+<li>History Server</li>
+<li>Gateway</li>
+<li>Livy Server</li>
+</ul>
+<h4 id="5-ZooKeeper"><a href="#5-ZooKeeper" class="headerlink" title="5,ZooKeeper"></a>5,ZooKeeper</h4><ul>
+<li>server</li>
+</ul>
+<h4 id="6-Hive"><a href="#6-Hive" class="headerlink" title="6,Hive"></a>6,Hive</h4><ul>
+<li>Gateway</li>
+<li>Hive Metastore Server</li>
+<li>WebHcat</li>
+<li>HiveServer2</li>
+</ul>
+<h4 id="7-HUE"><a href="#7-HUE" class="headerlink" title="7,HUE"></a>7,HUE</h4><ul>
+<li>Hue Server</li>
+</ul>
+<h4 id="8-Impala"><a href="#8-Impala" class="headerlink" title="8,Impala"></a>8,Impala</h4><ul>
+<li>Impala Catalog Server</li>
+<li>Impala Llama ApplicationMaster</li>
+<li>Impala Daemon</li>
+</ul>
+<h4 id="9-Oozie"><a href="#9-Oozie" class="headerlink" title="9,Oozie"></a>9,Oozie</h4><ul>
+<li>Oozie Server</li>
+</ul>
+<h4 id="10-Solr"><a href="#10-Solr" class="headerlink" title="10,Solr"></a>10,Solr</h4><ul>
+<li>Gateway</li>
+<li>Solr Server</li>
+</ul>
+<h4 id="11-Key-Value-Store-Indexer"><a href="#11-Key-Value-Store-Indexer" class="headerlink" title="11,Key-Value Store Indexer"></a>11,Key-Value Store Indexer</h4><ul>
+<li>Lily HBase Indexer</li>
+</ul>
 
       
     </div>
@@ -439,16 +410,16 @@ shinyApp(ui=ui, server=server)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/12/如何配置fastCGI使nginx支持CGI/" rel="next" title="如何配置fastCGI使nginx支持CGI">
-                <i class="fa fa-chevron-left"></i> 如何配置fastCGI使nginx支持CGI
+              <a href="/2016/08/29/使用Cloudera快速部署Hadoop集群-一/" rel="next" title="使用Cloudera快速部署Hadoop集群(一)">
+                <i class="fa fa-chevron-left"></i> 使用Cloudera快速部署Hadoop集群(一)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/23/认识ETL/" rel="prev" title="认识ETL">
-                认识ETL <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/11/GIT使用实战/" rel="prev" title="GIT使用实战">
+                GIT使用实战 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -571,7 +542,7 @@ shinyApp(ui=ui, server=server)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1，数据预处理"><span class="nav-text">1，数据预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，R语言展示部分"><span class="nav-text">2，Ｒ语言展示部分</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-Cloudera-Manager-安装后的各个目录"><span class="nav-text">一,Cloudera Manager 安装后的各个目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-各节点服务详述"><span class="nav-text">二,各节点服务详述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HDFS"><span class="nav-text">1,HDFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HBase"><span class="nav-text">2,HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-YRAN"><span class="nav-text">3,YRAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Spark"><span class="nav-text">4,Spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ZooKeeper"><span class="nav-text">5,ZooKeeper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Hive"><span class="nav-text">6,Hive</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-HUE"><span class="nav-text">7,HUE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Impala"><span class="nav-text">8,Impala</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Oozie"><span class="nav-text">9,Oozie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Solr"><span class="nav-text">10,Solr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-Key-Value-Store-Indexer"><span class="nav-text">11,Key-Value Store Indexer</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -691,9 +662,9 @@ shinyApp(ui=ui, server=server)
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/05/20/R语言入门-我的HelloWorld/';
-      var disqus_title = 'R语言入门-我的HelloWorld';
-      var disqus_url = 'http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/';
+      var disqus_identifier = '2016/09/07/使用Cloudera快速部署Hadoop集群-二/';
+      var disqus_title = '使用Cloudera快速部署Hadoop集群(二)';
+      var disqus_url = 'http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
