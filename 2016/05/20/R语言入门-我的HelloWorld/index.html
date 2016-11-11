@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="R语言," />
 
 
 
@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/index.html">
 <meta property="og:site_name" content="adbibo's blog">
 <meta property="og:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
-<meta property="og:updated_time" content="2016-05-21T14:51:14.000Z">
+<meta property="og:updated_time" content="2016-11-11T08:18:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言入门-我的HelloWorld">
 <meta name="twitter:description" content="前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细">
@@ -271,6 +271,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -339,7 +358,7 @@ datatype_df_together &lt;- datatype_df_together %&gt;%
   mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
 
 #按城市和data_class计数
-data_class_df &lt;- df_feedback %&gt;% 
+data_class_df &lt;- df_feedback %&gt;%
   group_by(cityname, data_class, data_type) %&gt;%
   summarise(plot_rc_cnt=n())
 
@@ -364,7 +383,7 @@ ui &lt;- fluidPage(
     column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
   ),
   fluidRow(
-    #小标题 
+    #小标题
     h4(&quot;各城市数据等级分布&quot;),
     #选项1
     column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
@@ -375,7 +394,7 @@ ui &lt;- fluidPage(
   )
 )
 
-s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
+s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]
 #服务
 server &lt;- function( input, output, session) {
   #按数据类型统计输出S级城市统计结果
@@ -433,6 +452,12 @@ shinyApp(ui=ui, server=server)
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R语言/" rel="tag">#R语言</a>
+          
+        </div>
       
 
       
@@ -531,11 +556,18 @@ shinyApp(ui=ui, server=server)
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

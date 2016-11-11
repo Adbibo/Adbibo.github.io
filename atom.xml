@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-11T07:50:27.000Z</updated>
+  <updated>2016-11-11T08:21:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/11/GIT%E4%BD%BF%E7%94%A8%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2016/11/11/GIT使用实战/</id>
     <published>2016-11-11T07:48:49.000Z</published>
-    <updated>2016-11-11T07:50:27.000Z</updated>
+    <updated>2016-11-11T08:21:41.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>推荐廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
 <p>省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。</p>
@@ -101,7 +101,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (15/15), done.
 Writing objects: 100% (17/17), 4.15 KiB | 0 bytes/s, done.
 Total 17 (delta 2), reused 0 (delta 0)
-</code></pre><h3 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h3><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
+</code></pre><h2 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h2><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
 <li><p><a href="github.com">github.com</a></p>
 <p> 开源项目很多，可以管理个人创建的项目，public的项目免费，如果创建private的需要money。可以搭个人blog，我用的hexo，简单配置即可。</p>
 </li>
@@ -120,6 +120,10 @@ Total 17 (delta 2), reused 0 (delta 0)
     
     </summary>
     
+      <category term="其他" scheme="http://yoursite.com/categories/other/"/>
+    
+    
+      <category term="GIT" scheme="http://yoursite.com/tags/GIT/"/>
     
   </entry>
   
@@ -128,7 +132,7 @@ Total 17 (delta 2), reused 0 (delta 0)
     <link href="http://yoursite.com/2016/09/07/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%BA%8C/"/>
     <id>http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/</id>
     <published>2016-09-07T03:36:12.000Z</published>
-    <updated>2016-09-07T03:36:51.000Z</updated>
+    <updated>2016-11-11T08:21:44.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一-Cloudera-Manager-安装后的各个目录"><a href="#一-Cloudera-Manager-安装后的各个目录" class="headerlink" title="一,Cloudera Manager 安装后的各个目录"></a>一,Cloudera Manager 安装后的各个目录</h3><ul>
 <li>/var/log/cloudera-scm-installer : 安装日志目录。</li>
@@ -209,6 +213,10 @@ Total 17 (delta 2), reused 0 (delta 0)
     
     </summary>
     
+      <category term="平台开发" scheme="http://yoursite.com/categories/platform/"/>
+    
+    
+      <category term="平台开发, CDH" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91-CDH/"/>
     
   </entry>
   
@@ -217,7 +225,7 @@ Total 17 (delta 2), reused 0 (delta 0)
     <link href="http://yoursite.com/2016/08/29/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%B8%80/"/>
     <id>http://yoursite.com/2016/08/29/使用Cloudera快速部署Hadoop集群-一/</id>
     <published>2016-08-29T14:10:44.000Z</published>
-    <updated>2016-08-29T14:11:29.000Z</updated>
+    <updated>2016-11-11T08:16:48.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p> 换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。</p>
@@ -246,6 +254,10 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     
     </summary>
     
+      <category term="平台开发" scheme="http://yoursite.com/categories/platform/"/>
+    
+    
+      <category term="平台开发, CDH" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91-CDH/"/>
     
   </entry>
   
@@ -254,7 +266,7 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     <link href="http://yoursite.com/2016/07/23/%E8%AE%A4%E8%AF%86ETL/"/>
     <id>http://yoursite.com/2016/07/23/认识ETL/</id>
     <published>2016-07-23T13:37:41.000Z</published>
-    <updated>2016-07-24T02:11:19.000Z</updated>
+    <updated>2016-11-11T08:14:41.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近两年一直从事数据处理相关的工作，一年前开始接触数据挖掘的工作，第一个项目就是将两个不同数据源的数据导入项目组odps应用。从数据存放的角度，我的工作分为三部分：1，数据下载（数据存放在不同的服务器）；2，数据清洗格式统一（需要与内部的其它数据保持一致的格式）；3，数据同步至odps（开篇提到的数据需要导入至odps应用中）。其中，主要工作在第二步。当时没有ETL的概念，直到最近新入职一家公司的数据部门，花了不到一周的时间重构了一套ETL流程，才意识到自己一直在从事自己并不认为是ETL开发的工作。于是决定趁今天晚上的时间，利用网络上已有的知识系统地学习ETL。</p>
@@ -344,6 +356,12 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     
     </summary>
     
+      <category term="数据开发" scheme="http://yoursite.com/categories/datadev/"/>
+    
+    
+      <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
     
   </entry>
   
@@ -352,7 +370,7 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     <link href="http://yoursite.com/2016/05/20/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E6%88%91%E7%9A%84HelloWorld/"/>
     <id>http://yoursite.com/2016/05/20/R语言入门-我的HelloWorld/</id>
     <published>2016-05-20T06:17:53.000Z</published>
-    <updated>2016-05-21T14:51:14.000Z</updated>
+    <updated>2016-11-11T08:18:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>前几天，主管拿到一份数据，让我做一个分城市统计，原本想先对数据做一些清洗，然后在excel中做一些统计分析。但是转念一想，全国300+的城市，展示是个难题，想到前几天看到组里面另外一个同事——就是我之前提到过的追兵同学，他之前做过一个数据展示的界面，还不错，于是要来他的源码，一知半解地边查资料、边咨询，最后做了一个统计结果的展示界面了，也算是我的R语言入门的HelloWorld了。下面开始我将详细介绍实现R语言代码，其中涉及到公司内部的数据、规格的名称、名词全部更替，最终的也不会放上任何展示界面。</p>
 <h1 id="1，数据预处理"><a href="#1，数据预处理" class="headerlink" title="1，数据预处理"></a>1，数据预处理</h1><pre><code>拿到需要处理的数据，首先需要做预处理，这个切记！
@@ -393,7 +411,7 @@ datatype_df_together &lt;- datatype_df_together %&gt;%
   mutate(plot_dt_ratio=plot_dt_cnt/plot_dt_cnt_sum)
 
 #按城市和data_class计数
-data_class_df &lt;- df_feedback %&gt;% 
+data_class_df &lt;- df_feedback %&gt;%
   group_by(cityname, data_class, data_type) %&gt;%
   summarise(plot_rc_cnt=n())
 
@@ -418,7 +436,7 @@ ui &lt;- fluidPage(
     column(9, plotlyOutput(outputId=&quot;plot_cityname_output&quot;))
   ),
   fluidRow(
-    #小标题 
+    #小标题
     h4(&quot;各城市数据等级分布&quot;),
     #选项1
     column(2,selectInput(inputId = &quot;level&quot;, label=&quot;请选择需要的城市级别&quot;, choices=levels(citylevel_df$level), selected=&quot;S级&quot;)),
@@ -429,7 +447,7 @@ ui &lt;- fluidPage(
   )
 )
 
-s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]    
+s_citylist &lt;- filter(citylevel_df, level==&quot;S级&quot;) [,1]
 #服务
 server &lt;- function( input, output, session) {
   #按数据类型统计输出S级城市统计结果
@@ -477,6 +495,10 @@ shinyApp(ui=ui, server=server)
     
     </summary>
     
+      <category term="数据分析" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="R语言" scheme="http://yoursite.com/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -485,7 +507,7 @@ shinyApp(ui=ui, server=server)
     <link href="http://yoursite.com/2016/05/12/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEfastCGI%E4%BD%BFnginx%E6%94%AF%E6%8C%81CGI/"/>
     <id>http://yoursite.com/2016/05/12/如何配置fastCGI使nginx支持CGI/</id>
     <published>2016-05-12T02:28:47.000Z</published>
-    <updated>2016-05-18T02:04:15.000Z</updated>
+    <updated>2016-11-11T08:15:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
 <h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
@@ -564,7 +586,7 @@ $vim hello.cgi
   1 #!/bin/bash
   2 echo &quot;Content-Type:text/html&quot;  
   3 echo &quot;&quot;
-  4 
+  4
   5 date                                                                                                               
   6 echo -e &quot;\nhello world!&quot;
 $sudo chmod 755 hello.cgi
@@ -589,7 +611,7 @@ Nginx主进程号：
 ps -ef | grep &quot;nginx: master process&quot; | grep -v &quot;grep&quot; | awk -F &apos; &apos; &apos;{print $2}‘
 cat /usr/local/nginx/logs/nginx.pid
 Nginx配置文件：
-/usr/local/nginx/conf/nginx.conf 
+/usr/local/nginx/conf/nginx.conf
 Nginx配置文件测试：
 sudo  /usr/local/nginx/sbin/nginx –t
 使配置生效：
@@ -613,6 +635,8 @@ http://zyan.cc/nginx_php_v5/
     
     </summary>
     
+      <category term="后端开发" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
     
       <category term="后端服务，CGI" scheme="http://yoursite.com/tags/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%EF%BC%8CCGI/"/>
     
@@ -623,11 +647,11 @@ http://zyan.cc/nginx_php_v5/
     <link href="http://yoursite.com/2016/05/11/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96/"/>
     <id>http://yoursite.com/2016/05/11/R语言入门-数据读取/</id>
     <published>2016-05-11T13:00:49.000Z</published>
-    <updated>2016-05-11T13:10:13.000Z</updated>
+    <updated>2016-11-11T08:21:51.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1，首先需要确认工作空间"><a href="#1，首先需要确认工作空间" class="headerlink" title="1，首先需要确认工作空间"></a>1，首先需要确认工作空间</h1><pre><code>getwd()
 </code></pre><h1 id="2，设置工作空间"><a href="#2，设置工作空间" class="headerlink" title="2，设置工作空间"></a>2，设置工作空间</h1><pre><code>setwd(&apos;path&apos;)
-</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir() 
+</code></pre><h1 id="3，确认当前路径下是否包含所需处理数据文件"><a href="#3，确认当前路径下是否包含所需处理数据文件" class="headerlink" title="3，确认当前路径下是否包含所需处理数据文件"></a>3，确认当前路径下是否包含所需处理数据文件</h1><pre><code>dir()
 </code></pre><h1 id="4，读取数据"><a href="#4，读取数据" class="headerlink" title="4，读取数据"></a>4，读取数据</h1><pre><code>read.csv(&apos;csv_filename&apos;)
 read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可以用来读取csv文件，默认没有列名
 </code></pre>]]></content>
@@ -639,6 +663,10 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
     
     </summary>
     
+      <category term="数据分析" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="R语言" scheme="http://yoursite.com/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
@@ -647,7 +675,7 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
     <link href="http://yoursite.com/2016/05/11/R%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8-%E5%B0%9D%E8%AF%95/"/>
     <id>http://yoursite.com/2016/05/11/R语言入门-尝试/</id>
     <published>2016-05-11T07:59:38.000Z</published>
-    <updated>2016-05-11T12:04:16.000Z</updated>
+    <updated>2016-11-11T08:21:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>突然对数据分析利器很感兴趣，就找同事追兵请教了一番。今天刚好整理下整个学习流程。</p>
 <h1 id="1，数据读取"><a href="#1，数据读取" class="headerlink" title="1，数据读取"></a>1，数据读取</h1><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><pre><code>read.table()
@@ -671,6 +699,10 @@ read.table(&apos;filename&apos;,sep=&apos;delimeter&apos;，header=FALSE)#也可
     
     </summary>
     
+      <category term="数据分析" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="R语言" scheme="http://yoursite.com/tags/R%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
