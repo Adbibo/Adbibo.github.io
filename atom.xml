@@ -120,7 +120,7 @@ Total 17 (delta 2), reused 0 (delta 0)
     
     </summary>
     
-      <category term="其他" scheme="http://yoursite.com/categories/other/"/>
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
     
     
       <category term="GIT" scheme="http://yoursite.com/tags/GIT/"/>
@@ -132,7 +132,7 @@ Total 17 (delta 2), reused 0 (delta 0)
     <link href="http://yoursite.com/2016/09/07/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%BA%8C/"/>
     <id>http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/</id>
     <published>2016-09-07T03:36:12.000Z</published>
-    <updated>2016-11-11T08:21:44.000Z</updated>
+    <updated>2016-11-11T08:33:44.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一-Cloudera-Manager-安装后的各个目录"><a href="#一-Cloudera-Manager-安装后的各个目录" class="headerlink" title="一,Cloudera Manager 安装后的各个目录"></a>一,Cloudera Manager 安装后的各个目录</h3><ul>
 <li>/var/log/cloudera-scm-installer : 安装日志目录。</li>
@@ -213,10 +213,12 @@ Total 17 (delta 2), reused 0 (delta 0)
     
     </summary>
     
-      <category term="平台开发" scheme="http://yoursite.com/categories/platform/"/>
+      <category term="平台开发" scheme="http://yoursite.com/categories/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="平台开发, CDH" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91-CDH/"/>
+      <category term="平台开发" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="CDH" scheme="http://yoursite.com/tags/CDH/"/>
     
   </entry>
   
@@ -225,7 +227,7 @@ Total 17 (delta 2), reused 0 (delta 0)
     <link href="http://yoursite.com/2016/08/29/%E4%BD%BF%E7%94%A8Cloudera%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Hadoop%E9%9B%86%E7%BE%A4-%E4%B8%80/"/>
     <id>http://yoursite.com/2016/08/29/使用Cloudera快速部署Hadoop集群-一/</id>
     <published>2016-08-29T14:10:44.000Z</published>
-    <updated>2016-11-11T08:16:48.000Z</updated>
+    <updated>2016-11-11T08:33:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p> 换到新公司已经一个半月，做了两个小项目，现在在进行第三个大项目。由于部门是新成立的，需要搭建数据中心的基础数据平台，我先试个水。</p>
@@ -254,10 +256,12 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     
     </summary>
     
-      <category term="平台开发" scheme="http://yoursite.com/categories/platform/"/>
+      <category term="平台开发" scheme="http://yoursite.com/categories/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="平台开发, CDH" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91-CDH/"/>
+      <category term="平台开发" scheme="http://yoursite.com/tags/%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="CDH" scheme="http://yoursite.com/tags/CDH/"/>
     
   </entry>
   
@@ -356,12 +360,12 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
     
     </summary>
     
-      <category term="数据开发" scheme="http://yoursite.com/categories/datadev/"/>
+      <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
-    
-      <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
+    
+      <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -507,7 +511,7 @@ shinyApp(ui=ui, server=server)
     <link href="http://yoursite.com/2016/05/12/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEfastCGI%E4%BD%BFnginx%E6%94%AF%E6%8C%81CGI/"/>
     <id>http://yoursite.com/2016/05/12/如何配置fastCGI使nginx支持CGI/</id>
     <published>2016-05-12T02:28:47.000Z</published>
-    <updated>2016-11-11T08:15:59.000Z</updated>
+    <updated>2016-11-11T08:33:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
 <h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
