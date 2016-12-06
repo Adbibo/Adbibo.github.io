@@ -93,8 +93,8 @@ mysql&amp;gt; use mysql;
 create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
 修改用户名rename">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql数据权限操作">
-<meta property="og:url" content="http://yoursite.com/2016/12/06/mysql数据权限操作/index.html">
+<meta property="og:title" content="mysql数据库权限操作">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/mysql数据库权限操作/index.html">
 <meta property="og:site_name" content="adbibo's blog">
 <meta property="og:description" content="设置用户权限以root账号登录mysql
 mysql -hlocalhost -uroot -p
@@ -102,9 +102,9 @@ mysql&amp;gt; use mysql;
 创建用户create user mike identified by &amp;apos;mike&amp;apos;;
 create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
 修改用户名rename">
-<meta property="og:updated_time" content="2016-12-06T09:13:04.000Z">
+<meta property="og:updated_time" content="2016-12-06T09:24:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql数据权限操作">
+<meta name="twitter:title" content="mysql数据库权限操作">
 <meta name="twitter:description" content="设置用户权限以root账号登录mysql
 mysql -hlocalhost -uroot -p
 mysql&amp;gt; use mysql;
@@ -128,7 +128,7 @@ create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
   };
 </script>
 
-  <title> mysql数据权限操作 | adbibo's blog </title>
+  <title> mysql数据库权限操作 | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +268,7 @@ create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
             
             
               
-                mysql数据权限操作
+                mysql数据库权限操作
               
             
           </h1>
@@ -310,8 +310,8 @@ create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/06/mysql数据权限操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/06/mysql数据权限操作/" itemprop="commentsCount"></span>
+                <a href="/2016/12/06/mysql数据库权限操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/06/mysql数据库权限操作/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -341,7 +341,7 @@ mysql&gt; use mysql;
 create user rainbow@localhost identified by &apos;rainbow&apos;;
 </code></pre><h2 id="修改用户名"><a href="#修改用户名" class="headerlink" title="修改用户名"></a>修改用户名</h2><pre><code>rename user mike to john;
 </code></pre><h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><pre><code>drop user rainbow;
-</code></pre><h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><pre><code>slect host,user from user;
+</code></pre><h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><pre><code>select host,user from user;
 </code></pre><h2 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h2><pre><code>update mysql.user set authentication_string=password(&apos;123qwe&apos;) where user=&apos;john&apos;;
 alter user &apos;john&apos;@&apos;localhost&apos; identified by &apos;123qwe&apos;;
 </code></pre><h2 id="给用户添加权限"><a href="#给用户添加权限" class="headerlink" title="给用户添加权限"></a>给用户添加权限</h2><p>常规权限：</p>
@@ -827,9 +827,9 @@ execute,  操作mysq函数权限
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/12/06/mysql数据权限操作/';
-      var disqus_title = 'mysql数据权限操作';
-      var disqus_url = 'http://yoursite.com/2016/12/06/mysql数据权限操作/';
+      var disqus_identifier = '2016/12/06/mysql数据库权限操作/';
+      var disqus_title = 'mysql数据库权限操作';
+      var disqus_url = 'http://yoursite.com/2016/12/06/mysql数据库权限操作/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

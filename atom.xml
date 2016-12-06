@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-06T09:13:04.000Z</updated>
+  <updated>2016-12-06T09:24:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mysql数据权限操作</title>
-    <link href="http://yoursite.com/2016/12/06/mysql%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C/"/>
-    <id>http://yoursite.com/2016/12/06/mysql数据权限操作/</id>
+    <title>mysql数据库权限操作</title>
+    <link href="http://yoursite.com/2016/12/06/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2016/12/06/mysql数据库权限操作/</id>
     <published>2016-12-06T09:05:31.000Z</published>
-    <updated>2016-12-06T09:13:04.000Z</updated>
+    <updated>2016-12-06T09:24:44.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设置用户权限"><a href="#设置用户权限" class="headerlink" title="设置用户权限"></a>设置用户权限</h1><p>以root账号登录mysql</p>
 <pre><code>mysql -hlocalhost -uroot -p
@@ -29,7 +29,7 @@ mysql&gt; use mysql;
 create user rainbow@localhost identified by &apos;rainbow&apos;;
 </code></pre><h2 id="修改用户名"><a href="#修改用户名" class="headerlink" title="修改用户名"></a>修改用户名</h2><pre><code>rename user mike to john;
 </code></pre><h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><pre><code>drop user rainbow;
-</code></pre><h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><pre><code>slect host,user from user;
+</code></pre><h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><pre><code>select host,user from user;
 </code></pre><h2 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h2><pre><code>update mysql.user set authentication_string=password(&apos;123qwe&apos;) where user=&apos;john&apos;;
 alter user &apos;john&apos;@&apos;localhost&apos; identified by &apos;123qwe&apos;;
 </code></pre><h2 id="给用户添加权限"><a href="#给用户添加权限" class="headerlink" title="给用户添加权限"></a>给用户添加权限</h2><p>常规权限：</p>
@@ -594,9 +594,9 @@ http://blog.chinaunix.net/uid-27105712-id-3274395.html
       <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
-    
       <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="ETL" scheme="http://yoursite.com/tags/ETL/"/>
     
   </entry>
   
