@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="平台开发,CDH," />
+  <meta name="keywords" content="数据开发," />
 
 
 
@@ -86,31 +86,31 @@
 
 
 
-<meta name="description" content="一,Cloudera Manager 安装后的各个目录
-/var/log/cloudera-scm-installer : 安装日志目录。
-/var/log/* : 相关日志文件（相关服务的及CM的）。
-/usr/share/cmf/ : 程序安装目录。
-/usr/lib64/cmf/ : Agent程序代码。
-/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
+<meta name="description" content="设置用户权限以root账号登录mysql
+mysql -hlocalhost -uroot -p
+mysql&amp;gt; use mysql;
+创建用户create user mike identified by &amp;apos;mike&amp;apos;;
+create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
+修改用户名rename">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Cloudera快速部署Hadoop集群(二)">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/index.html">
+<meta property="og:title" content="mysql数据权限操作">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/mysql数据权限操作/index.html">
 <meta property="og:site_name" content="adbibo's blog">
-<meta property="og:description" content="一,Cloudera Manager 安装后的各个目录
-/var/log/cloudera-scm-installer : 安装日志目录。
-/var/log/* : 相关日志文件（相关服务的及CM的）。
-/usr/share/cmf/ : 程序安装目录。
-/usr/lib64/cmf/ : Agent程序代码。
-/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
-<meta property="og:updated_time" content="2016-11-11T08:33:44.000Z">
+<meta property="og:description" content="设置用户权限以root账号登录mysql
+mysql -hlocalhost -uroot -p
+mysql&amp;gt; use mysql;
+创建用户create user mike identified by &amp;apos;mike&amp;apos;;
+create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
+修改用户名rename">
+<meta property="og:updated_time" content="2016-12-06T09:13:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Cloudera快速部署Hadoop集群(二)">
-<meta name="twitter:description" content="一,Cloudera Manager 安装后的各个目录
-/var/log/cloudera-scm-installer : 安装日志目录。
-/var/log/* : 相关日志文件（相关服务的及CM的）。
-/usr/share/cmf/ : 程序安装目录。
-/usr/lib64/cmf/ : Agent程序代码。
-/var/lib/cloudera-scm-server-db/data: 内嵌数据库">
+<meta name="twitter:title" content="mysql数据权限操作">
+<meta name="twitter:description" content="设置用户权限以root账号登录mysql
+mysql -hlocalhost -uroot -p
+mysql&amp;gt; use mysql;
+创建用户create user mike identified by &amp;apos;mike&amp;apos;;
+create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
+修改用户名rename">
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title> 使用Cloudera快速部署Hadoop集群(二) | adbibo's blog </title>
+  <title> mysql数据权限操作 | adbibo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +268,7 @@
             
             
               
-                使用Cloudera快速部署Hadoop集群(二)
+                mysql数据权限操作
               
             
           </h1>
@@ -280,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T11:36:12+08:00" content="2016-09-07">
-              2016-09-07
+            <time itemprop="dateCreated" datetime="2016-12-06T17:05:31+08:00" content="2016-12-06">
+              2016-12-06
             </time>
           </span>
 
@@ -294,8 +294,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/平台开发/" itemprop="url" rel="index">
-                    <span itemprop="name">平台开发</span>
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
                   </a>
                 </span>
 
@@ -310,8 +310,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/07/使用Cloudera快速部署Hadoop集群-二/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/07/使用Cloudera快速部署Hadoop集群-二/" itemprop="commentsCount"></span>
+                <a href="/2016/12/06/mysql数据权限操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/06/mysql数据权限操作/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -334,77 +334,214 @@
       
 
       
-        <h3 id="一-Cloudera-Manager-安装后的各个目录"><a href="#一-Cloudera-Manager-安装后的各个目录" class="headerlink" title="一,Cloudera Manager 安装后的各个目录"></a>一,Cloudera Manager 安装后的各个目录</h3><ul>
-<li>/var/log/cloudera-scm-installer : 安装日志目录。</li>
-<li>/var/log/* : 相关日志文件（相关服务的及CM的）。</li>
-<li>/usr/share/cmf/ : 程序安装目录。</li>
-<li>/usr/lib64/cmf/ : Agent程序代码。</li>
-<li>/var/lib/cloudera-scm-server-db/data: 内嵌数据库目录。</li>
-<li>/usr/bin/postgres : 内嵌数据库程序。</li>
-<li>/etc/cloudera-scm-agent/ : agent的配置目录。</li>
-<li>/etc/cloudera-scm-server/ : server的配置目录。</li>
-<li>/opt/cloudera/parcels/ : Hadoop相关服务安装目录。</li>
-<li>/opt/cloudera/parcel-repo/ : 下载的服务软件包数据，数据格式为parcels。</li>
-<li>/opt/cloudera/parcel-cache/ : 下载的服务软件包缓存数据。</li>
-<li>/etc/hadoop/* : 客户端配置文件目录。</li>
+        <h1 id="设置用户权限"><a href="#设置用户权限" class="headerlink" title="设置用户权限"></a>设置用户权限</h1><p>以root账号登录mysql</p>
+<pre><code>mysql -hlocalhost -uroot -p
+mysql&gt; use mysql;
+</code></pre><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><pre><code>create user mike identified by &apos;mike&apos;;
+create user rainbow@localhost identified by &apos;rainbow&apos;;
+</code></pre><h2 id="修改用户名"><a href="#修改用户名" class="headerlink" title="修改用户名"></a>修改用户名</h2><pre><code>rename user mike to john;
+</code></pre><h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><pre><code>drop user rainbow;
+</code></pre><h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><pre><code>slect host,user from user;
+</code></pre><h2 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h2><pre><code>update mysql.user set authentication_string=password(&apos;123qwe&apos;) where user=&apos;john&apos;;
+alter user &apos;john&apos;@&apos;localhost&apos; identified by &apos;123qwe&apos;;
+</code></pre><h2 id="给用户添加权限"><a href="#给用户添加权限" class="headerlink" title="给用户添加权限"></a>给用户添加权限</h2><p>常规权限：</p>
+<pre><code>select，查
+update，改
+delete，删
+insert，增
+</code></pre><p>数据库开发人员权限：</p>
+<pre><code>create,  建表
+alter,   修改
+drop,    删除
+references,    操作外键权限
+create tempoary tables,  操作临时表权限
+index,  操作索引权限
+create view,  操作试图权限
+show view,  查看试图源代码权限
+create routine,  操作存储过程权限
+alter routine,
+execute,  操作mysq函数权限
+</code></pre><p>DBA权限：</p>
+<pre><code>grant all on *.* to dba@&apos;localhost&apos;  #高级DBA管理MySQL中所有数据库权限
+</code></pre><p>设置权限时必须给出一下信息</p>
+<ul>
+<li>要授予的权限</li>
+<li>被授予访问权限的数据库或表</li>
+<li>用户名</li>
 </ul>
-<h3 id="二-各节点服务详述"><a href="#二-各节点服务详述" class="headerlink" title="二,各节点服务详述"></a>二,各节点服务详述</h3><p>利用Cloudera Manager安装CDH，需要配置各节点角色，现将各服务节点角色一一说明。</p>
-<h4 id="1-HDFS"><a href="#1-HDFS" class="headerlink" title="1,HDFS"></a>1,HDFS</h4><p><a href="hadoop.apache.org">Apache hadoop官网</a>描述如下：</p>
-<pre><code>Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
-</code></pre><ul>
-<li>Gateway</li>
-<li>HttpFS</li>
-<li>NameNode</li>
-<li>DataNode</li>
-<li>SecondaryNameNode</li>
-<li>Balancer</li>
-<li>HttpFS</li>
-<li>NFS Gateway</li>
-</ul>
-<h4 id="2-HBase"><a href="#2-HBase" class="headerlink" title="2,HBase"></a>2,HBase</h4><ul>
-<li>Gateway</li>
-<li>Master</li>
-<li>HBase REST Server</li>
-<li>HBase Thrift Server</li>
-<li>Region Server</li>
-</ul>
-<h4 id="3-YRAN"><a href="#3-YRAN" class="headerlink" title="3,YRAN"></a>3,YRAN</h4><ul>
-<li>Resource  Manager</li>
-<li>JobHistory Server</li>
-<li>NodeManager</li>
-</ul>
-<h4 id="4-Spark"><a href="#4-Spark" class="headerlink" title="4,Spark"></a>4,Spark</h4><ul>
-<li>History Server</li>
-<li>Gateway</li>
-<li>Livy Server</li>
-</ul>
-<h4 id="5-ZooKeeper"><a href="#5-ZooKeeper" class="headerlink" title="5,ZooKeeper"></a>5,ZooKeeper</h4><ul>
-<li>server</li>
-</ul>
-<h4 id="6-Hive"><a href="#6-Hive" class="headerlink" title="6,Hive"></a>6,Hive</h4><ul>
-<li>Gateway</li>
-<li>Hive Metastore Server</li>
-<li>WebHcat</li>
-<li>HiveServer2</li>
-</ul>
-<h4 id="7-HUE"><a href="#7-HUE" class="headerlink" title="7,HUE"></a>7,HUE</h4><ul>
-<li>Hue Server</li>
-</ul>
-<h4 id="8-Impala"><a href="#8-Impala" class="headerlink" title="8,Impala"></a>8,Impala</h4><ul>
-<li>Impala Catalog Server</li>
-<li>Impala Llama ApplicationMaster</li>
-<li>Impala Daemon</li>
-</ul>
-<h4 id="9-Oozie"><a href="#9-Oozie" class="headerlink" title="9,Oozie"></a>9,Oozie</h4><ul>
-<li>Oozie Server</li>
-</ul>
-<h4 id="10-Solr"><a href="#10-Solr" class="headerlink" title="10,Solr"></a>10,Solr</h4><ul>
-<li>Gateway</li>
-<li>Solr Server</li>
-</ul>
-<h4 id="11-Key-Value-Store-Indexer"><a href="#11-Key-Value-Store-Indexer" class="headerlink" title="11,Key-Value Store Indexer"></a>11,Key-Value Store Indexer</h4><ul>
-<li>Lily HBase Indexer</li>
-</ul>
+<p>grant和revoke可以在几个层次上控制访问权限</p>
+<ol>
+<li>整个服务器，使用 grant ALL  和revoke  ALL</li>
+<li>整个数据库，使用on  database.*</li>
+<li>特点表，使用on  database.table</li>
+<li>特定的列</li>
+<li>特定的存储过程</li>
+</ol>
+<p>user表中host列的值的意义</p>
+<table>
+<thead>
+<tr>
+<th>%</th>
+<th>匹配所有主机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localhost</td>
+<td>localhost不会被解析成IP地址，直接通过UNIXsocket连接</td>
+</tr>
+<tr>
+<td>127.0.0.1</td>
+<td>会通过TCP/IP协议连接，并且只能在本机访问</td>
+</tr>
+<tr>
+<td>::1</td>
+<td>::1就是兼容支持ipv6的，表示同ipv4的127.0.0.1</td>
+</tr>
+</tbody>
+</table>
+<p>1.为用户adbibo添加数据库test中所有表的查询权限</p>
+<pre><code>grant select on test.* to &apos;adbibo&apos;@&apos;localhost&apos; identified by &apos;adbibo&apos;;
+</code></pre><p>2.为用户adbibo添加数据库test中所有表的增删改权限</p>
+<pre><code>grant update,delete,insert on test.* to &apos;adbibo&apos;@&apos;localhost&apos; identified by &apos;adbibo&apos;;
+</code></pre><p>3.为用户adbibo添加数据库中所有的权限，最高权限</p>
+<pre><code>grant all privileges on *.* to &apos;adbibo&apos;@&apos;localhost&apos; identified by &apos;adbibo&apos;;
+</code></pre><p>4.删除用户adbibo插入数据库的权限</p>
+<pre><code>revoke insert on *.*  from &apos;adbibo&apos;@&apos;localhost&apos;;
+</code></pre><h1 id="附：-权限表"><a href="#附：-权限表" class="headerlink" title="附： 权限表"></a>附： 权限表</h1><table>
+<thead>
+<tr>
+<th>权限</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all</td>
+<td></td>
+</tr>
+<tr>
+<td>alter</td>
+<td>修改表</td>
+</tr>
+<tr>
+<td>create</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td>index</td>
+<td>可以使用create index 和drop index</td>
+</tr>
+<tr>
+<td>create view</td>
+<td>创建试图</td>
+</tr>
+<tr>
+<td>show view</td>
+<td>显示视图内容</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>select</td>
+<td>查询表</td>
+</tr>
+<tr>
+<td>update</td>
+<td>更新表内容</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除表内容</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>向表中插入记录</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>grant option</td>
+<td>可以使用grant</td>
+</tr>
+<tr>
+<td>create user</td>
+<td>创建用户</td>
+</tr>
+<tr>
+<td>show databases</td>
+<td>显示当前用户可访问的所有数据库名</td>
+</tr>
+<tr>
+<td>alter routine</td>
+<td>使用alter procedure 和drop procedure</td>
+</tr>
+<tr>
+<td>create routine</td>
+<td>使用create  procedure</td>
+</tr>
+<tr>
+<td>create temporary tables</td>
+<td>使用create temporary table</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>execute</td>
+<td>使用call和存储过程</td>
+</tr>
+<tr>
+<td>file</td>
+<td>使用select into outfile  和load data infile和revoke</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>lock tables</td>
+<td>锁表</td>
+</tr>
+<tr>
+<td>process</td>
+<td>使用show full processlist</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>使用flush</td>
+</tr>
+<tr>
+<td>replication client</td>
+<td>服务器位置访问</td>
+</tr>
+<tr>
+<td>replocation slave</td>
+<td>由复制从属使用</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>使用mysqladmin shutdown 来关闭mysql</td>
+</tr>
+<tr>
+<td>super</td>
+<td></td>
+</tr>
+<tr>
+<td>usage</td>
+<td>无访问权限</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -426,9 +563,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/平台开发/" rel="tag">#平台开发</a>
-          
-            <a href="/tags/CDH/" rel="tag">#CDH</a>
+            <a href="/tags/数据开发/" rel="tag">#数据开发</a>
           
         </div>
       
@@ -437,17 +572,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/29/使用Cloudera快速部署Hadoop集群-一/" rel="next" title="使用Cloudera快速部署Hadoop集群(一)">
-                <i class="fa fa-chevron-left"></i> 使用Cloudera快速部署Hadoop集群(一)
+              <a href="/2016/11/11/GIT使用实战/" rel="next" title="GIT使用实战">
+                <i class="fa fa-chevron-left"></i> GIT使用实战
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/11/GIT使用实战/" rel="prev" title="GIT使用实战">
-                GIT使用实战 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -576,7 +707,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-Cloudera-Manager-安装后的各个目录"><span class="nav-text">一,Cloudera Manager 安装后的各个目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-各节点服务详述"><span class="nav-text">二,各节点服务详述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HDFS"><span class="nav-text">1,HDFS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HBase"><span class="nav-text">2,HBase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-YRAN"><span class="nav-text">3,YRAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Spark"><span class="nav-text">4,Spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-ZooKeeper"><span class="nav-text">5,ZooKeeper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Hive"><span class="nav-text">6,Hive</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-HUE"><span class="nav-text">7,HUE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Impala"><span class="nav-text">8,Impala</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Oozie"><span class="nav-text">9,Oozie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Solr"><span class="nav-text">10,Solr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-Key-Value-Store-Indexer"><span class="nav-text">11,Key-Value Store Indexer</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设置用户权限"><span class="nav-text">设置用户权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户"><span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改用户名"><span class="nav-text">修改用户名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除用户"><span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看用户"><span class="nav-text">查看用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改密码"><span class="nav-text">更改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给用户添加权限"><span class="nav-text">给用户添加权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：-权限表"><span class="nav-text">附： 权限表</span></a></li></ol></div>
             
           </div>
         </section>
@@ -696,9 +827,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/09/07/使用Cloudera快速部署Hadoop集群-二/';
-      var disqus_title = '使用Cloudera快速部署Hadoop集群(二)';
-      var disqus_url = 'http://yoursite.com/2016/09/07/使用Cloudera快速部署Hadoop集群-二/';
+      var disqus_identifier = '2016/12/06/mysql数据权限操作/';
+      var disqus_title = 'mysql数据权限操作';
+      var disqus_url = 'http://yoursite.com/2016/12/06/mysql数据权限操作/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
