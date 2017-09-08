@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html>
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
 <head>
+  <meta charset="UTF-8">
+  
+    <title>mysql数据库权限操作 | 老六</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="景宸">
     
 
     
-
-    
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    <title>mysql数据库权限操作 | 老六 | 只要今天努力，明天会比昨天更美好</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="数据开发">
     <meta name="description" content="设置用户权限以root账号登录mysql
 mysql -hlocalhost -uroot -p
 mysql&amp;gt; use mysql;
@@ -45,170 +36,86 @@ mysql&amp;gt; use mysql;
 创建用户create user mike identified by &amp;apos;mike&amp;apos;;
 create user rainbow@localhost identified by &amp;apos;rainbow&amp;apos;;
 修改用户名rename">
+
     
-        <link rel="alternative" href="/atom.xml" title="老六" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="老六" type="application/atom+xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.5.0">
-    <script>window.lazyScripts=[]</script>
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">景宸</h5>
-          <a href="mailto:adbibo@outlook.com" title="adbibo@outlook.com" class="mail">adbibo@outlook.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/adbibo" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="http://weibo.com/4a108laoliu" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about" target="_blank" >
-                <i class="icon icon-lg icon-link"></i>
-                About
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">mysql数据库权限操作</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="老六" title="老六"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="老六">老六</a></h1>
+				<h2 class="blog-motto">只要今天努力，明天会比昨天更美好</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/06/mysql数据库权限操作/" title="mysql数据库权限操作" itemprop="url">mysql数据库权限操作</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="景宸" target="_blank" itemprop="author">景宸</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-06T09:05:31.000Z" itemprop="datePublished"> Published 2016-12-06</time>
+    
+  </p>
 </header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">mysql数据库权限操作</h1>
-        <h5 class="subtitle">
-            
-                <time datetime="2016-12-06T09:05:31.000Z" itemprop="datePublished" class="page-time">
-  2016-12-06
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
-
-            
-        </h5>
-    </div>
-
-    
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设置用户权限"><span class="post-toc-number">1.</span> <span class="post-toc-text">设置用户权限</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建用户"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">创建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改用户名"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">修改用户名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除用户"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">删除用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看用户"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">查看用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更改密码"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">更改密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#给用户添加权限"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">给用户添加权限</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#附：-权限表"><span class="post-toc-number">2.</span> <span class="post-toc-text">附： 权限表</span></a></li></ol>
-        </nav>
-    </aside>
-    
-<article id="post-mysql数据库权限操作"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">mysql数据库权限操作</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2016年12月06日 17:05" datetime="2016-12-06T09:05:31.000Z"  itemprop="datePublished">2016-12-06</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/其他/">其他</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-            
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="设置用户权限"><a href="#设置用户权限" class="headerlink" title="设置用户权限"></a>设置用户权限</h1><p>以root账号登录mysql</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置用户权限"><span class="toc-number">1.</span> <span class="toc-text">设置用户权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-number">1.1.</span> <span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改用户名"><span class="toc-number">1.2.</span> <span class="toc-text">修改用户名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除用户"><span class="toc-number">1.3.</span> <span class="toc-text">删除用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看用户"><span class="toc-number">1.4.</span> <span class="toc-text">查看用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改密码"><span class="toc-number">1.5.</span> <span class="toc-text">更改密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户添加权限"><span class="toc-number">1.6.</span> <span class="toc-text">给用户添加权限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附：-权限表"><span class="toc-number">2.</span> <span class="toc-text">附： 权限表</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="设置用户权限"><a href="#设置用户权限" class="headerlink" title="设置用户权限"></a>设置用户权限</h1><p>以root账号登录mysql</p>
 <pre><code>mysql -hlocalhost -uroot -p
 mysql&gt; use mysql;
 </code></pre><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><pre><code>create user mike identified by &apos;mike&apos;;
@@ -416,293 +323,441 @@ execute,  操作mysq函数权限
 </tr>
 </tbody>
 </table>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2016-12-06T09:24:44.000Z" itemprop="dateUpdated">2016年12月6日 17:24</time>
-</span><br>
-
-
-        这里写留言或版权声明：<a href="/2016/12/06/mysql数据库权限操作/" target="_blank" rel="external">http://yoursite.com/2016/12/06/mysql数据库权限操作/</a>
-    </div>
-    <footer>
-        <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="景宸">
-            景宸
-        </a>
-    </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据开发/">数据开发</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&title=《mysql数据库权限操作》 — 老六&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&title=《mysql数据库权限操作》 — 老六&source=君子所取者远，则必有所待，所就者大，则必有所忍，志大而量广，才有余而识具足，则必取其远，必就其大！！" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/06/mysql数据库权限操作/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql数据库权限操作》 — 老六&url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&via=http://yoursite.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/其他/">其他</a>
+</div>
+
+
+  <div class="article-tags">
   
-    <div class="waves-block waves-effect next">
-      <a href="/2016/11/11/GIT使用实战/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">GIT使用实战</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-<div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="mysql数据库权限操作" data-title="mysql数据库权限操作" data-url="http://yoursite.com/2016/12/06/mysql数据库权限操作/"></div>
-</div>
-<script>
-lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
-
-var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
-lazyScripts.push('//unpkg.com/hexo-theme-material-indigo@1.5.0/source/js/embed.min.js');
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-</article>
-
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢大爷~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <ul class="reward-items">
-        
-        <li>
-            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
-        
-
-        
-        <li>
-            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
-</div>
-
-
+  <span></span> <a href="/tags/数据开发/">数据开发</a>
+  </div>
 
 </div>
 
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
 
-        <p>
-            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p>
-            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>老六 &copy; 2015 - 2017</span>
-        </p>
-    </div>
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/12/06/mysql数据库权限操作/" data-title="mysql数据库权限操作 | 老六" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
 </footer>
 
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&title=《mysql数据库权限操作》 — 老六&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&title=《mysql数据库权限操作》 — 老六&source=君子所取者远，则必有所待，所就者大，则必有所忍，志大而量广，才有余而识具足，则必取其远，必就其大！！" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/12/06/mysql数据库权限操作/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql数据库权限操作》 — 老六&url=http://yoursite.com/2016/12/06/mysql数据库权限操作/&via=http://yoursite.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/12/06/mysql数据库权限操作/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ay27FMAhF0fv/P51OK0Xx3QeSqsE7o6rNw8sDioHPB1/H6Tr/dX3/73vO95+f+jxxyZAh47WMY3mtP7D+JOeR7663UoYMGTsw1otYA2o/p099WbMMGTJkgMCavmcdjmXIkCGjw0jDaO03MmTIkFE7xJJSGj/KkvsfOYvLkCHjhQxedf/7nx/pb8iQIeNVjCO80gZkJxwHq5IhQ8ZoBg9wvLWZpn3ogEoKfDJkyBjK6Ly0MwrWaRXcvDcyZMj494w02JGRC8KrldWCsp0MGTIGMUipPR0t5TuXsi+3VYYMGVsyOKlWpFtvR4yXIUPGNoy0P3hv+ax2bJYhQ8YODJKi8eIaYfeboJerkiFDxmgGP7jWFsrvT1NGGTJk7MMI+gb4YJluQWf4TIYMGTswasMQaWqYPls8BsuQIWMog5S3+sGRNEpJEL98SoYMGUMZHFAboUhLeGlBTYYMGXsy0kGxfvOSlP6/fEuGDBmjGTwR7ATEtMTW+q4MGTKGMjotxs5wWDou9uWdMmTI2IDBkzYeZNNUj8+GoDxXhgwZ4xhpK5GncfHABE40ZciQsQPjCK8nFspLfpehWYYMGaMZd8XstOiWhvXbjsEyZMh4LYOX7PupZHp4jpuXMmTIGM0gTc00BeRDq/w/AOrBypAhY3sGCbh8kCIdKZMhQ4aMWmLXeUNnyDUYtpAhQ8YIBh8tJWV9ckjuk2TIkLEPo3Z0rIXgNJUkT8mQIWM04wdyip07p0J5XAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/09/08/数据开发规范-补充中/" title="数据开发规范-补充中">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据开发规范-补充中</span>
+</a>
 </div>
 
 
+<div class="next">
+<a href="/2016/11/11/GIT使用实战/"  title="GIT使用实战">
+ <strong>下一篇：</strong><br/> 
+ <span>GIT使用实战
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置用户权限"><span class="toc-number">1.</span> <span class="toc-text">设置用户权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-number">1.1.</span> <span class="toc-text">创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改用户名"><span class="toc-number">1.2.</span> <span class="toc-text">修改用户名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除用户"><span class="toc-number">1.3.</span> <span class="toc-text">删除用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看用户"><span class="toc-number">1.4.</span> <span class="toc-text">查看用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改密码"><span class="toc-number">1.5.</span> <span class="toc-text">更改密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给用户添加权限"><span class="toc-number">1.6.</span> <span class="toc-text">给用户添加权限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附：-权限表"><span class="toc-number">2.</span> <span class="toc-text">附： 权限表</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
 
 
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/其他/" title="其他">其他<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/后端开发/" title="后端开发">后端开发<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/平台开发/" title="平台开发">平台开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据分析/" title="数据分析">数据分析<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/数据开发/" title="数据开发">数据开发<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
 
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/R语言/" title="R语言">R语言<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据开发/" title="数据开发">数据开发<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/平台开发/" title="平台开发">平台开发<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CDH/" title="CDH">CDH<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GIT/" title="GIT">GIT<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/后端服务，CGI/" title="后端服务，CGI">后端服务，CGI<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ETL/" title="ETL">ETL<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="景宸">景宸</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@1.5.0/source/js/main.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
 
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
 
-<script src="//unpkg.com/hexo-theme-material-indigo@1.5.0/source/js/search.min.js" async></script>
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'adbibosblog';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
 
 
 
 <script>
+var _hmt = _hmt || [];
 (function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '死鬼去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(つェ⊂)咦!又好了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
 })();
 </script>
 
 
 
-</body>
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
 </html>

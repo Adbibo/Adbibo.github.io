@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-06T09:24:44.000Z</updated>
+  <updated>2017-09-08T10:22:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据开发规范-补充中</title>
+    <link href="http://yoursite.com/2017/09/08/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-%E8%A1%A5%E5%85%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2017/09/08/数据开发规范-补充中/</id>
+    <published>2017-09-08T09:52:18.000Z</published>
+    <updated>2017-09-08T10:22:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h1><h2 id="字段命名"><a href="#字段命名" class="headerlink" title="字段命名"></a>字段命名</h2><p>字段命名应该结合业务需求，应注意如下：</p>
+<ol>
+<li>可读性，通过名称就能知晓该字段意思，但不宜过长；</li>
+<li>从长期的接口开发工作总结知晓，数据分为以下几种：</li>
+</ol>
+<ul>
+<li>数值型：此类数据，不考虑小数点后数据</li>
+<li>小数型：此类数据，需考虑小数点后保留位数</li>
+<li>百分数型：此类数据命名时应加为rate或ratio作为标识，与前端约定此类数据均按百分比展示，即末尾添加‘%’符号</li>
+</ul>
+<ol>
+<li>趋势数据一般按照时间字段来展示，所以在建表时，应将最终需要展示的时间维度数据以展示结果格式来创建，若该字段无法准确排序，应添加时间维度排序编号</li>
+<li>维度数据不宜过长，且应添加排序编号</li>
+<li>索引创建，应将所有维度都创建索引，方便在接口操作的时候快速定位数据。</li>
+</ol>
+<h2 id="数据结果普查"><a href="#数据结果普查" class="headerlink" title="数据结果普查"></a>数据结果普查</h2><p>很多时候，产品经理在画原型图时没有接触实际的业务数据，无法根据实际情况考虑最终展示结果，所以数据开发人员在处理完结果数据并入库后应查看结果数据表，并对数据做排查，review所有的情况，做到心中有数。建议从以下方面来排查：</p>
+<ol>
+<li>维度数据齐全，与最终展示相符；</li>
+<li>维度映射关系明确，做到一对一映射；</li>
+<li>所有数值合理，以下范例可供参考：</li>
+</ol>
+<ul>
+<li>百分数范围在(0,1)，如若遇特殊情况超出，应做说明；</li>
+<li>司龄数值合理，之前有发现该数据存在260，明显是不合理，应排查处理逻辑；</li>
+</ul>
+<h1 id="数据接口开发"><a href="#数据接口开发" class="headerlink" title="数据接口开发"></a>数据接口开发</h1><p>因为数据组一般接口开发都采用django框架，所以本文档仅针对数据组内部情况说明，分为API形式和非API形式。</p>
+<h2 id="API形式"><a href="#API形式" class="headerlink" title="API形式"></a>API形式</h2><p>此处不做过多说明，直接调用rest_framework框架处理即可。</p>
+<h2 id="非API形式"><a href="#非API形式" class="headerlink" title="非API形式"></a>非API形式</h2><p>非API形式，主要是为了前端开发人员节省时间。以非API形式提供接口，主要是方便在多个筛选的情况下快速开发接口。</p>
+<p>从最终展示来看，数据接口大概分为以下几种：</p>
+<ul>
+<li>表格：此类数据可处理为header + content的形式<br>  header：列出表头展示内容和对应content中的数据字段名；<br>  content：按照表头排序输出列表</li>
+<li><p>趋势图：维度信息和数值内容<br>  维度信息：一般是多维度。其中时间排序即可。<br>  数值信息：一般为数据，定义统一处理函数对数据进行格式化。</p>
+</li>
+<li><p>柱形图：与趋势图类似</p>
+</li>
+<li><p>联动选项：主要是针对维度筛选，此处定义多层字典即可。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数据库相关&quot;&gt;&lt;a href=&quot;#数据库相关&quot; class=&quot;headerlink&quot; title=&quot;数据库相关&quot;&gt;&lt;/a&gt;数据库相关&lt;/h1&gt;&lt;h2 id=&quot;字段命名&quot;&gt;&lt;a href=&quot;#字段命名&quot; class=&quot;headerlink&quot; title=&quot;字段命名&quot;
+    
+    </summary>
+    
+      <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql数据库权限操作</title>
