@@ -98,7 +98,7 @@
 2，在项目部署服务器安装ngnix、uwsgi此处教程较多，不在此做特别说明。
 3，配置uwsgi在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。
 # uwsgi ini f">
-<meta property="og:updated_time" content="2017-10-09T07:21:05.000Z">
+<meta property="og:updated_time" content="2017-10-09T07:25:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django项目单机部署">
 <meta name="twitter:description" content="1, Django项目开发以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。
@@ -371,7 +371,7 @@ pythonpath      = %d
 # the absolute path of the directory containing the configuration file
 env             = LANG=en_US.UTF-8
 # http://stackoverflow.com/questions/10396141/strange-unicodeencodeerror-using-os-path-exists
-</code></pre><h1 id="4，配置nginx"><a href="#4，配置nginx" class="headerlink" title="4，配置nginx"></a>4，配置nginx</h1><p>在django项目根目录下新建project_nginx.conf，其中${project_name}为项目名称。</p>
+</code></pre><h1 id="4，配置nginx"><a href="#4，配置nginx" class="headerlink" title="4，配置nginx"></a>4，配置nginx</h1><p>在django项目根目录下新建project_nginx.conf，其中${project_name}为项目名称, ${domain_name}为项目域名。</p>
 <pre><code># nginx.conf
 
 # the upstream component nginx needs to connect to
@@ -384,7 +384,7 @@ server {
     # the port your site will be served on
     listen      80;
     # the domain name it will serve for
-    server_name ${project_name}.talbrain.com mark.100tal.com test.${project_name}.talbrain.com;  # substitute your machine&apos;s IP address or FQDN, use one of `listen` or `server_name`
+    server_name ${domain_name};  # substitute your machine&apos;s IP address or FQDN, use one of `listen` or `server_name`
     charset     utf-8;
 
     # max upload size
@@ -568,7 +568,7 @@ sudo /etc/init.d/nginx reload
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
