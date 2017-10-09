@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-16T04:24:52.000Z</updated>
+  <updated>2017-10-09T07:21:05.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,144 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Django项目单机部署</title>
+    <link href="http://yoursite.com/2017/10/09/Django%E9%A1%B9%E7%9B%AE%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/"/>
+    <id>http://yoursite.com/2017/10/09/Django项目单机部署/</id>
+    <published>2017-10-09T06:39:51.000Z</published>
+    <updated>2017-10-09T07:21:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-Django项目开发"><a href="#1-Django项目开发" class="headerlink" title="1, Django项目开发"></a>1, Django项目开发</h1><p>以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。</p>
+<h1 id="2，在项目部署服务器安装ngnix、uwsgi"><a href="#2，在项目部署服务器安装ngnix、uwsgi" class="headerlink" title="2，在项目部署服务器安装ngnix、uwsgi"></a>2，在项目部署服务器安装ngnix、uwsgi</h1><p>此处教程较多，不在此做特别说明。</p>
+<h1 id="3，配置uwsgi"><a href="#3，配置uwsgi" class="headerlink" title="3，配置uwsgi"></a>3，配置uwsgi</h1><p>在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。</p>
+<pre><code># uwsgi ini file
+[uwsgi]
+# http://stackoverflow.com/questions/14194859/importerror-no-module-named-django-core-wsgi-for-uwsgi
+project_name = ${project_name}
+# Django-related settings
+# the base directory (full path)
+chdir           = %d
+# the absolute path of the directory containing the configuration file
+# http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html
+# Django&apos;s wsgi file
+module          = %(project_name).wsgi
+# %n    the filename without extension
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+# adjust according to http://uwsgi-docs.readthedocs.io/en/latest/ThingsToKnow.html
+processes       = 2
+max-requests    = 200
+# the socket (use the full path to be safe
+socket          = /tmp/%(project_name).sock
+# ... with appropriate permissions - may be needed
+chmod-socket    = 666
+#chown-socket    = www-data:www-data
+# clear environment on exit
+vacuum          = true
+daemonize       = /tmp/%(project_name).log
+pidfile         = /tmp/%(project_name).pid
+# added 2014-08-25
+#emperor         = /etc/uwsgi/vassals
+#uid             = www-data
+#gid             = www-data
+# added 2014-09-17
+reload-on-as    = 126
+reload-on-rss
+enable-threads  = true
+pythonpath      = %d
+# the absolute path of the directory containing the configuration file
+env             = LANG=en_US.UTF-8
+# http://stackoverflow.com/questions/10396141/strange-unicodeencodeerror-using-os-path-exists
+</code></pre><h1 id="4，配置nginx"><a href="#4，配置nginx" class="headerlink" title="4，配置nginx"></a>4，配置nginx</h1><p>在django项目根目录下新建project_nginx.conf，其中${project_name}为项目名称。</p>
+<pre><code># nginx.conf
+
+# the upstream component nginx needs to connect to
+upstream ${project_name}_project {
+    server unix:/tmp/${project_name}.sock; # for a file socket
+}
+
+# configuration of the server
+server {
+    # the port your site will be served on
+    listen      80;
+    # the domain name it will serve for
+    server_name ${project_name}.talbrain.com mark.100tal.com test.${project_name}.talbrain.com;  # substitute your machine&apos;s IP address or FQDN, use one of `listen` or `server_name`
+    charset     utf-8;
+
+    # max upload size
+    client_max_body_size 200M;   # adjust to taste
+
+    # |css|js was removed for develop purpose
+    # 添加这个缓存机制会导致部分图片404
+    #location ~* .(woff|eot|ttf|svg|mp4|webm|jpg|jpeg|png|gif|ico)$ {
+    #    expires 365d;
+    #}
+
+    location /favicon.ico {
+        root /home/www/${project_name}/tmp/images;
+    }
+
+    # Django media
+    location /media  {
+        alias /home/www/${project_name}/tmp;  # your Django project&apos;s media files - amend as required
+    }
+
+    location /static {
+        alias /home/www/${project_name}/tmp; # your Django project&apos;s static files - amend as required
+    }
+    # Finally, send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass  ${project_name}_project;
+        include     /etc/nginx/uwsgi_params; # the uwsgi_params file you installed
+        # include   /usr/local/etc/nginx/uwsgi_params;
+    }
+}
+</code></pre><h1 id="5，编写部署脚本"><a href="#5，编写部署脚本" class="headerlink" title="5，编写部署脚本"></a>5，编写部署脚本</h1><p>在django项目根目录下新建文件run_server.sh，其中${project_name}为项目名称。</p>
+<pre><code>#!/usr/bin/env bash
+# 将项目目录下的Nginx配置文件链接至Nginx目录下的conf.d目录下
+ln -s /home/www/${project_name}/${project_name}_nginx.conf /etc/nginx/conf.d/
+
+# 选择python版本
+source ~/.bash_profile
+pyenv local 2.7.12
+
+# 安装项目依赖包
+cd /home/www/${project_name}
+pip install -r requirements.txt
+
+# 收集django静态文件
+python /home/www/${project_name}/manage.py collectstatic  --noinput
+
+# 针对首次部署之后的部署，杀死已有进程，重新部署
+kill -9 `cat /tmp/${project_name}.pid`
+uwsgi --ini /home/www/${project_name}/uwsgi.ini
+
+# 修改Nginx配置后重新加载生效
+sudo /etc/init.d/nginx reload
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-Django项目开发&quot;&gt;&lt;a href=&quot;#1-Django项目开发&quot; class=&quot;headerlink&quot; title=&quot;1, Django项目开发&quot;&gt;&lt;/a&gt;1, Django项目开发&lt;/h1&gt;&lt;p&gt;以app的形式添加项目中的各个功能模块，将静态文件保存在
+    
+    </summary>
+    
+      <category term="后台开发" scheme="http://yoursite.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="项目部署" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="django" scheme="http://yoursite.com/tags/django/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL数据库优化</title>
     <link href="http://yoursite.com/2017/09/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"/>
     <id>http://yoursite.com/2017/09/16/数据库优化/</id>
     <published>2017-09-16T04:17:26.000Z</published>
-    <updated>2017-09-16T04:24:52.000Z</updated>
+    <updated>2017-10-09T07:21:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文大部分内容摘自简书网 <a href="http://www.jianshu.com/p/fea61b518dc4" target="_blank" rel="external">大牛的经验之谈：数据库查询速度优化技巧及解决方案</a>， 后续会结合自己在工作中的经历做一些针对性的案例分析。</p>
 <h2 id="1，尽可能减少表的全局扫描"><a href="#1，尽可能减少表的全局扫描" class="headerlink" title="1，尽可能减少表的全局扫描"></a>1，尽可能减少表的全局扫描</h2><ul>
@@ -76,7 +209,11 @@
       <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="数据库, MySQL,  后端" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL-%E5%90%8E%E7%AB%AF/"/>
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+      <category term="后端" scheme="http://yoursite.com/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
@@ -213,7 +350,7 @@
     <link href="http://yoursite.com/2016/12/06/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2016/12/06/mysql数据库权限操作/</id>
     <published>2016-12-06T09:05:31.000Z</published>
-    <updated>2017-09-16T04:24:16.000Z</updated>
+    <updated>2017-10-09T07:21:01.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="设置用户权限"><a href="#设置用户权限" class="headerlink" title="设置用户权限"></a>设置用户权限</h1><p>以root账号登录mysql</p>
 <pre><code>mysql -hlocalhost -uroot -p
@@ -435,7 +572,9 @@ execute,  操作mysq函数权限
       <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="数据库, MySQL" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-MySQL/"/>
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
@@ -935,7 +1074,7 @@ shinyApp(ui=ui, server=server)
     <link href="http://yoursite.com/2016/05/12/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEfastCGI%E4%BD%BFnginx%E6%94%AF%E6%8C%81CGI/"/>
     <id>http://yoursite.com/2016/05/12/如何配置fastCGI使nginx支持CGI/</id>
     <published>2016-05-12T02:28:47.000Z</published>
-    <updated>2016-11-11T08:33:36.000Z</updated>
+    <updated>2017-10-09T07:21:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>之前组内有春日学习计划，安排我分享CGI相关的知识。于是就学习起来，整理了如下文档。</p>
 <h1 id="1，安装fcgi-spwan"><a href="#1，安装fcgi-spwan" class="headerlink" title="1，安装fcgi-spwan"></a>1，安装fcgi-spwan</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><pre><code>http://download.lighttpd.net/spawn-fcgi/releases-1.6.x/spawn-fcgi-1.6.2.tar.gz
@@ -1066,7 +1205,9 @@ http://zyan.cc/nginx_php_v5/
       <category term="后端开发" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="后端服务，CGI" scheme="http://yoursite.com/tags/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%EF%BC%8CCGI/"/>
+      <category term="后端服务" scheme="http://yoursite.com/tags/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/"/>
+    
+      <category term="CGI" scheme="http://yoursite.com/tags/CGI/"/>
     
   </entry>
   

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GIT," />
+  <meta name="keywords" content="项目部署,django," />
 
 
 
@@ -86,37 +86,25 @@
 
 
 
-<meta name="description" content="参考教程推荐廖雪峰的Git教程
-省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
-问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
-# adbibo @ bogon in ~/.ssh [15:04:49]
-$ pwd
-/Users/adbibo/.ssh
-生成一个新的ssh key
-$ ssh-keyg">
+<meta name="description" content="1, Django项目开发以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。
+2，在项目部署服务器安装ngnix、uwsgi此处教程较多，不在此做特别说明。
+3，配置uwsgi在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。
+# uwsgi ini f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT使用实战">
-<meta property="og:url" content="http://yoursite.com/2016/11/11/GIT使用实战/index.html">
+<meta property="og:title" content="Django项目单机部署">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/Django项目单机部署/index.html">
 <meta property="og:site_name" content="老六">
-<meta property="og:description" content="参考教程推荐廖雪峰的Git教程
-省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
-问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
-# adbibo @ bogon in ~/.ssh [15:04:49]
-$ pwd
-/Users/adbibo/.ssh
-生成一个新的ssh key
-$ ssh-keyg">
-<meta property="og:updated_time" content="2016-11-11T08:33:38.000Z">
+<meta property="og:description" content="1, Django项目开发以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。
+2，在项目部署服务器安装ngnix、uwsgi此处教程较多，不在此做特别说明。
+3，配置uwsgi在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。
+# uwsgi ini f">
+<meta property="og:updated_time" content="2017-10-09T07:21:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT使用实战">
-<meta name="twitter:description" content="参考教程推荐廖雪峰的Git教程
-省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。
-问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下，
-# adbibo @ bogon in ~/.ssh [15:04:49]
-$ pwd
-/Users/adbibo/.ssh
-生成一个新的ssh key
-$ ssh-keyg">
+<meta name="twitter:title" content="Django项目单机部署">
+<meta name="twitter:description" content="1, Django项目开发以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。
+2，在项目部署服务器安装ngnix、uwsgi此处教程较多，不在此做特别说明。
+3，配置uwsgi在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。
+# uwsgi ini f">
 
 
 
@@ -134,7 +122,7 @@ $ ssh-keyg">
   };
 </script>
 
-  <title> GIT使用实战 | 老六 </title>
+  <title> Django项目单机部署 | 老六 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +262,7 @@ $ ssh-keyg">
             
             
               
-                GIT使用实战
+                Django项目单机部署
               
             
           </h1>
@@ -286,8 +274,8 @@ $ ssh-keyg">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T15:48:49+08:00" content="2016-11-11">
-              2016-11-11
+            <time itemprop="dateCreated" datetime="2017-10-09T14:39:51+08:00" content="2017-10-09">
+              2017-10-09
             </time>
           </span>
 
@@ -300,8 +288,8 @@ $ ssh-keyg">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/后台开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后台开发</span>
                   </a>
                 </span>
 
@@ -316,8 +304,8 @@ $ ssh-keyg">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/11/GIT使用实战/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/11/GIT使用实战/" itemprop="commentsCount"></span>
+                <a href="/2017/10/09/Django项目单机部署/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/09/Django项目单机部署/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -340,97 +328,116 @@ $ ssh-keyg">
       
 
       
-        <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>推荐廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
-<p>省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。</p>
-<h2 id="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><a href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？" class="headerlink" title="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"></a>问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</h2><p>一般.ssh都在用户目录下，</p>
-<pre><code># adbibo @ bogon in ~/.ssh [15:04:49]
-$ pwd
-/Users/adbibo/.ssh
-</code></pre><p>生成一个新的ssh key</p>
-<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/adbibo/.ssh/id_rsa):/Users/adbibo/.ssh/test_id_rsa
-#在此输入你要保存ssh key的实际文件名，为了区分github和gitlab，请将ssh key存储在不同的文件中。
-Enter passphrase (empty for no passphrase): 输入密码，鄙人比较懒，直接回车跳过
-Enter same passphrase again:同上
-Your identification has been saved in /Users/adbibo/.ssh/test_id_rsa.
-Your public key has been saved in /Users/adbibo/.ssh/test_id_rsa.pub.
-The key fingerprint is:
-SHA256:xRAuPVjXDjJUKihSqQWb9TwBMH3Be4ChaMxm8C+3j24 your_email@example.com
-The key&apos;s randomart image is:
-+---[RSA 4096]----+
-|=+=*o. .=oo.     |
-|=O=o+o =o=. .    |
-|*Oo.=o+ =ooo     |
-|=. o...o o  .    |
-|  . o.  S        |
-|   o .           |
-|    .            |
-|    Eo           |
-|   oo .          |
-+----[SHA256]-----+
-</code></pre><p>生成的ssh key分别将验证信息和公钥存储在test_id_rsa和test_id_rsa.pub文件中。</p>
-<p>在.ssh目录下创建文件config</p>
-<pre><code>$ cd ~/.ssh
-$ touch config
-</code></pre><p>添加如下内容：</p>
-<pre><code># gitlab
-Host gitlab.com
-    HostName gitlab.com
-    IdentityFile ~/.ssh/gitlab_rsa
-# github
-Host github.com
-    HostName github.com
-    IdentityFile ~/.ssh/github_rsa
-</code></pre><p>至此，gitlab和github的项目通过git命令管理了。</p>
-<h2 id="问题二：如果将本地的工程提交到远程仓库？"><a href="#问题二：如果将本地的工程提交到远程仓库？" class="headerlink" title="问题二：如果将本地的工程提交到远程仓库？"></a>问题二：如果将本地的工程提交到远程仓库？</h2><p>这里以github为例， 首先在<a href="github.com">github.com</a>上创建工程，点击”New repository”，输入Repository name，填写Description，选择项目是public还是private，然后点击”Create repository”。得到一个如下形式的git仓库名。</p>
-<pre><code>git@github.com:yourgithubname/test.git
-</code></pre><p>然后回到本机，在工程目录下执行如下命令：</p>
-<pre><code>git init  # 在本地初始化git仓库
-git add . # 添加当前目录下的所有文件作为需要版本管理的文件
-git commit -m &quot;第一次提交&quot;  # 填写提交信息
-git remote add origin git@github.com:yourgithubname/test.git  # 关联远程仓库
-git push -u origin master  # 将本地文件提交到远程仓库
-</code></pre><p>一般都会顺利地进行至此，但是我在<a href="github.com">github.com</a>上创建工程时，选择了生成.gitignore文件，于是远程仓库初始化时就有了文件。再在本机进行上面的操作就会报错了。</p>
-<pre><code>To github.com:yourgithubname/test.git
- ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to &apos;git@github.com:yourgithubname/test.git&apos;
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., &apos;git pull ...&apos;) before pushing again.
-hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
-</code></pre><p>提示需要先git pull，就是先要将远程仓库的文件pull到本机，但是由于本机使用IDE自动生成了.gitignore文件，与远程仓库发生了冲突。需要带上参数–allow-unrelated-histories</p>
-<pre><code>$ git pull origin master --allow-unrelated-histories
-From github.com:yourgithubname/test
- * branch            master     -&gt; FETCH_HEAD
-Auto-merging README.md
-CONFLICT (add/add): Merge conflict in README.md
-Auto-merging .gitignore
-CONFLICT (add/add): Merge conflict in .gitignore
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre><p>此时又提示merge conflict， 所以需要手动做更改.gitignore和README.md文件，具体根据需求进行更改。然后重新执行如下命令：</p>
-<pre><code>$git add .
-$git commit -m &apos;commot message&apos;
-$ git push
-显示如下信息就说明commit成功了。
-Counting objects: 17, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (15/15), done.
-Writing objects: 100% (17/17), 4.15 KiB | 0 bytes/s, done.
-Total 17 (delta 2), reused 0 (delta 0)
-</code></pre><h2 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h2><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
-<li><p><a href="github.com">github.com</a></p>
-<p> 开源项目很多，可以管理个人创建的项目，public的项目免费，如果创建private的需要money。可以搭个人blog，我用的hexo，简单配置即可。</p>
-</li>
-<li><p><a href="gitlab.com">gitlab.com</a></p>
-<p> 也不错，private项目免费，看中的就这点，毕竟github用的很习惯。</p>
-</li>
-</ol>
-<blockquote>
-<p> 对于不喜欢命令行的朋友，推荐使用sourceTree这个工具来管理， 附上链接<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">sourceTree</a></p>
-</blockquote>
+        <h1 id="1-Django项目开发"><a href="#1-Django项目开发" class="headerlink" title="1, Django项目开发"></a>1, Django项目开发</h1><p>以app的形式添加项目中的各个功能模块，将静态文件保存在项目根目录下，static存储css、js、image等，templates存储html。</p>
+<h1 id="2，在项目部署服务器安装ngnix、uwsgi"><a href="#2，在项目部署服务器安装ngnix、uwsgi" class="headerlink" title="2，在项目部署服务器安装ngnix、uwsgi"></a>2，在项目部署服务器安装ngnix、uwsgi</h1><p>此处教程较多，不在此做特别说明。</p>
+<h1 id="3，配置uwsgi"><a href="#3，配置uwsgi" class="headerlink" title="3，配置uwsgi"></a>3，配置uwsgi</h1><p>在django项目根目录下新建文件uwsgi.ini，其中${project_name}为项目名称。</p>
+<pre><code># uwsgi ini file
+[uwsgi]
+# http://stackoverflow.com/questions/14194859/importerror-no-module-named-django-core-wsgi-for-uwsgi
+project_name = ${project_name}
+# Django-related settings
+# the base directory (full path)
+chdir           = %d
+# the absolute path of the directory containing the configuration file
+# http://uwsgi-docs.readthedocs.io/en/latest/Configuration.html
+# Django&apos;s wsgi file
+module          = %(project_name).wsgi
+# %n    the filename without extension
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+# adjust according to http://uwsgi-docs.readthedocs.io/en/latest/ThingsToKnow.html
+processes       = 2
+max-requests    = 200
+# the socket (use the full path to be safe
+socket          = /tmp/%(project_name).sock
+# ... with appropriate permissions - may be needed
+chmod-socket    = 666
+#chown-socket    = www-data:www-data
+# clear environment on exit
+vacuum          = true
+daemonize       = /tmp/%(project_name).log
+pidfile         = /tmp/%(project_name).pid
+# added 2014-08-25
+#emperor         = /etc/uwsgi/vassals
+#uid             = www-data
+#gid             = www-data
+# added 2014-09-17
+reload-on-as    = 126
+reload-on-rss
+enable-threads  = true
+pythonpath      = %d
+# the absolute path of the directory containing the configuration file
+env             = LANG=en_US.UTF-8
+# http://stackoverflow.com/questions/10396141/strange-unicodeencodeerror-using-os-path-exists
+</code></pre><h1 id="4，配置nginx"><a href="#4，配置nginx" class="headerlink" title="4，配置nginx"></a>4，配置nginx</h1><p>在django项目根目录下新建project_nginx.conf，其中${project_name}为项目名称。</p>
+<pre><code># nginx.conf
 
+# the upstream component nginx needs to connect to
+upstream ${project_name}_project {
+    server unix:/tmp/${project_name}.sock; # for a file socket
+}
+
+# configuration of the server
+server {
+    # the port your site will be served on
+    listen      80;
+    # the domain name it will serve for
+    server_name ${project_name}.talbrain.com mark.100tal.com test.${project_name}.talbrain.com;  # substitute your machine&apos;s IP address or FQDN, use one of `listen` or `server_name`
+    charset     utf-8;
+
+    # max upload size
+    client_max_body_size 200M;   # adjust to taste
+
+    # |css|js was removed for develop purpose
+    # 添加这个缓存机制会导致部分图片404
+    #location ~* .(woff|eot|ttf|svg|mp4|webm|jpg|jpeg|png|gif|ico)$ {
+    #    expires 365d;
+    #}
+
+    location /favicon.ico {
+        root /home/www/${project_name}/tmp/images;
+    }
+
+    # Django media
+    location /media  {
+        alias /home/www/${project_name}/tmp;  # your Django project&apos;s media files - amend as required
+    }
+
+    location /static {
+        alias /home/www/${project_name}/tmp; # your Django project&apos;s static files - amend as required
+    }
+    # Finally, send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass  ${project_name}_project;
+        include     /etc/nginx/uwsgi_params; # the uwsgi_params file you installed
+        # include   /usr/local/etc/nginx/uwsgi_params;
+    }
+}
+</code></pre><h1 id="5，编写部署脚本"><a href="#5，编写部署脚本" class="headerlink" title="5，编写部署脚本"></a>5，编写部署脚本</h1><p>在django项目根目录下新建文件run_server.sh，其中${project_name}为项目名称。</p>
+<pre><code>#!/usr/bin/env bash
+# 将项目目录下的Nginx配置文件链接至Nginx目录下的conf.d目录下
+ln -s /home/www/${project_name}/${project_name}_nginx.conf /etc/nginx/conf.d/
+
+# 选择python版本
+source ~/.bash_profile
+pyenv local 2.7.12
+
+# 安装项目依赖包
+cd /home/www/${project_name}
+pip install -r requirements.txt
+
+# 收集django静态文件
+python /home/www/${project_name}/manage.py collectstatic  --noinput
+
+# 针对首次部署之后的部署，杀死已有进程，重新部署
+kill -9 `cat /tmp/${project_name}.pid`
+uwsgi --ini /home/www/${project_name}/uwsgi.ini
+
+# 修改Nginx配置后重新加载生效
+sudo /etc/init.d/nginx reload
+</code></pre>
       
     </div>
 
@@ -451,7 +458,9 @@ Total 17 (delta 2), reused 0 (delta 0)
       
         <div class="post-tags">
           
-            <a href="/tags/GIT/" rel="tag">#GIT</a>
+            <a href="/tags/项目部署/" rel="tag">#项目部署</a>
+          
+            <a href="/tags/django/" rel="tag">#django</a>
           
         </div>
       
@@ -460,17 +469,13 @@ Total 17 (delta 2), reused 0 (delta 0)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/07/使用Cloudera快速部署Hadoop集群-二/" rel="next" title="使用Cloudera快速部署Hadoop集群(二)">
-                <i class="fa fa-chevron-left"></i> 使用Cloudera快速部署Hadoop集群(二)
+              <a href="/2017/09/16/数据库优化/" rel="next" title="MySQL数据库优化">
+                <i class="fa fa-chevron-left"></i> MySQL数据库优化
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/06/mysql数据库权限操作/" rel="prev" title="mysql数据库权限操作">
-                mysql数据库权限操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +604,7 @@ Total 17 (delta 2), reused 0 (delta 0)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考教程"><span class="nav-text">参考教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><span class="nav-text">问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二：如果将本地的工程提交到远程仓库？"><span class="nav-text">问题二：如果将本地的工程提交到远程仓库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题三：遇到再补充。"><span class="nav-text">问题三：遇到再补充。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用git仓库"><span class="nav-text">常用git仓库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Django项目开发"><span class="nav-text">1, Django项目开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2，在项目部署服务器安装ngnix、uwsgi"><span class="nav-text">2，在项目部署服务器安装ngnix、uwsgi</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3，配置uwsgi"><span class="nav-text">3，配置uwsgi</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4，配置nginx"><span class="nav-text">4，配置nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5，编写部署脚本"><span class="nav-text">5，编写部署脚本</span></a></li></ol></div>
             
           </div>
         </section>
@@ -719,9 +724,9 @@ Total 17 (delta 2), reused 0 (delta 0)
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/11/11/GIT使用实战/';
-      var disqus_title = 'GIT使用实战';
-      var disqus_url = 'http://yoursite.com/2016/11/11/GIT使用实战/';
+      var disqus_identifier = '2017/10/09/Django项目单机部署/';
+      var disqus_title = 'Django项目单机部署';
+      var disqus_url = 'http://yoursite.com/2017/10/09/Django项目单机部署/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
