@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-09T07:25:01.000Z</updated>
+  <updated>2017-12-01T15:51:47.473Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,119 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单数据开发流程</title>
+    <link href="http://yoursite.com/2017/12/01/%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/12/01/简单数据开发流程/</id>
+    <published>2017-12-01T15:06:25.000Z</published>
+    <updated>2017-12-01T15:51:47.473Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近给组内同事做了一个小分享,先讲下背景.部门属于新组建,主要业务是为各事业部开发一些BI报表.<br>本次分享主要涉及与产品经理的沟通和数据开发过程中的细节, 本人平时开发过程中负责数据开发和后端接口开发.</p>
+<h2 id="1-需求沟通"><a href="#1-需求沟通" class="headerlink" title="1. 需求沟通"></a>1. 需求沟通</h2><h3 id="1-1-产品原型确定"><a href="#1-1-产品原型确定" class="headerlink" title="1.1        产品原型确定"></a>1.1        产品原型确定</h3><ul>
+<li><p>时效,首先确定数据时效</p>
+<pre><code>1,临时需求
+    要求响应时间短
+2,长期需求
+    慢工出细活
+</code></pre></li>
+<li><p>权限</p>
+<pre><code>权限划分,安全问题
+</code></pre></li>
+<li><p>产品原型细节</p>
+</li>
+</ul>
+<h3 id="1-2-数据准备"><a href="#1-2-数据准备" class="headerlink" title="1.2        数据准备"></a>1.2        数据准备</h3><ul>
+<li><p>数据来源</p>
+<p>   存储方式</p>
+<pre><code>excel    文本文件 关系型数据库 nosql 接口
+</code></pre></li>
+<li><p>数据更新方式</p>
+<pre><code>1, 日、周、月、季
+2, 实时
+</code></pre></li>
+</ul>
+<h3 id="1-3-需求分析"><a href="#1-3-需求分析" class="headerlink" title="1.3        需求分析"></a>1.3        需求分析</h3><ul>
+<li>结合需求和实际数据，参照经验，分析，并给出反馈</li>
+</ul>
+<h2 id="2-数据开发"><a href="#2-数据开发" class="headerlink" title="2.    数据开发"></a>2.    数据开发</h2><h3 id="2-1-数据逻辑整理"><a href="#2-1-数据逻辑整理" class="headerlink" title="2.1        数据逻辑整理"></a>2.1        数据逻辑整理</h3><ul>
+<li><p>数据更新方式</p>
+<p>   1, 日、周、月、季<br>   2, 实时</p>
+</li>
+<li><p>数据维度整理</p>
+<p>   1, 维度标准化</p>
+<pre><code>产品经理给出映射表
+自己设计
+</code></pre><p>   2, 结合实际数据，考虑要比产品经理更长远</p>
+</li>
+</ul>
+<h3 id="2-2-数据开发"><a href="#2-2-数据开发" class="headerlink" title="2.2        数据开发"></a>2.2        数据开发</h3><ul>
+<li><p>数据库配置</p>
+<p>   测试库<br>   预发布库<br>   正式库</p>
+</li>
+<li><p>数据库设计</p>
+<p>   数据库表<br>   索引</p>
+</li>
+<li><p>数据维度</p>
+<p>   结合实际数据，考虑要比产品经理更长远</p>
+</li>
+<li><p>数据更新方式</p>
+<p>   日、周、月、季</p>
+</li>
+<li><p>部署</p>
+<p>   环境<br>   权限</p>
+<pre><code>数据库权限
+</code></pre></li>
+</ul>
+<h3 id="2-3-数据展示后台"><a href="#2-3-数据展示后台" class="headerlink" title="2.3    数据展示后台"></a>2.3    数据展示后台</h3><ul>
+<li><p>域名</p>
+<p>   测试域名<br>   预发布域名<br>   正式域名</p>
+</li>
+<li><p>接口</p>
+<p>   参数设计</p>
+<pre><code>依据产品原型设计
+默认参数
+</code></pre><p>   接口内容格式</p>
+<pre><code>与前端配合，给出最适合前端处理的格式
+</code></pre><p>   接口文档</p>
+<pre><code>每个字都要让前端看的懂
+</code></pre></li>
+<li><p>权限</p>
+<p>   权限分级<br>   权限不分级<br>部署方式</p>
+<pre><code>环境
+</code></pre></li>
+</ul>
+<h2 id="3-结果验证"><a href="#3-结果验证" class="headerlink" title="3    结果验证"></a>3    结果验证</h2><ul>
+<li><p>数据验证</p>
+<p>   1.维度验证</p>
+<pre><code>结果是否涵盖了数据实际全维度
+实际数据没有覆盖到的维度，是否设置了默认值
+</code></pre><ol>
+<li>数据结果指标验证<br> 此处需要产品经理或数据分析人员配合</li>
+</ol>
+</li>
+<li><p>后台验证</p>
+<p>   接口验证<br>   权限验证<br>   上线验证</p>
+</li>
+<li><p>结果交付</p>
+</li>
+</ul>
+<p>以上是本次分享的所有大纲,具体的细节应依据开发过程中遇到的实际问题而定.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近给组内同事做了一个小分享,先讲下背景.部门属于新组建,主要业务是为各事业部开发一些BI报表.&lt;br&gt;本次分享主要涉及与产品经理的沟通和数据开发过程中的细节, 本人平时开发过程中负责数据开发和后端接口开发.&lt;/p&gt;
+&lt;h2 id=&quot;1-需求沟通&quot;&gt;&lt;a href=&quot;#1-
+    
+    </summary>
+    
+      <category term="数据开发" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="数据开发" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Django项目单机部署</title>
