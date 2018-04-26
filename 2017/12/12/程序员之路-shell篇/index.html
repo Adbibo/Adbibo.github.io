@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GIT," />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="参考教程推荐廖雪峰的Git教程 省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。 问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下， # adbibo @ bogon in ~/.ssh [15:04:49] $ pwd /Users/adbibo/.ssh 生成一个新的ssh key $ ssh-keyg">
-<meta name="keywords" content="GIT">
+<meta name="description" content="查看命令帮助文档1.help Command 适用于内部命令, type.举例：  $ type cd cd is a shell builtin $ help cd $ type ls ls is aliased to `ls --color=auto&amp;apos; $ help ls -bash: help: no help topics match `ls&amp;apos;.  Try `help">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT使用实战">
-<meta property="og:url" content="http://yoursite.com/2016/11/11/GIT使用实战/index.html">
+<meta property="og:title" content="程序员之路-shell篇">
+<meta property="og:url" content="http://yoursite.com/2017/12/12/程序员之路-shell篇/index.html">
 <meta property="og:site_name" content="老六">
-<meta property="og:description" content="参考教程推荐廖雪峰的Git教程 省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。 问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下， # adbibo @ bogon in ~/.ssh [15:04:49] $ pwd /Users/adbibo/.ssh 生成一个新的ssh key $ ssh-keyg">
-<meta property="og:updated_time" content="2016-11-11T08:33:38.000Z">
+<meta property="og:description" content="查看命令帮助文档1.help Command 适用于内部命令, type.举例：  $ type cd cd is a shell builtin $ help cd $ type ls ls is aliased to `ls --color=auto&amp;apos; $ help ls -bash: help: no help topics match `ls&amp;apos;.  Try `help">
+<meta property="og:updated_time" content="2017-12-12T09:56:16.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GIT使用实战">
-<meta name="twitter:description" content="参考教程推荐廖雪峰的Git教程 省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。 问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？一般.ssh都在用户目录下， # adbibo @ bogon in ~/.ssh [15:04:49] $ pwd /Users/adbibo/.ssh 生成一个新的ssh key $ ssh-keyg">
+<meta name="twitter:title" content="程序员之路-shell篇">
+<meta name="twitter:description" content="查看命令帮助文档1.help Command 适用于内部命令, type.举例：  $ type cd cd is a shell builtin $ help cd $ type ls ls is aliased to `ls --color=auto&amp;apos; $ help ls -bash: help: no help topics match `ls&amp;apos;.  Try `help">
 
 
 
@@ -114,7 +114,7 @@
   };
 </script>
 
-  <title> GIT使用实战 | 老六 </title>
+  <title> 程序员之路-shell篇 | 老六 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +254,7 @@
             
             
               
-                GIT使用实战
+                程序员之路-shell篇
               
             
           </h1>
@@ -266,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T15:48:49+08:00" content="2016-11-11">
-              2016-11-11
+            <time itemprop="dateCreated" datetime="2017-12-12T17:53:55+08:00" content="2017-12-12">
+              2017-12-12
             </time>
           </span>
 
@@ -296,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/11/GIT使用实战/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/11/GIT使用实战/" itemprop="commentsCount"></span>
+                <a href="/2017/12/12/程序员之路-shell篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/12/程序员之路-shell篇/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,97 +320,96 @@
       
 
       
-        <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p>推荐廖雪峰的<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
-<p>省去账号申请等信息，以我自己使用过程遇到的问题和解决的方式来给大家讲讲。</p>
-<h2 id="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><a href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？" class="headerlink" title="问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"></a>问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</h2><p>一般.ssh都在用户目录下，</p>
-<pre><code># adbibo @ bogon in ~/.ssh [15:04:49]
-$ pwd
-/Users/adbibo/.ssh
-</code></pre><p>生成一个新的ssh key</p>
-<pre><code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/adbibo/.ssh/id_rsa):/Users/adbibo/.ssh/test_id_rsa
-#在此输入你要保存ssh key的实际文件名，为了区分github和gitlab，请将ssh key存储在不同的文件中。
-Enter passphrase (empty for no passphrase): 输入密码，鄙人比较懒，直接回车跳过
-Enter same passphrase again:同上
-Your identification has been saved in /Users/adbibo/.ssh/test_id_rsa.
-Your public key has been saved in /Users/adbibo/.ssh/test_id_rsa.pub.
-The key fingerprint is:
-SHA256:xRAuPVjXDjJUKihSqQWb9TwBMH3Be4ChaMxm8C+3j24 your_email@example.com
-The key&apos;s randomart image is:
-+---[RSA 4096]----+
-|=+=*o. .=oo.     |
-|=O=o+o =o=. .    |
-|*Oo.=o+ =ooo     |
-|=. o...o o  .    |
-|  . o.  S        |
-|   o .           |
-|    .            |
-|    Eo           |
-|   oo .          |
-+----[SHA256]-----+
-</code></pre><p>生成的ssh key分别将验证信息和公钥存储在test_id_rsa和test_id_rsa.pub文件中。</p>
-<p>在.ssh目录下创建文件config</p>
-<pre><code>$ cd ~/.ssh
-$ touch config
-</code></pre><p>添加如下内容：</p>
-<pre><code># gitlab
-Host gitlab.com
-    HostName gitlab.com
-    IdentityFile ~/.ssh/gitlab_rsa
-# github
-Host github.com
-    HostName github.com
-    IdentityFile ~/.ssh/github_rsa
-</code></pre><p>至此，gitlab和github的项目通过git命令管理了。</p>
-<h2 id="问题二：如果将本地的工程提交到远程仓库？"><a href="#问题二：如果将本地的工程提交到远程仓库？" class="headerlink" title="问题二：如果将本地的工程提交到远程仓库？"></a>问题二：如果将本地的工程提交到远程仓库？</h2><p>这里以github为例， 首先在<a href="github.com">github.com</a>上创建工程，点击”New repository”，输入Repository name，填写Description，选择项目是public还是private，然后点击”Create repository”。得到一个如下形式的git仓库名。</p>
-<pre><code>git@github.com:yourgithubname/test.git
-</code></pre><p>然后回到本机，在工程目录下执行如下命令：</p>
-<pre><code>git init  # 在本地初始化git仓库
-git add . # 添加当前目录下的所有文件作为需要版本管理的文件
-git commit -m &quot;第一次提交&quot;  # 填写提交信息
-git remote add origin git@github.com:yourgithubname/test.git  # 关联远程仓库
-git push -u origin master  # 将本地文件提交到远程仓库
-</code></pre><p>一般都会顺利地进行至此，但是我在<a href="github.com">github.com</a>上创建工程时，选择了生成.gitignore文件，于是远程仓库初始化时就有了文件。再在本机进行上面的操作就会报错了。</p>
-<pre><code>To github.com:yourgithubname/test.git
- ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to &apos;git@github.com:yourgithubname/test.git&apos;
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., &apos;git pull ...&apos;) before pushing again.
-hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
-</code></pre><p>提示需要先git pull，就是先要将远程仓库的文件pull到本机，但是由于本机使用IDE自动生成了.gitignore文件，与远程仓库发生了冲突。需要带上参数–allow-unrelated-histories</p>
-<pre><code>$ git pull origin master --allow-unrelated-histories
-From github.com:yourgithubname/test
- * branch            master     -&gt; FETCH_HEAD
-Auto-merging README.md
-CONFLICT (add/add): Merge conflict in README.md
-Auto-merging .gitignore
-CONFLICT (add/add): Merge conflict in .gitignore
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre><p>此时又提示merge conflict， 所以需要手动做更改.gitignore和README.md文件，具体根据需求进行更改。然后重新执行如下命令：</p>
-<pre><code>$git add .
-$git commit -m &apos;commot message&apos;
-$ git push
-显示如下信息就说明commit成功了。
-Counting objects: 17, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (15/15), done.
-Writing objects: 100% (17/17), 4.15 KiB | 0 bytes/s, done.
-Total 17 (delta 2), reused 0 (delta 0)
-</code></pre><h2 id="问题三：遇到再补充。"><a href="#问题三：遇到再补充。" class="headerlink" title="问题三：遇到再补充。"></a>问题三：遇到再补充。</h2><h2 id="常用git仓库"><a href="#常用git仓库" class="headerlink" title="常用git仓库"></a>常用git仓库</h2><ol>
-<li><p><a href="github.com">github.com</a></p>
-<p> 开源项目很多，可以管理个人创建的项目，public的项目免费，如果创建private的需要money。可以搭个人blog，我用的hexo，简单配置即可。</p>
+        <h1 id="查看命令帮助文档"><a href="#查看命令帮助文档" class="headerlink" title="查看命令帮助文档"></a>查看命令帮助文档</h1><h4 id="1-help-Command"><a href="#1-help-Command" class="headerlink" title="1.help Command"></a>1.help Command</h4><blockquote>
+<p>适用于内部命令, type.<br>举例：</p>
+</blockquote>
+<pre><code>$ type cd
+cd is a shell builtin
+$ help cd
+$ type ls
+ls is aliased to `ls --color=auto&apos;
+$ help ls
+-bash: help: no help topics match `ls&apos;.  Try `help help&apos; or `man -k ls&apos; or `info ls&apos;.
+</code></pre><h4 id="2-Command-–help-h"><a href="#2-Command-–help-h" class="headerlink" title="2. Command –help/-h"></a>2. Command –help/-h</h4><blockquote>
+<p>适用于外部命令<br>例如：</p>
+</blockquote>
+<pre><code>$ ls --help
+</code></pre><h4 id="3-man-Command"><a href="#3-man-Command" class="headerlink" title="3. man Command"></a>3. man Command</h4><blockquote>
+<p>举例：</p>
+</blockquote>
+<pre><code>$ man cd
+</code></pre><h1 id="文本展示"><a href="#文本展示" class="headerlink" title="文本展示"></a>文本展示</h1><h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><blockquote>
+<p>cat是显示文件夹的命令，这个大家都知道，</p>
+<h2 id="tac"><a href="#tac" class="headerlink" title="tac"></a>tac</h2><p>tac是cat的倒写，意思也和它是相反的。cat是从第一行显示到最后一行，而tac是从最后一行显示到第一行，</p>
+<h2 id="rev"><a href="#rev" class="headerlink" title="rev"></a>rev</h2><p>rev 则是从最后一个字符显示到第一个字符</p>
+</blockquote>
+<pre><code>$ cat file
+asdf
+sdfa
+
+$ tac
+sdfa
+asdf
+
+$ rev
+fdsa
+afds
+</code></pre><h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><pre><code>wc -l 文本文件 |文本文件行数
+</code></pre><h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><pre><code>awk -F &quot;,&quot;  &apos;{print $1}&apos; $file |uniq`  #从以“，”作分隔符的文件中读取第一列，并输出不重复的项
+
+cat $file |awk -F &quot;,&quot; &apos;{print $1}&apos; $file|uniq`
+</code></pre><h2 id="Linux下给普通用户添加Sudo权限"><a href="#Linux下给普通用户添加Sudo权限" class="headerlink" title="Linux下给普通用户添加Sudo权限"></a>Linux下给普通用户添加Sudo权限</h2><blockquote>
+<p>一般在Linux下创建用户后不能直接使用sudo命令，所以需要在/etc/sudoers配置中添加用户的 权限。</p>
+<p>首先使用有sudo权限的账户登录系统，然后运行 # sudo nano /etc/sudoers ，找到 root ALL=(ALL) ALL 后，在下一行添加 UserName ALL=(ALL) ALL 即可。<br>使用CTRL+指定字母操作</p>
+</blockquote>
+<h2 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h2><blockquote>
+<p>平时工作难免会使用到多台服务器，从一台服务器ssh登录另一台服务器就输入密码，太影响效率。</p>
+</blockquote>
+<h3 id="通过以下方法可以免密登录。"><a href="#通过以下方法可以免密登录。" class="headerlink" title="通过以下方法可以免密登录。"></a>通过以下方法可以免密登录。</h3><ol>
+<li><p>在A机下生成公钥/私钥对。</p>
+<p> $ssh-keygen -t rsa -P</p>
 </li>
-<li><p><a href="gitlab.com">gitlab.com</a></p>
-<p> 也不错，private项目免费，看中的就这点，毕竟github用的很习惯。</p>
+<li><p>把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。</p>
+<p> $scp .ssh/id_rsa.pub user@host:/path/to/user/.ssh/id_rsa.pub</p>
+<p> 由于还没有免密码登录的，所以要输入密码。</p>
+</li>
+<li><p>B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。</p>
+<p> $cat .ssh/id_rsa.pub&gt;&gt;.ssh/authorized_keys<br> chmod 600 .ssh/authorized_keys<br> authorized_keys的权限要是600。</p>
 </li>
 </ol>
-<blockquote>
-<p> 对于不喜欢命令行的朋友，推荐使用sourceTree这个工具来管理， 附上链接<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">sourceTree</a></p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
+<li>netstat -anp 查看端口使用情况</li>
+<li>lsof -i:$PORT 查看使用该端口($PORT)的程序</li>
+<li>cat /etc/services 也可以查看端口使用情况</li>
+<li>chkconfig 查看系统服务的开启状态</li>
+<li></li>
+</ul>
+<h1 id="去除linux系统文本中的-M"><a href="#去除linux系统文本中的-M" class="headerlink" title="去除linux系统文本中的^M"></a>去除linux系统文本中的^M</h1><blockquote>
+<p>对于回车符的定义：</p>
 </blockquote>
+<pre><code>windows：0D0A
+unixlinux: 0A
+MAC: 0D
+</code></pre><p>比较快捷的去除这些符号的方法有这么几种：</p>
+<h2 id="1-vim："><a href="#1-vim：" class="headerlink" title="1. vim："></a>1. vim：</h2><p> 使用vim打开文本文件</p>
+<pre><code>vi dos.txt
+##命令模式下输入
+:set fileformat=unix
+:w
 
+## VI下使用正则表达式替换
+:g/^M/s/^M//
+## 或者
+:%s/^M//g
+</code></pre><h2 id="2-sed"><a href="#2-sed" class="headerlink" title="2. sed"></a>2. sed</h2><pre><code>sed ’s/^M//’ filename &gt; tmp_filename
+</code></pre><h2 id="3-tr"><a href="#3-tr" class="headerlink" title="3. tr"></a>3. tr</h2><pre><code>tr -d &quot; &quot;
+</code></pre><h2 id="4-dos2unix"><a href="#4-dos2unix" class="headerlink" title="4. dos2unix"></a>4. dos2unix</h2><pre><code>dos2unix filename
+</code></pre><h1 id="时间计算"><a href="#时间计算" class="headerlink" title="时间计算"></a>时间计算</h1><p><a href="http://www.linuxidc.com/Linux/2013-03/81940.htm" target="_blank" rel="external">以下参考链接</a></p>
+<h5 id="计算5分钟前的时间"><a href="#计算5分钟前的时间" class="headerlink" title="计算5分钟前的时间"></a>计算5分钟前的时间</h5><pre><code>ymdhmis=`perl -e &quot;print sprintf &apos;%04d-%02d-%02d %02d:%02d:%02d&apos;,(localtime(time()-300))[5]+1900,(localtime(time()-300))[4]+1,(localtime(time()-300))[3],(localtime(time()-300))[2],(localtime(time()-300))[1],(localtime(time()-300))[0]&quot;`
+echo $ymdhmis
+</code></pre><h5 id="计算5分钟前的日期"><a href="#计算5分钟前的日期" class="headerlink" title="计算5分钟前的日期"></a>计算5分钟前的日期</h5><pre><code>ymd=`perl -e &quot;print sprintf &apos;%04d-%02d-%02d&apos;,(localtime(time()-300))[5]+1900,(localtime(time()-300))[4]+1,(localtime(time()-300))[3]&quot;`
+echo $ymd
+</code></pre>
       
     </div>
 
@@ -431,7 +430,7 @@ Total 17 (delta 2), reused 0 (delta 0)
       
         <div class="post-tags">
           
-            <a href="/tags/GIT/" rel="tag">#GIT</a>
+            <a href="/tags/shell/" rel="tag">#shell</a>
           
         </div>
       
@@ -440,16 +439,12 @@ Total 17 (delta 2), reused 0 (delta 0)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/06/mysql数据库权限操作/" rel="next" title="mysql数据库权限操作">
-                <i class="fa fa-chevron-left"></i> mysql数据库权限操作
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/07/使用Cloudera快速部署Hadoop集群-二/" rel="prev" title="使用Cloudera快速部署Hadoop集群(二)">
-                使用Cloudera快速部署Hadoop集群(二) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/01/简单数据开发流程/" rel="prev" title="简单数据开发流程">
+                简单数据开发流程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -579,7 +574,7 @@ Total 17 (delta 2), reused 0 (delta 0)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考教程"><span class="nav-text">参考教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？"><span class="nav-text">问题一：实际coding时，我有github平台和gitlab平台的需求，如何在本机配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二：如果将本地的工程提交到远程仓库？"><span class="nav-text">问题二：如果将本地的工程提交到远程仓库？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题三：遇到再补充。"><span class="nav-text">问题三：遇到再补充。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用git仓库"><span class="nav-text">常用git仓库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看命令帮助文档"><span class="nav-text">查看命令帮助文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-help-Command"><span class="nav-text">1.help Command</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Command-–help-h"><span class="nav-text">2. Command –help/-h</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-man-Command"><span class="nav-text">3. man Command</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本展示"><span class="nav-text">文本展示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tac"><span class="nav-text">tac</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rev"><span class="nav-text">rev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计"><span class="nav-text">统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk"><span class="nav-text">awk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下给普通用户添加Sudo权限"><span class="nav-text">Linux下给普通用户添加Sudo权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh免密登录"><span class="nav-text">ssh免密登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过以下方法可以免密登录。"><span class="nav-text">通过以下方法可以免密登录。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-text">端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#去除linux系统文本中的-M"><span class="nav-text">去除linux系统文本中的^M</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vim："><span class="nav-text">1. vim：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sed"><span class="nav-text">2. sed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tr"><span class="nav-text">3. tr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-dos2unix"><span class="nav-text">4. dos2unix</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#时间计算"><span class="nav-text">时间计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#计算5分钟前的时间"><span class="nav-text">计算5分钟前的时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算5分钟前的日期"><span class="nav-text">计算5分钟前的日期</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -699,9 +694,9 @@ Total 17 (delta 2), reused 0 (delta 0)
 
     <script type="text/javascript">
       var disqus_shortname = 'adbibosblog';
-      var disqus_identifier = '2016/11/11/GIT使用实战/';
-      var disqus_title = 'GIT使用实战';
-      var disqus_url = 'http://yoursite.com/2016/11/11/GIT使用实战/';
+      var disqus_identifier = '2017/12/12/程序员之路-shell篇/';
+      var disqus_title = '程序员之路-shell篇';
+      var disqus_url = 'http://yoursite.com/2017/12/12/程序员之路-shell篇/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
